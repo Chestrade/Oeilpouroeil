@@ -5,6 +5,8 @@ using UnityEngine;
 
 // https://www.youtube.com/watch?v=cnpJtheBLLY
 
+// part 2 https://www.youtube.com/watch?v=g43lohNVF9M
+
 public class StateManager : MonoBehaviour
 {
     State currentState;
