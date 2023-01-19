@@ -4,6 +4,8 @@ using UnityEngine;
 
 // https://www.youtube.com/watch?v=6C1NPy321Nk
 
+// https://www.youtube.com/watch?v=Y7pp2gzCzUI&t=357s acces des variables dans autres scripts
+
 public class SineWave : MonoBehaviour
 {
     PlayerController playerController;
