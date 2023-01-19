@@ -21,9 +21,14 @@ public class SineWave : MonoBehaviour
         sineRenderer = GetComponent<LineRenderer>();
         sineMaterial = sineRenderer.material;
 
-        minAmp = 0.00f;
+        minAmp = 0.000f;
+        maxAmp = 1.000f;
+    }
 
-        maxAmp = 1.00f;
+    private void Update()
+    {
+        Draw();
+        ChangeColor();
     }
 
     void Draw()
@@ -33,39 +38,32 @@ public class SineWave : MonoBehaviour
         float xFinish = xLimits.y;
 
         sineRenderer.positionCount = points;
-        for(int currentPoint = 0; currentPoint<points;currentPoint++)
+        for (int currentPoint = 0; currentPoint < points; currentPoint++)
         {
             float progress = (float)currentPoint / (points - 1);
             float x = Mathf.Lerp(xStart, xFinish, progress);
-            float y = amplitude*Mathf.Sin((Tau*frequency*x)+Time.timeSinceLevelLoad*movementSpeed);
+            float y = amplitude * Mathf.Sin((Tau * frequency * x) + Time.timeSinceLevelLoad * movementSpeed);
             sineRenderer.SetPosition(currentPoint, new Vector3(x, y, 0));
         }
     }
 
-    private void Update()
+    void ChangeColor()
     {
-        Draw();
-
-
-
         if (amplitude >= maxAmp)
         {
             amplitude = maxAmp;
         }
-
         if (amplitude <= minAmp)
         {
             amplitude = minAmp;
         }
-        if (amplitude > minAmp && amplitude <= 0.05f)
+        if (amplitude > minAmp && amplitude <= 0.050f)
         {
             sineMaterial.SetColor("_EmissionColor", Color.green);
         }
-        if(amplitude >0.05f &&  amplitude <= maxAmp)
+        if (amplitude > 0.050f && amplitude <= maxAmp)
         {
             sineMaterial.SetColor("_EmissionColor", Color.red);
         }
-        
-
     }
 }
