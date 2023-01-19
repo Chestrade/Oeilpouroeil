@@ -6,15 +6,26 @@ using UnityEngine;
 
 public class SineWave : MonoBehaviour
 {
+    PlayerController playerController;
+    [SerializeField] private GameObject player;
+
     [SerializeField] private LineRenderer sineRenderer;
     private Material sineMaterial;
     [SerializeField] private int points;
-    [SerializeField] private float amplitude;
+
+    public float frequency; //influencé par la vitesse à laquelle le joueur se promène
+    public float amplitude;
+
     private float minAmp;
     private float maxAmp;
-    [SerializeField] private float frequency; //influencé par la vitesse à laquelle le joueur se promène
+    
     [SerializeField] private Vector2 xLimits;
     [SerializeField] private float movementSpeed;
+
+    private void Awake()
+    {
+       //playerController = player.GetComponent<PlayerController>();
+    }
 
     void Start()
     {
