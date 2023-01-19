@@ -7,15 +7,23 @@ using UnityEngine;
 public class SineWave : MonoBehaviour
 {
     [SerializeField] private LineRenderer sineRenderer;
+    private Material sineMaterial;
     [SerializeField] private int points;
     [SerializeField] private float amplitude;
-    [SerializeField] private float frequency;
+    private float minAmp;
+    private float maxAmp;
+    [SerializeField] private float frequency; //influencé par la vitesse à laquelle le joueur se promène
     [SerializeField] private Vector2 xLimits;
     [SerializeField] private float movementSpeed;
 
     void Start()
     {
         sineRenderer = GetComponent<LineRenderer>();
+        sineMaterial = sineRenderer.material;
+
+        minAmp = 0.00f;
+
+        maxAmp = 1.00f;
     }
 
     void Draw()
@@ -37,5 +45,27 @@ public class SineWave : MonoBehaviour
     private void Update()
     {
         Draw();
+
+
+
+        if (amplitude >= maxAmp)
+        {
+            amplitude = maxAmp;
+        }
+
+        if (amplitude <= minAmp)
+        {
+            amplitude = minAmp;
+        }
+        if (amplitude > minAmp && amplitude <= 0.05f)
+        {
+            sineMaterial.SetColor("_EmissionColor", Color.green);
+        }
+        if(amplitude >0.05f &&  amplitude <= maxAmp)
+        {
+            sineMaterial.SetColor("_EmissionColor", Color.red);
+        }
+        
+
     }
 }
