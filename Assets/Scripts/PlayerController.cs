@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
     [Header("Movement")]
-    public float moveSpeed;
+    private float moveSpeed;
+    public float walkSpeed;
+    public float sprintSpeed;
 
     public float groundDrag;
 
@@ -16,11 +18,17 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
+
+    [Header("Slope Handeling")]
+    public float maxSlopeAngle;
+    private RaycastHit slopeHit;
+    private bool exitingSlope;
 
     public Transform orientation;
 
@@ -30,6 +38,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     Vector3 moveDirection;
 
     Rigidbody rb;
+
+    public MovementState state;
+
+    public enum MovementState
+    {
+        walking,
+        sprinting,
+        air
+    }
 
     private void Start()
     {
@@ -47,6 +64,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         MyInput();
 
         SpeedControl();
+
+        StateHandler();
 
         //Handle drag;
         if (grounded)
@@ -76,10 +95,43 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
     }
 
+    private void StateHandler()
+    {
+        //Mode - sprinting
+        if(grounded && Input.GetKey(sprintKey))
+        {
+            state = MovementState.sprinting;
+            moveSpeed = sprintSpeed;
+        }
+
+        //Mode - walking
+        else if (grounded)
+        {
+            state = MovementState.walking;
+            moveSpeed = walkSpeed;
+        }
+
+        //Mode - air
+        else
+        {
+            state = MovementState.air;
+        }
+    }
+
     private void MovePlayer()
     {
         // Calcule la direction du mouvement (le joueur marche toujours dans la direction qu'il regarde)
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        // Sur les pentes
+        if (OnSlope() && !exitingSlope)
+        {
+            rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+
+            // Permet de rester sur la pente (le joueur bondissait en montant une pente)
+            if (rb.velocity.y > 0)
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+        }
 
         // Sur le sol
         if(grounded)
@@ -88,24 +140,39 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         // Dans les airs
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+
+        // Pas de gravité sur les pentes
+        rb.useGravity = !OnSlope();
     }
 
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        //Limite la vélocité si nécessaire
-        if(flatVel.magnitude > moveSpeed)
+        //Limite la vélocité sur les pentes
+        if (OnSlope() && !exitingSlope)
         {
-            //Calcule la nouvelle vélocité si le moveSpeed dépasse celle préétablie
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            //Applique la nouvelle vélocité
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            if (rb.velocity.magnitude > moveSpeed)
+                rb.velocity = rb.velocity.normalized * moveSpeed;
+        }
+
+        //Limite la vélocité sur le sol ou dans les airs
+        else
+        {
+            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+            if (flatVel.magnitude > moveSpeed)
+            {
+                //Calcule la nouvelle vélocité si le moveSpeed dépasse celle préétablie
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                //Applique la nouvelle vélocité
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
         }
     }
 
     private void Jump()
     {
+        exitingSlope = true;
+
         //Réinitialise la vélocité en y (le joueur saute toujours à la même hauteur)
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -116,5 +183,23 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private void ResetJump()
     {
         readyToJump = true;
+
+        exitingSlope = false;
+    }
+
+    private bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+
+        return false;
+    }
+
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 }
