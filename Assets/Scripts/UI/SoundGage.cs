@@ -6,10 +6,8 @@ using UnityEngine;
 
 // https://www.youtube.com/watch?v=Y7pp2gzCzUI&t=357s acces des variables dans autres scripts
 
-public class SineWave : MonoBehaviour
+public class SoundGage : MonoBehaviour
 {
-    PlayerController playerController;
-    [SerializeField] private GameObject player;
 
     [SerializeField] private LineRenderer sineRenderer;
     private Material sineMaterial;
@@ -70,11 +68,16 @@ public class SineWave : MonoBehaviour
         {
             amplitude = minAmp;
         }
-        if (amplitude > minAmp && amplitude <= 0.050f)
+        if (amplitude > minAmp && amplitude <= 0.030f)
         {
             sineMaterial.SetColor("_EmissionColor", Color.green);
         }
-        if (amplitude > 0.050f && amplitude <= maxAmp)
+        if (amplitude > 0.030f && amplitude <= 0.070f)
+        {
+            sineMaterial.SetColor("_EmissionColor", new Color(1f,0.5f,0f)); //orange
+        }
+
+        if (amplitude > 0.070f && amplitude <= maxAmp)
         {
             sineMaterial.SetColor("_EmissionColor", Color.red);
         }
