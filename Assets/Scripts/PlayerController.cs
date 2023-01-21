@@ -31,12 +31,23 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     Rigidbody rb;
 
+    [Header("Sound Gage")]
+    SoundGage soundGage;
+    [SerializeField] GameObject soundGageDisplay;
+    
+  
+
     private void Start()
     {
         // Assigne et gèle la rotation du rigidbody
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
+
+        soundGage = soundGageDisplay.GetComponent<SoundGage>();
+
+        soundGage.amplitude = 0.010f;
+            
     }
 
     private void Update()
@@ -51,8 +62,13 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         //Handle drag;
         if (grounded)
             rb.drag = groundDrag;
+           
         else
             rb.drag = 0;
+
+        //sound gage
+        
+
     }
 
     private void FixedUpdate()
@@ -83,12 +99,31 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         // Sur le sol
         if(grounded)
+        { 
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+           
+        }
+       if(grounded && verticalInput > 0 || horizontalInput > 0)
+        {
+            soundGage.amplitude = 0.060f;
+            soundGage.frequency = 10f;
+        }
 
         // Dans les airs
         else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            soundGage.amplitude = 0.001f;
+            soundGage.frequency = 1f;
+        }
+        else
+        {
+            soundGage.amplitude = 0.001f;
+            soundGage.frequency = 1f;
+        }
+            
     }
+
 
     private void SpeedControl()
     {
@@ -111,6 +146,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         //Applique la force qu'une seule fois
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+       
     }
 
     private void ResetJump()
