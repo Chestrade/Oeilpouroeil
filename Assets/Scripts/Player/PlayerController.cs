@@ -39,7 +39,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     Rigidbody rb;
 
-<<<<<<< HEAD:Assets/Scripts/Player/PlayerController.cs
     public MovementState state;
 
     public enum MovementState
@@ -48,13 +47,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         sprinting,
         air
     }
-=======
-    [Header("Sound Gage")]
-    SoundGage soundGage;
-    [SerializeField] GameObject soundGageDisplay;
-    
-  
->>>>>>> main:Assets/Scripts/PlayerController.cs
 
     private void Start()
     {
@@ -62,11 +54,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
-
-        soundGage = soundGageDisplay.GetComponent<SoundGage>();
-
-        soundGage.amplitude = 0.010f;
-            
     }
 
     private void Update()
@@ -83,13 +70,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         //Handle drag;
         if (grounded)
             rb.drag = groundDrag;
-           
         else
             rb.drag = 0;
-
-        //sound gage
-        
-
     }
 
     private void FixedUpdate()
@@ -153,37 +135,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         // Sur le sol
         if(grounded)
-        { 
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-           
-        }
-       if(grounded && verticalInput > 0 || horizontalInput > 0)
-        {
-            soundGage.amplitude = 0.060f;
-            soundGage.frequency = 10f;
-        }
 
         // Dans les airs
         else if (!grounded)
-        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-<<<<<<< HEAD:Assets/Scripts/Player/PlayerController.cs
 
         // Pas de gravité sur les pentes
         rb.useGravity = !OnSlope();
-=======
-            soundGage.amplitude = 0.001f;
-            soundGage.frequency = 1f;
-        }
-        else
-        {
-            soundGage.amplitude = 0.001f;
-            soundGage.frequency = 1f;
-        }
-            
->>>>>>> main:Assets/Scripts/PlayerController.cs
     }
-
 
     private void SpeedControl()
     {
@@ -218,8 +178,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         //Applique la force qu'une seule fois
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
-       
     }
 
     private void ResetJump()
