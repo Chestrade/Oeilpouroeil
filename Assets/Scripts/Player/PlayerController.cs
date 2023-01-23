@@ -41,6 +41,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public MovementState state;
 
+    [Header("Sound Gage")]
+    SoundGage soundGage;
+    [SerializeField] GameObject soundGageDisplay;
+
     public enum MovementState
     {
         walking,
@@ -54,6 +58,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
+
+        soundGage = soundGageDisplay.GetComponent<SoundGage>();
+        soundGage.amplitude = 0.010f;
+
     }
 
     private void Update()
@@ -69,9 +77,14 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         //Handle drag;
         if (grounded)
+        {
             rb.drag = groundDrag;
+        }
         else
+        {
             rb.drag = 0;
+        }
+            
     }
 
     private void FixedUpdate()
@@ -130,16 +143,35 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
             // Permet de rester sur la pente (le joueur bondissait en montant une pente)
             if (rb.velocity.y > 0)
+            {
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            }
+                
         }
 
         // Sur le sol
         if(grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        }
+        if(grounded && verticalInput > 0 || horizontalInput>0)
+        {
+            soundGage.amplitude = 0.060f;
+            soundGage.frequency = 10f;
+        }
 
         // Dans les airs
         else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            soundGage.amplitude = 0.001f;
+            soundGage.frequency = 1f;
+        }
+        else
+        {
+            soundGage.amplitude = 0.001f;
+            soundGage.frequency = 1f;
+        }
 
         // Pas de gravité sur les pentes
         rb.useGravity = !OnSlope();

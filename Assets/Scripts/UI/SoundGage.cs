@@ -24,7 +24,7 @@ public class SoundGage : MonoBehaviour
 
     private void Awake()
     {
-       //playerController = player.GetComponent<PlayerController>();
+       
     }
 
     void Start()
