@@ -159,6 +159,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             soundGage.amplitude = 0.060f;
             soundGage.frequency = 10f;
         }
+        if (grounded && verticalInput < 0 || horizontalInput < 0)
+        {
+            soundGage.amplitude = 0.060f;
+            soundGage.frequency = 10f;
+        }
 
         // Dans les airs
         else if (!grounded)
