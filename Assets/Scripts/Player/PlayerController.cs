@@ -146,24 +146,20 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             {
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
             }
-                
+
         }
 
         // Sur le sol
-        if(grounded)
+        if (grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
-        if(grounded && verticalInput > 0 || horizontalInput>0)
+        if (grounded && verticalInput != 0 || horizontalInput != 0)
         {
             soundGage.amplitude = 0.060f;
             soundGage.frequency = 10f;
         }
-        if (grounded && verticalInput < 0 || horizontalInput < 0)
-        {
-            soundGage.amplitude = 0.060f;
-            soundGage.frequency = 10f;
-        }
+        
 
         // Dans les airs
         else if (!grounded)
