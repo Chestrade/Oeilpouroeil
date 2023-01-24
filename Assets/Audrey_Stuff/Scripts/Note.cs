@@ -12,7 +12,9 @@ public class Note : MonoBehaviour
 
     public string noteText;
 
-    private NoteManager noteManager;
+    public NoteManager noteManager;
+
+    private bool closeNoteToggle;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,13 @@ public class Note : MonoBehaviour
         {
             noteManager.noteTextMesh.text = noteText;
             noteManager.EnableTextBox();
+            closeNoteToggle = true;
+        }
+
+        if (debugPlayerInteract == false && closeNoteToggle == true)   
+        {
+            noteManager.DisableTextBox();
+            closeNoteToggle = false;
         }
     }
 }
