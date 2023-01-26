@@ -12,6 +12,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     [SerializeField] private float maxSlopeAngle;
+    [SerializeField] private float climbSpeed;
     [SerializeField] private Transform orientation;
 
     [Header("Keybinds")]
@@ -25,6 +26,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [Header("Sound Gage")]
     [SerializeField] GameObject soundGageDisplay;
 
+    [Header("References")]
+    public PlayerClimbing climbingScript;
+
     private float horizontalInput;
     private float verticalInput;
     private RaycastHit slopeHit;
@@ -33,7 +37,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private Vector3 moveDirection;
 
     private bool readyToJump;
-    private bool grounded;
+
+    public bool grounded;
 
     private MovementState state;
 
@@ -45,8 +50,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         Walking,
         Sprinting,
+        Climbing,
         Air
     }
+
+    public bool climbing;
 
     protected override void Awake()
     {
@@ -56,9 +64,14 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb.freezeRotation = true;
         readyToJump = true;
 
-        soundGage = soundGageDisplay.GetComponent<SoundGage>();
-        soundGage.amplitude = 0.010f;
-
+        if (soundGageDisplay)
+        {
+            soundGage = soundGageDisplay.GetComponent<SoundGage>();
+            if (soundGage != null)
+            {
+                soundGage.amplitude = 0.010f;
+            }
+        }
     }
 
     private void Update()
@@ -103,8 +116,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void StateHandler()
     {
+        //Mode - climbing
+        if (climbing)
+        {
+            state = MovementState.Climbing;
+            moveSpeed = climbSpeed;
+        }
+
         //Mode - sprinting
-        if(grounded && UnityEngine.Input.GetKey(sprintKey))
+        if (grounded && UnityEngine.Input.GetKey(sprintKey))
         {
             state = MovementState.Sprinting;
             moveSpeed = sprintSpeed;
@@ -126,6 +146,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void MovePlayer()
     {
+        if (climbingScript.exitingWall) return;
+        
         // Calcule la direction du mouvement (le joueur marche toujours dans la direction qu'il regarde)
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -147,22 +169,30 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
         if(grounded && verticalInput != 0 || horizontalInput != 0)
         {
-            soundGage.amplitude = 0.060f;
-            soundGage.frequency = 10f;
+            if (soundGage)
+            {
+                soundGage.amplitude = 0.060f;
+                soundGage.frequency = 10f;
+            }
         }
-        
 
         // Dans les airs
         else if (!grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-            soundGage.amplitude = 0.001f;
-            soundGage.frequency = 1f;
+            if (soundGage)
+            {
+                soundGage.amplitude = 0.001f;
+                soundGage.frequency = 1f;
+            }
         }
         else
         {
-            soundGage.amplitude = 0.001f;
-            soundGage.frequency = 1f;
+            if (soundGage)
+            {
+                soundGage.amplitude = 0.001f;
+                soundGage.frequency = 1f;
+            }
         }
 
         // Pas de gravit� sur les pentes
