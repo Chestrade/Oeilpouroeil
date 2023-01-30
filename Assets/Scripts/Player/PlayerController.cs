@@ -28,6 +28,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     [Header("References")]
     public PlayerClimbing climbingScript;
+    private Animator anim;
 
     private float horizontalInput;
     private float verticalInput;
@@ -40,6 +41,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public bool grounded;
 
+    public bool isIdle;
+
     private MovementState state;
 
     private Rigidbody rb;
@@ -51,7 +54,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         Walking,
         Sprinting,
         Climbing,
-        Air
+        Air,
+        Idle
     }
 
     public bool climbing;
@@ -63,6 +67,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
+        isIdle = true;
+        anim = GetComponent<Animator>();
 
         if (soundGageDisplay)
         {
@@ -111,11 +117,29 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             readyToJump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
+            anim.SetTrigger("Jump");
+        }
+
+        if (UnityEngine.Input.anyKey)
+        {
+            isIdle = false;
+        }
+        else
+        {
+            isIdle = true;
         }
     }
 
+
     private void StateHandler()
     {
+        //Mode - idle
+        if (isIdle == true)
+        {
+            state = MovementState.Idle;
+            anim.SetFloat("SpeedAnimations", 0, 0.1f, Time.deltaTime);
+        }
+
         //Mode - climbing
         if (climbing)
         {
@@ -128,6 +152,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             state = MovementState.Sprinting;
             moveSpeed = sprintSpeed;
+            anim.SetFloat("SpeedAnimations", 1, 0.1f, Time.deltaTime);
         }
 
         //Mode - walking
@@ -169,6 +194,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
         if(grounded && verticalInput != 0 || horizontalInput != 0)
         {
+            anim.SetFloat("SpeedAnimations", 0.5f, 0.1f, Time.deltaTime);
+
             if (soundGage)
             {
                 soundGage.amplitude = 0.060f;
