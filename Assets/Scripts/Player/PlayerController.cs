@@ -46,7 +46,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private MovementState state;
 
     private Rigidbody rb;
-    private SoundGage soundGage;
+   
 
 
     public enum MovementState
@@ -70,14 +70,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         isIdle = true;
         anim = GetComponent<Animator>();
 
-        if (soundGageDisplay)
-        {
-            soundGage = soundGageDisplay.GetComponent<SoundGage>();
-            if (soundGage != null)
-            {
-                soundGage.amplitude = 0.010f;
-            }
-        }
+       
     }
 
     private void Update()
@@ -196,31 +189,16 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             anim.SetFloat("SpeedAnimations", 0.5f, 0.1f, Time.deltaTime);
 
-            if (soundGage)
-            {
-                soundGage.amplitude = 0.060f;
-                soundGage.frequency = 10f;
-            }
+            
         }
 
         // Dans les airs
         else if (!grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-            if (soundGage)
-            {
-                soundGage.amplitude = 0.001f;
-                soundGage.frequency = 1f;
-            }
+           
         }
-        else
-        {
-            if (soundGage)
-            {
-                soundGage.amplitude = 0.001f;
-                soundGage.frequency = 1f;
-            }
-        }
+        
 
         // Pas de gravit� sur les pentes
         rb.useGravity = !OnSlope();

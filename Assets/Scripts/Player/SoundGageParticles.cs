@@ -4,31 +4,48 @@ using UnityEngine;
 
 public class SoundGageParticles : MonoBehaviour
 {
-    private Transform player;
+    
     [SerializeField] private ParticleSystem quietRipples;
     [SerializeField] private ParticleSystem loudRipples;
-    private int stepCountDebug;
+    private ParticleSystem currentRipples;
 
-    
-    void Start()
+    private PlayerController player;
+
+    private void Start()
     {
-        player = PlayerController.instance.transform;
-        stepCountDebug = 0;
+        player = PlayerController.instance;
+        currentRipples = null;
     }
-
-    
-    void Update()
+    private void QuietRipple()
     {
+        currentRipples = quietRipples;
 
+        if (player.isIdle == false) 
+        {
+            currentRipples.Play();
+        }
+        else if(player.isIdle == true)
+        {
+            currentRipples.Stop();
+        }
         
     }
 
-    private void WalkStep()
+    private void LoudRipple()
     {
-        
+        currentRipples = loudRipples;
+        if (player.isIdle == false)
+        {
+            currentRipples.Play();
+        }
+        else if (player.isIdle == true)
+        {
+            currentRipples.Stop();
+        }
+    }
 
-
-        stepCountDebug = stepCountDebug + 1;
-        Debug.Log("Step " + stepCountDebug);
+    private void RippleStop()
+    {
+        currentRipples.Stop();
     }
 }
