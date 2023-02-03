@@ -7,66 +7,111 @@ public class SoundGageParticles : MonoBehaviour
     
     [SerializeField] private ParticleSystem quietRipples;
     [SerializeField] private ParticleSystem loudRipples;
-    private ParticleSystem currentRipples;
+
+    [SerializeField] private float timeBetweenRibbits;
+    //private ParticleSystem currentRipples;
 
     private PlayerController player;
 
     private void Start()
     {
         player = PlayerController.instance;
-        currentRipples = null;
+        //currentRipples = null;
+    }
+
+    private void Update()
+    {
+        
+        if (Input.GetButton("Fire1"))
+        {
+            //Ribbit();
+            StartCoroutine(Ribbit());
+        }
+        
+
     }
     private void QuietRipple()
     {
-       
-        currentRipples = quietRipples;
+        //currentRipples = quietRipples;
         if(loudRipples.isPlaying)
         {
             loudRipples.Stop();
         }
         if (player.isIdle == false) 
         {
-            currentRipples.Play();
+            quietRipples.Play();
             Debug.Log("Quiet Step");
         }
-        else if(player.isIdle == true || player.grounded == false)
+        if(player.isIdle == true || player.grounded == false)
         {
-            currentRipples.Stop();
+            quietRipples.Stop();
         }
-        
+        else
+        {
+            // Debug.Log("Why are the quiet ripples playing?");
+            return;
+        }
+
     }
 
     private void LoudRipple()
     {
-        currentRipples = loudRipples;
+        //currentRipples = loudRipples;
         if(quietRipples.isPlaying)
         {
             quietRipples.Stop();
         }
-        if (player.isIdle == false)
+        if (player.isIdle == false && player.grounded)
         {
-            currentRipples.Play();
+            loudRipples.Play();
             Debug.Log("Loud Step");
         }
-        else if (player.isIdle == true || player.grounded == false)
+        if (player.isIdle == true || player.grounded == false)
         {
-            currentRipples.Stop();
+            loudRipples.Stop();
+        }
+        else
+        {
+            //Debug.Log("Why are the loud ripples playing?");
+            return;
         }
 
     }
 
     private void Land()
     {
-        currentRipples = loudRipples;
-        if (quietRipples.isPlaying)
-        {
-            quietRipples.Stop();
-        }
-        currentRipples.Play();
+        //currentRipples = loudRipples;
+       loudRipples.Play();
     }
 
     private void RippleStop()
     {
-        currentRipples.Stop();
+        if (loudRipples.isPlaying)
+        {
+            loudRipples.Stop();
+        }
+        if (quietRipples.isPlaying)
+        {
+            quietRipples.Stop();
+        }
+        else
+        {
+           // Debug.Log("RippleStop() was called for no reason");
+            return;
+        }
     }
+
+    IEnumerator Ribbit()
+    {
+        loudRipples.Play();
+        loudRipples.Stop();
+        yield return new WaitForSeconds(timeBetweenRibbits);
+    }    
+    /*
+    private void Ribbit()
+    {
+        loudRipples.Play();
+    
+    }
+    */
 }
