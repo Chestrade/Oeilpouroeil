@@ -18,13 +18,18 @@ public class SoundGageParticles : MonoBehaviour
     }
     private void QuietRipple()
     {
+       
         currentRipples = quietRipples;
-
+        if(loudRipples.isPlaying)
+        {
+            loudRipples.Stop();
+        }
         if (player.isIdle == false) 
         {
             currentRipples.Play();
+            Debug.Log("Quiet Step");
         }
-        else if(player.isIdle == true)
+        else if(player.isIdle == true || player.grounded == false)
         {
             currentRipples.Stop();
         }
@@ -34,14 +39,30 @@ public class SoundGageParticles : MonoBehaviour
     private void LoudRipple()
     {
         currentRipples = loudRipples;
+        if(quietRipples.isPlaying)
+        {
+            quietRipples.Stop();
+        }
         if (player.isIdle == false)
         {
             currentRipples.Play();
+            Debug.Log("Loud Step");
         }
-        else if (player.isIdle == true)
+        else if (player.isIdle == true || player.grounded == false)
         {
             currentRipples.Stop();
         }
+
+    }
+
+    private void Land()
+    {
+        currentRipples = loudRipples;
+        if (quietRipples.isPlaying)
+        {
+            quietRipples.Stop();
+        }
+        currentRipples.Play();
     }
 
     private void RippleStop()
