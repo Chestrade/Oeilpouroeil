@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class SoundGageParticles : MonoBehaviour
 {
-    
+    [Header("Particle Systems")]
     [SerializeField] private ParticleSystem quietRipples;
     [SerializeField] private ParticleSystem loudRipples;
 
+    [Header("Particle Timing")]
+    [SerializeField] private float timeBetweenRipples;
     [SerializeField] private float timeBetweenRibbits;
+    
     //private ParticleSystem currentRipples;
 
     private PlayerController player;
@@ -32,6 +35,8 @@ public class SoundGageParticles : MonoBehaviour
     }
     private void QuietRipple()
     {
+        StartCoroutine(QuietRippleCoroutine());
+        /*
         //currentRipples = quietRipples;
         if(loudRipples.isPlaying)
         {
@@ -51,11 +56,14 @@ public class SoundGageParticles : MonoBehaviour
             // Debug.Log("Why are the quiet ripples playing?");
             return;
         }
+        */
 
     }
 
     private void LoudRipple()
     {
+        StartCoroutine(LoudRippleCoroutine());
+        /*
         //currentRipples = loudRipples;
         if(quietRipples.isPlaying)
         {
@@ -75,6 +83,7 @@ public class SoundGageParticles : MonoBehaviour
             //Debug.Log("Why are the loud ripples playing?");
             return;
         }
+        */
 
     }
 
@@ -96,14 +105,28 @@ public class SoundGageParticles : MonoBehaviour
         }
         else
         {
-           // Debug.Log("RippleStop() was called for no reason");
             return;
         }
     }
 
+    IEnumerator QuietRippleCoroutine()
+    {
+        quietRipples.Play();
+        quietRipples.Stop();
+        yield return new WaitForSeconds(timeBetweenRipples);
+
+    }
+    IEnumerator LoudRippleCoroutine()
+    {
+        loudRipples.Play();
+        loudRipples.Stop();
+        yield return new WaitForSeconds(timeBetweenRipples);
+
+    }
     IEnumerator Ribbit()
     {
         loudRipples.Play();
+        //play ribbit sound here
         loudRipples.Stop();
         yield return new WaitForSeconds(timeBetweenRibbits);
     }    
