@@ -8,23 +8,29 @@ public class CameraController : MonoBehaviour
     //Variables
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float minValue = -30f;
-    [SerializeField] private float maxValue = 30f;
+    [SerializeField] private float maxValue = 15f;
     [SerializeField] private float xRotation;
     [SerializeField] private float yRotation;
 
     //References
     private Transform parent;
+    private Animator anim;
+    private bool rotatingR;
+    private bool rotatingL;
 
     private void Start()
     {
         parent = transform.parent;
         Cursor.lockState = CursorLockMode.Locked;
+        anim = GetComponentInParent<Animator>();
+
     }
 
     private void Update()
     {
         Rotate();
         UpView();
+
     }
 
     private void Rotate()
