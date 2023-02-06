@@ -39,6 +39,15 @@ public class CameraController : MonoBehaviour
         yRotation += mouseX;
         parent.Rotate(Vector3.up, mouseX);
 
+        /*if (Input.GetAxis("Horizontal") != 0)
+        {
+            anim.SetFloat("TurningBody", 0.5f, 0.1f, Time.deltaTime);
+        }
+        else
+        {
+            anim.Play("SpeedAnimations");
+        }*/
+
     }
 
     private void UpView () 

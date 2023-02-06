@@ -138,6 +138,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             state = MovementState.Climbing;
             moveSpeed = climbSpeed;
+            anim.SetTrigger("Climb");
         }
 
         //Mode - sprinting
@@ -188,9 +189,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if(grounded && verticalInput != 0 || horizontalInput != 0)
         {
             anim.SetFloat("SpeedAnimations", 0.5f, 0.1f, Time.deltaTime);
-
-            
         }
+
 
         // Dans les airs
         else if (!grounded)
@@ -198,6 +198,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
            
         }
+
+
         
 
         // Pas de gravit� sur les pentes
