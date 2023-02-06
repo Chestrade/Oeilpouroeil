@@ -35,8 +35,8 @@ public class SoundGageParticles : MonoBehaviour
     }
     private void QuietRipple()
     {
-        StartCoroutine(QuietRippleCoroutine());
-        /*
+        //StartCoroutine(QuietRippleCoroutine());
+        
         //currentRipples = quietRipples;
         if(loudRipples.isPlaying)
         {
@@ -56,14 +56,14 @@ public class SoundGageParticles : MonoBehaviour
             // Debug.Log("Why are the quiet ripples playing?");
             return;
         }
-        */
+        
 
     }
 
     private void LoudRipple()
     {
-        StartCoroutine(LoudRippleCoroutine());
-        /*
+       // StartCoroutine(LoudRippleCoroutine());
+        
         //currentRipples = loudRipples;
         if(quietRipples.isPlaying)
         {
@@ -83,7 +83,7 @@ public class SoundGageParticles : MonoBehaviour
             //Debug.Log("Why are the loud ripples playing?");
             return;
         }
-        */
+        
 
     }
 
