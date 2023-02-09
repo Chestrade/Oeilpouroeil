@@ -23,9 +23,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
 
-    [Header("Sound Gage")]
-    [SerializeField] GameObject soundGageDisplay;
-
     [Header("References")]
     public PlayerClimbing climbingScript;
     private Animator anim;
