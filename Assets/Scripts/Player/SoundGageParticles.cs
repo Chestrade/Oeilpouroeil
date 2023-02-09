@@ -8,83 +8,54 @@ public class SoundGageParticles : MonoBehaviour
     [SerializeField] private ParticleSystem quietRipples;
     [SerializeField] private ParticleSystem loudRipples;
 
-    [Header("Particle Timing")]
-    [SerializeField] private float timeBetweenRipples;
-    [SerializeField] private float timeBetweenRibbits;
+    
+    
     
     //private ParticleSystem currentRipples;
 
     private PlayerController player;
+    private Animator animator;
 
+    private bool quietStep;
+    private bool loudStep;
     private void Start()
     {
         player = PlayerController.instance;
+       
         //currentRipples = null;
     }
 
     private void Update()
     {
         
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            //Ribbit();
-            StartCoroutine(Ribbit());
+         
+            loudRipples.Play();
         }
         
+       
 
     }
-    private void QuietRipple()
+    private void Step()
     {
-        //StartCoroutine(QuietRippleCoroutine());
-        
-        //currentRipples = quietRipples;
-        if(loudRipples.isPlaying)
+        if(player.isIdle)
         {
+            quietRipples.Stop();
             loudRipples.Stop();
         }
-        if (player.isIdle == false) 
+        else if(player.grounded && player.moveSpeed == player.walkSpeed)
         {
             quietRipples.Play();
-            Debug.Log("Quiet Step");
         }
-        if(player.isIdle == true || player.grounded == false)
-        {
-            quietRipples.Stop();
-        }
-        else
-        {
-            // Debug.Log("Why are the quiet ripples playing?");
-            return;
-        }
-        
-
-    }
-
-    private void LoudRipple()
-    {
-       // StartCoroutine(LoudRippleCoroutine());
-        
-        //currentRipples = loudRipples;
-        if(quietRipples.isPlaying)
-        {
-            quietRipples.Stop();
-        }
-        if (player.isIdle == false && player.grounded)
+        else if(player.grounded && player.moveSpeed == player.sprintSpeed)
         {
             loudRipples.Play();
-            Debug.Log("Loud Step");
-        }
-        if (player.isIdle == true || player.grounded == false)
-        {
-            loudRipples.Stop();
         }
         else
         {
-            //Debug.Log("Why are the loud ripples playing?");
-            return;
+            RippleStop();
         }
-        
-
     }
 
     private void Land()
@@ -108,33 +79,8 @@ public class SoundGageParticles : MonoBehaviour
             return;
         }
     }
+      
 
-    IEnumerator QuietRippleCoroutine()
-    {
-        quietRipples.Play();
-        quietRipples.Stop();
-        yield return new WaitForSeconds(timeBetweenRipples);
-
-    }
-    IEnumerator LoudRippleCoroutine()
-    {
-        loudRipples.Play();
-        loudRipples.Stop();
-        yield return new WaitForSeconds(timeBetweenRipples);
-
-    }
-    IEnumerator Ribbit()
-    {
-        loudRipples.Play();
-        //play ribbit sound here
-        loudRipples.Stop();
-        yield return new WaitForSeconds(timeBetweenRibbits);
-    }    
-    /*
-    private void Ribbit()
-    {
-        loudRipples.Play();
-    
-    }
-    */
+   
+   
 }

@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
     [Header("Movement")]
-    [SerializeField] private float walkSpeed;
-    [SerializeField] private float sprintSpeed;
+    [SerializeField] public float walkSpeed;//public pour avoir acces dans SoundGageParticles
+    [SerializeField] public float sprintSpeed;//public pour avoir acces dans SoundGageParticles
     [SerializeField] private float groundDrag;
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     [SerializeField] private float maxSlopeAngle;
-    [SerializeField] private float climbSpeed;
+    [SerializeField] public float climbSpeed;//public pour avoir acces dans SoundGageParticles
     [SerializeField] private Transform orientation;
 
     [Header("Keybinds")]
@@ -34,7 +34,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private float verticalInput;
     private RaycastHit slopeHit;
     private bool exitingSlope;
-    private float moveSpeed;
+    [HideInInspector] public float moveSpeed; //public pour avoir acces dans SoundGageParticles
     private Vector3 moveDirection;
 
     private bool readyToJump;
@@ -43,7 +43,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public bool isIdle;
 
-    private MovementState state;
+    public MovementState state;
 
     private Rigidbody rb;
    
@@ -124,7 +124,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     }
 
 
-    private void StateHandler()
+    protected void StateHandler()
     {
         //Mode - idle
         if (isIdle == true)
