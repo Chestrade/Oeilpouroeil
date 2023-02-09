@@ -23,9 +23,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
 
-    [Header("Sound Gage")]
-    [SerializeField] GameObject soundGageDisplay;
-
     [Header("References")]
     public PlayerClimbing climbingScript;
     private Animator anim;
@@ -79,7 +76,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private void Update()
     {
         //Ground Check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f);
+        Debug.Log("Is grounded = " + grounded);
 
         Input();
         SpeedControl();
