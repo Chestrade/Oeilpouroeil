@@ -5,14 +5,11 @@ using TMPro;
 
 public class Note : MonoBehaviour
 {
-    public bool debugPlayerPrompt;
-    public bool debugPlayerInteract;
-
     public GameObject interactPrompt;
 
     public string noteText;
 
-    private NoteManager noteManager;
+    public NoteManager noteManager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,21 +21,26 @@ public class Note : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (debugPlayerPrompt == true)  //To be replaced with player proximity (however we make it)
-        {
-            interactPrompt.SetActive(true);
-        }
 
-        else
-        {
-            interactPrompt.SetActive(false);
-        }
+    }
 
+    public void PlayerEnterProximity()
+    {
+        interactPrompt.SetActive(true);
+    }
+    public void PlayerExitProximity()
+    {
+        interactPrompt.SetActive(false);
+    }
 
-        if (debugPlayerPrompt == true && debugPlayerInteract == true)
-        {
-            noteManager.noteTextMesh.text = noteText;
-            noteManager.EnableTextBox();
-        }
+    public void OpenNote()
+    {
+        noteManager.noteTextMesh.text = noteText;
+        noteManager.EnableTextBox();
+    }
+
+    public void CloseNote()
+    {
+        noteManager.DisableTextBox();
     }
 }

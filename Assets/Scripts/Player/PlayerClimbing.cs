@@ -83,7 +83,7 @@ public class PlayerClimbing : MonoBehaviour
     //Permet de grimper lorsque l'on fait face au mur dans un certain angle
     private void WallCheck()
     {
-        wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out frontWallHit, detectionLenght, whatIsWall);
+        wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out frontWallHit, detectionLenght);
         wallLookAngle = Vector3.Angle(orientation.forward, -frontWallHit.normal);
 
         bool newWall = frontWallHit.transform != lastWall || Mathf.Abs(Vector3.Angle(lastWallNormal, frontWallHit.normal)) > minWallNormalAngleChange;
@@ -97,6 +97,7 @@ public class PlayerClimbing : MonoBehaviour
 
     private void StartClimbing()
     {
+        Debug.Log("StartClimbing");
         climbing = true;
         pm.climbing = true;
 

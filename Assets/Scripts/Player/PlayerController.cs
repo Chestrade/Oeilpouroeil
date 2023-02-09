@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
     [Header("Movement")]
-    [SerializeField] private float walkSpeed;
-    [SerializeField] private float sprintSpeed;
+    [SerializeField] public float walkSpeed;//public pour avoir acces dans SoundGageParticles
+    [SerializeField] public float sprintSpeed;//public pour avoir acces dans SoundGageParticles
     [SerializeField] private float groundDrag;
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     [SerializeField] private float maxSlopeAngle;
-    [SerializeField] private float climbSpeed;
+    [SerializeField] public float climbSpeed;//public pour avoir acces dans SoundGageParticles
     [SerializeField] private Transform orientation;
 
     [Header("Keybinds")]
@@ -28,22 +28,28 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     [Header("References")]
     public PlayerClimbing climbingScript;
+    private Animator anim;
+    
 
     private float horizontalInput;
     private float verticalInput;
     private RaycastHit slopeHit;
     private bool exitingSlope;
-    private float moveSpeed;
+    [HideInInspector] public float moveSpeed; //public pour avoir acces dans SoundGageParticles
     private Vector3 moveDirection;
 
     private bool readyToJump;
 
     public bool grounded;
 
-    private MovementState state;
+    public bool isIdle;
+
+    public MovementState state;
 
     private Rigidbody rb;
-    private SoundGage soundGage;
+    public bool climbing;
+
+    
 
 
     public enum MovementState
@@ -51,10 +57,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         Walking,
         Sprinting,
         Climbing,
-        Air
+        Air,
+        Idle
     }
 
-    public bool climbing;
+    
 
     protected override void Awake()
     {
@@ -63,15 +70,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
-
-        if (soundGageDisplay)
-        {
-            soundGage = soundGageDisplay.GetComponent<SoundGage>();
-            if (soundGage != null)
-            {
-                soundGage.amplitude = 0.010f;
-            }
-        }
+        isIdle = true;
+        anim = GetComponent<Animator>();
+        
+       
     }
 
     private void Update()
@@ -92,7 +94,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             rb.drag = 0;
         }
-            
+        
+        //Cammouflage
+        
+        
+        
     }
 
     private void FixedUpdate()
@@ -111,16 +117,35 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             readyToJump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
+            anim.SetTrigger("Jump");
+        }
+
+        if (UnityEngine.Input.anyKey)
+        {
+            isIdle = false;
+        }
+        else
+        {
+            isIdle = true;
         }
     }
 
-    private void StateHandler()
+
+    protected void StateHandler()
     {
+        //Mode - idle
+        if (isIdle == true)
+        {
+            state = MovementState.Idle;
+            anim.SetFloat("SpeedAnimations", 0, 0.1f, Time.deltaTime);
+        }
+
         //Mode - climbing
         if (climbing)
         {
             state = MovementState.Climbing;
             moveSpeed = climbSpeed;
+            anim.SetTrigger("Climb");
         }
 
         //Mode - sprinting
@@ -128,6 +153,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             state = MovementState.Sprinting;
             moveSpeed = sprintSpeed;
+            anim.SetFloat("SpeedAnimations", 1, 0.1f, Time.deltaTime);
         }
 
         //Mode - walking
@@ -169,31 +195,19 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
         if(grounded && verticalInput != 0 || horizontalInput != 0)
         {
-            if (soundGage)
-            {
-                soundGage.amplitude = 0.060f;
-                soundGage.frequency = 10f;
-            }
+            anim.SetFloat("SpeedAnimations", 0.5f, 0.1f, Time.deltaTime);
         }
+
 
         // Dans les airs
         else if (!grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-            if (soundGage)
-            {
-                soundGage.amplitude = 0.001f;
-                soundGage.frequency = 1f;
-            }
+           
         }
-        else
-        {
-            if (soundGage)
-            {
-                soundGage.amplitude = 0.001f;
-                soundGage.frequency = 1f;
-            }
-        }
+
+
+        
 
         // Pas de gravit� sur les pentes
         rb.useGravity = !OnSlope();
@@ -256,4 +270,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
+
+   
 }
