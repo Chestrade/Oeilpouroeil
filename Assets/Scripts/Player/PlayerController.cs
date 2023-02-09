@@ -29,6 +29,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [Header("References")]
     public PlayerClimbing climbingScript;
     private Animator anim;
+    
 
     private float horizontalInput;
     private float verticalInput;
@@ -46,7 +47,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     public MovementState state;
 
     private Rigidbody rb;
-   
+    public bool climbing;
+
+    
 
 
     public enum MovementState
@@ -58,7 +61,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         Idle
     }
 
-    public bool climbing;
+    
 
     protected override void Awake()
     {
@@ -69,7 +72,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         readyToJump = true;
         isIdle = true;
         anim = GetComponent<Animator>();
-
+        
        
     }
 
@@ -91,7 +94,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             rb.drag = 0;
         }
-            
+        
+        //Cammouflage
+        
+        
+        
     }
 
     private void FixedUpdate()
@@ -263,4 +270,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
+
+   
 }
