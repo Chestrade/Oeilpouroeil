@@ -5,8 +5,8 @@ using UnityEngine;
 public class SoundGageParticles : MonoBehaviour
 {
     [Header("Particle Systems")]
-    [SerializeField] private ParticleSystem quietRipples;
-    [SerializeField] private ParticleSystem loudRipples;
+    [SerializeField] protected ParticleSystem quietRipples;
+    [SerializeField] protected ParticleSystem loudRipples;
 
     
     
