@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cammouflage : SoundGageParticles
+public class Cammouflage : MonoBehaviour
 {
     public Material[] material;
     [SerializeField] private bool cammoPossible;
