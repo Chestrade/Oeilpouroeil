@@ -4179,6 +4179,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2470091228479791624, guid: 082eaabc82929f74d918059d8fa1e081, type: 3}
+      propertyPath: climbSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5001282637517097209, guid: 082eaabc82929f74d918059d8fa1e081, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4301,6 +4305,10 @@ PrefabInstance:
     - target: {fileID: 6706946803471548568, guid: 6877ceaba14d046418aa159748e9c8ac, type: 3}
       propertyPath: m_Name
       value: EyeGem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706946803471548568, guid: 6877ceaba14d046418aa159748e9c8ac, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6709911449789501216, guid: 6877ceaba14d046418aa159748e9c8ac, type: 3}
       propertyPath: m_RootOrder
