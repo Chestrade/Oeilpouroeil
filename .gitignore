@@ -69,7 +69,7 @@ crashlytics-build.properties
 ## ---------------- ##
 
 # project stuff
-WWiseProject/.cache/
+WWiseProject/.cache/*
 WWiseProject/*.prof
 WwiseProject/*_WwiseProject.*.validationcache
 WwiseProject/*_WwiseProject.*.wsettings
