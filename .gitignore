@@ -74,7 +74,8 @@ WWiseProject/*.prof
 WwiseProject/*_WwiseProject.*.validationcache
 WwiseProject/*_WwiseProject.*.wsettings
 WwiseProject/**/*.akd
-
+Assets/Wwise/API/Runtime
+Assets/Wwise/Documentation
 # build stuff (unsure?)
 # Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
 
@@ -96,3 +97,14 @@ Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
 ## End WWise Stuff ##
 ## --------------- ##
 
+# temp install files
+WwiseUnityIntegration_*_Src.zip
+
+# Mac stuff
+.DS_store
+
+# Jetbrains Rider IDE (C# IDE), adds a plugin to Unity
+# Assets/Plugins/Editor.meta
+# Assets/Plugins/Editor/Jetbrains.meta
+# Assets/Plugins/Editor/Jetbrains/
+# .idea
