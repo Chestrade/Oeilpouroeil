@@ -22,9 +22,9 @@
 				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="1SK7FnFhCkurflY8BY1nCg=="/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="h8U5H29170Cu/2QKgCV7uw=="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="/2jW5pcJhUyHpxltORPrxg=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
-				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups_v2" Type="string" Value="Sb5TVk5440uuXf4C/J3FUwEANgd2AAAAwKTqL/9/AACoy1yn2QEAAAAAAADZAQAAwKTqL/9/AAAEkhow/38AAKBc2LnZAQAAAAAAANkBAAAIAAAAAAAAAHjgNgd2AAAAAAAvMP9/AAAfAS8w/38AAAAALzD/fwAAwKTqL/9/AADApOov/38AAKjLXKfZAQAAAQAAABFRdKhtT2tNrpu+H0xdwxcBADYHdgAAAMCk6i//fwAAqMtcp9kBAAAAAAAA2QEAAMCk6i//fwAABJIaMP9/AACgXNi52QEAAAAAAADZAQAACAAAAAAAAAB44DYHdgAAAAAALzD/fwAAHwEvMP9/AAAAAC8w/38AAMCk6i//fwAAwKTqL/9/AACoy1yn2QEAAAEAAAA="/>
+				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups_v2" Type="string" Value="yUcMCe3mCkC8sl79enJxQAEANgd2AAAAwKTqL/9/AACoy1yn2QEAAAAAAADZAQAAwKTqL/9/AAAEkhow/38AABBiPrrZAQAAAAAAANkBAAAIAAAAAAAAAHjjNgd2AAAAAAAvMP9/AAAfAS8w/38AAAAALzD/fwAAwKTqL/9/AADApOov/38AAKjLXKfZAQAAAQAAAJP21Umyk5VIlYTl7nbZSDYBADYHdgAAAMCk6i//fwAAqMtcp9kBAAAAAAAA2QEAAMCk6i//fwAABJIaMP9/AAAQYj662QEAAAAAAADZAQAACAAAAAAAAAB44zYHdgAAAAAALzD/fwAAHwEvMP9/AAAAAC8w/38AAMCk6i//fwAAwKTqL/9/AACoy1yn2QEAAAEAAAA="/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint0" Type="int32" Value="1"/>
@@ -35,7 +35,7 @@
 				<Property Name="MonitoringManager\GameObjectFilter\GameObjectFilterVersion" Type="int32" Value="1"/>
 				<Property Name="MonitoringManager\GameObjectFilter\GameObjectFiltersEnable" Type="bool" Value="True"/>
 				<Property Name="MonitoringManager\GameObjectFilter\x64_GameObjectFilters" Type="string" Value=""/>
-				<Property Name="ObjectTabPanel\x64_CurrentObjects_{031E1E2C-DC25-4332-80C3-FFCC371AC803}" Type="string" Value=""/>
+				<Property Name="ObjectTabPanel\x64_CurrentObjects_{031E1E2C-DC25-4332-80C3-FFCC371AC803}" Type="string" Value="ewA4AEEARgBCADkAQgAzADYALQBDAEIANwA1AC0ANAA2ADkANgAtAEIAOABDADMALQA2ADEAMgA0ADAAOQAyADgANQA3AEYANwB9AAAAAAE="/>
 				<Property Name="ObjectTabPanel\x64_CurrentObjects_{D5805147-985E-4C5B-B817-369AF1B7184D}" Type="string" Value="ewBEADIANAA2ADEANgA4ADgALQAwAEUARAAzAC0ANAAwADAANAAtADgANAA0ADgALQA5ADUAOAA0ADUANAAzADYANgA4ADMARAB9AAAAAAE="/>
 				<Property Name="ProjectExplorer\AudioLayoutInstanceId{AF5CD300-2030-4728-877C-0D026E8AA608}\ProjectExplorer2LastScrollState" Type="int32" Value="0"/>
 				<Property Name="ProjectExplorer\AudioLayoutInstanceId{AF5CD300-2030-4728-877C-0D026E8AA608}\x64_ProjectExplorer2LastExpandedState" Type="string" Value="iC8JJ1oiVBFnJcijTz1EguraiCN1l8ZGou3FIio5d1b4u6dewGRQSoghoH6L4h1oZtP+STC1qEKZO5JIc6q3Bw=="/>
@@ -62,7 +62,7 @@
 				<Property Name="ProjectExplorer\QueriesSelectionChannel2\ProjectExplorer2LastScrollState" Type="int32" Value="0"/>
 				<Property Name="ProjectExplorer\QueriesSelectionChannel2\x64_ProjectExplorer2LastExpandedState" Type="string" Value="4y3sI9g+gkusmZLiXy5Maw=="/>
 				<Property Name="ProjectExplorer\SelectionChannel1\CurrentSearch" Type="string" Value=""/>
-				<Property Name="ProjectExplorer\SelectionChannel1\CurrentTab" Type="int32" Value="0"/>
+				<Property Name="ProjectExplorer\SelectionChannel1\CurrentTab" Type="int32" Value="2"/>
 				<Property Name="ProjectExplorer\SelectionChannel2\CurrentSearch" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\SelectionChannel2\CurrentTab" Type="int32" Value="2"/>
 				<Property Name="ProjectExplorer\SelectionChannel{AF5CD300-2030-4728-877C-0D026E8AA608}\CurrentSearch" Type="string" Value=""/>
