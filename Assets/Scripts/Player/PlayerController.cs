@@ -42,6 +42,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     public bool isIdle;
 
     public MovementState state;
+    public GameObject Frog;
+    public float RayHeight = 1;
+    public LayerMask LMask;
 
     private Rigidbody rb;
     public bool climbing;
@@ -76,8 +79,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private void Update()
     {
         //Ground Check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f);
-        Debug.Log("Is grounded = " + grounded);
+        RaycastHit hit;
+        grounded = Physics.Raycast(Frog.transform.position + Vector3.up * RayHeight, Vector3.down, out hit, playerHeight, LMask);
+        
+
+        Debug.Log("Is grounded = " + grounded + " " + hit.transform.name);
 
         Input();
         SpeedControl();
@@ -110,7 +116,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         verticalInput = UnityEngine.Input.GetAxisRaw("Vertical");
 
         //Saute lorsque le joueur est pr�t et au sol
-        if (UnityEngine.Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (UnityEngine.Input.GetKeyDown(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
             Jump();

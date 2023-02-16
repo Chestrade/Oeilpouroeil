@@ -8,9 +8,12 @@ public class SoundGageParticles : MonoBehaviour
     [SerializeField] protected ParticleSystem quietRipples;
     [SerializeField] protected ParticleSystem loudRipples;
 
-    
-    
-    
+    [Header("Wwise Events")]
+    //public AK.Wwise.Event ribbit;
+    //public AK.Wwise.Event quietStepEvent;
+    //public AK.Wwise.Event loudStepEvent;
+
+
     //private ParticleSystem currentRipples;
 
     private PlayerController player;
@@ -18,6 +21,8 @@ public class SoundGageParticles : MonoBehaviour
 
     private bool quietStep;
     private bool loudStep;
+   
+
     private void Start()
     {
         player = PlayerController.instance;
