@@ -9,9 +9,9 @@ public class SoundGageParticles : MonoBehaviour
     [SerializeField] protected ParticleSystem loudRipples;
 
     [Header("Wwise Events")]
-    public AK.Wwise.Event ribbit;
-    public AK.Wwise.Event quietStepEvent;
-    public AK.Wwise.Event loudStepEvent;
+    //public AK.Wwise.Event ribbit;
+    //public AK.Wwise.Event quietStepEvent;
+    //public AK.Wwise.Event loudStepEvent;
 
 
     //private ParticleSystem currentRipples;
