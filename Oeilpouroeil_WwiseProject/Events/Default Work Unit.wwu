@@ -16,9 +16,9 @@
 						<Event Name="Cammo_Enter" ID="{06955011-C373-4A63-B837-14A014A28F9D}"/>
 						<Event Name="Cammo_Exit" ID="{F30336AA-4940-41C7-AE04-420D558C623D}"/>
 						<Event Name="Frog_Ribbit" ID="{C1357FB9-100B-4594-A7E0-02F6F62F3D6A}"/>
-						<Event Name="Player_Spawn" ID="{0F1296E6-FA0A-4707-BA40-11FC311B6A6F}"/>
 						<Event Name="Toungue_Shoot" ID="{69E7721A-6600-4ED8-B2AD-53DC08D442E7}"/>
 						<Event Name="Tongue_Retreat" ID="{469274DE-FDC7-48ED-98A7-DC5419A32578}"/>
+						<Event Name="Player_Death" ID="{7C2B39F4-78AD-4BB6-A129-4112D3EF5793}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{7B8B60C8-CC50-42C4-9D3E-103624801170}" ShortID="379326382">
@@ -41,7 +41,7 @@
 						<Event Name="Enemy_FS" ID="{1B322693-5492-4694-8819-580FEA7367C4}"/>
 						<Event Name="Enemy_Alert" ID="{785729C7-AB75-40F8-9DF8-F06521C67186}"/>
 						<Event Name="Enemy_Agro" ID="{2A8D55BD-58A9-438F-8E43-FF15503F6FB6}"/>
-						<Event Name="Enemy_Stun" ID="{B8226431-A6F8-4E1F-865C-923191EBE466}"/>
+						<Event Name="Enemy_Death" ID="{B8226431-A6F8-4E1F-865C-923191EBE466}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environnement" ID="{DF83082C-1329-46C2-B804-358794A0AA2D}" ShortID="1001260095">
@@ -60,17 +60,16 @@
 						<Event Name="Pillar_Slide" ID="{C3E94C84-4EF2-4554-9FDA-CC8E47EC7BE3}"/>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Music and Ambiances" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" ShortID="90664474">
+				<Folder Name="Music and Amb cues" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" ShortID="90664474">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="25"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="Amb_Temple_Start" ID="{BD9D84E9-F34F-4426-B517-5D1A2B5ED823}"/>
-						<Event Name="MUS_Menu_Start" ID="{49ED1080-3E64-42FC-8CFB-F77D3BFEBB33}"/>
-						<Event Name="MUS_Menu_Stop" ID="{A3CA327A-9559-4A5C-AC52-3B00A143C61D}"/>
-						<Event Name="MUS_Level_Start" ID="{DBE8EAEB-5629-46BA-9638-CE24E921FA8C}"/>
-						<Event Name="MUS_Level_Stop" ID="{4788BECE-EEB9-4231-8E7C-185722430F58}"/>
+						<Event Name="Level_Start" ID="{BD9D84E9-F34F-4426-B517-5D1A2B5ED823}"/>
+						<Event Name="Menu_Start" ID="{49ED1080-3E64-42FC-8CFB-F77D3BFEBB33}"/>
+						<Event Name="Menu_Stop" ID="{A3CA327A-9559-4A5C-AC52-3B00A143C61D}"/>
+						<Event Name="Level_Stop" ID="{4788BECE-EEB9-4231-8E7C-185722430F58}"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
