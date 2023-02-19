@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8CC81C94-3681-4B2C-BE1C-8D3351411775}" SchemaVersion="110">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{8CC81C94-3681-4B2C-BE1C-8D3351411775}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Enemy_Alert_Level" ID="{AE1A9328-FFC7-4379-8DDB-FA397339DC06}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

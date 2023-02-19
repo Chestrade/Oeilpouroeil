@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Player" ID="{61412EE3-7B22-46F4-AC98-2369BD885096}" ShortID="1018321427">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Player_FS_Walk" ID="{25F38EF1-865E-43E5-B21B-FB9E77F6DCEF}"/>
+						<Event Name="Player_FS_Run" ID="{E0ADD5A2-7776-489E-A9B1-B09C769A4691}"/>
+						<Event Name="Player_Jump" ID="{152C09E6-645D-4BAC-906C-C5A9D39A10C0}"/>
+						<Event Name="Player_Land" ID="{C4F764E6-A9C0-416E-B6DA-E9FBEB7E57A3}"/>
+						<Event Name="Cammo_Enter" ID="{06955011-C373-4A63-B837-14A014A28F9D}"/>
+						<Event Name="Cammo_Exit" ID="{F30336AA-4940-41C7-AE04-420D558C623D}"/>
+						<Event Name="Frog_Ribbit" ID="{C1357FB9-100B-4594-A7E0-02F6F62F3D6A}"/>
+						<Event Name="Toungue_Shoot" ID="{69E7721A-6600-4ED8-B2AD-53DC08D442E7}"/>
+						<Event Name="Tongue_Retreat" ID="{469274DE-FDC7-48ED-98A7-DC5419A32578}"/>
+						<Event Name="Player_Death" ID="{7C2B39F4-78AD-4BB6-A129-4112D3EF5793}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{7B8B60C8-CC50-42C4-9D3E-103624801170}" ShortID="379326382">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="2"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="UI_Menu_Click" ID="{3613AB66-38CF-4373-BE39-C4905DAD7157}"/>
+						<Event Name="UI_Menu_Hover" ID="{AC351019-B3C8-4985-A8C6-5B30D8CC1269}"/>
+						<Event Name="UI_Menu_Return" ID="{65BA1B7F-DC3D-4A4C-B36B-0CAC853498BB}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Enemies" ID="{DEDF6014-1A74-4B0A-9764-4A789F1FEBE3}" ShortID="348139145">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Enemy_FS" ID="{1B322693-5492-4694-8819-580FEA7367C4}"/>
+						<Event Name="Enemy_Alert" ID="{785729C7-AB75-40F8-9DF8-F06521C67186}"/>
+						<Event Name="Enemy_Agro" ID="{2A8D55BD-58A9-438F-8E43-FF15503F6FB6}"/>
+						<Event Name="Enemy_Death" ID="{B8226431-A6F8-4E1F-865C-923191EBE466}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environnement" ID="{DF83082C-1329-46C2-B804-358794A0AA2D}" ShortID="1001260095">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="20"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Crystal_Fall" ID="{589FB5D1-1241-42BD-A89F-003469B8C282}">
+							<Comment>Son du crystal qui tombe ou qui se dépose
+</Comment>
+						</Event>
+						<Event Name="Boulders_Fall" ID="{D7CD6434-3D9D-4AA8-8635-413292CF919B}"/>
+						<Event Name="Rope_Pull" ID="{C1E0887F-05F9-4D0E-8739-830D06F9D278}"/>
+						<Event Name="Gate_Open" ID="{2CB9B2AE-BE52-4AE1-AD6E-16446760E961}"/>
+						<Event Name="Pillar_Slide" ID="{C3E94C84-4EF2-4554-9FDA-CC8E47EC7BE3}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Music and Amb cues" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" ShortID="90664474">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="25"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Level_Start" ID="{BD9D84E9-F34F-4426-B517-5D1A2B5ED823}"/>
+						<Event Name="Menu_Start" ID="{49ED1080-3E64-42FC-8CFB-F77D3BFEBB33}"/>
+						<Event Name="Menu_Stop" ID="{A3CA327A-9559-4A5C-AC52-3B00A143C61D}"/>
+						<Event Name="Level_Stop" ID="{4788BECE-EEB9-4231-8E7C-185722430F58}"/>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
