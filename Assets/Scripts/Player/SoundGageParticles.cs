@@ -21,52 +21,41 @@ public class SoundGageParticles : MonoBehaviour
 
     private bool quietStep;
     private bool loudStep;
-
-    private bool playerInAir;
    
 
     private void Start()
     {
         player = PlayerController.instance;
-        playerInAir = false; 
+       
+        //currentRipples = null;
     }
 
     private void Update()
     {
+        
         if (Input.GetButtonDown("Fire1"))
         {
          
             loudRipples.Play();
-            //play wwise ribbit sound here
         }
-
-        if(player.grounded)
-        {
-            Land();
-        }
+        
+       
 
     }
     private void Step()
-    { }
-
-    private void ParticleEmit()
     {
         if(player.isIdle)
         {
             quietRipples.Stop();
             loudRipples.Stop();
         }
-        else if(player.grounded && player.moveSpeed > 0 && player.moveSpeed <player.sprintSpeed)
+        else if(player.grounded && player.moveSpeed == player.walkSpeed)
         {
-            loudRipples.Stop();
             quietRipples.Play();
-            
         }
         else if(player.grounded && player.moveSpeed == player.sprintSpeed)
         {
-            quietRipples.Stop();
             loudRipples.Play();
-            
         }
         else
         {
@@ -76,7 +65,8 @@ public class SoundGageParticles : MonoBehaviour
 
     private void Land()
     {
-       
+        //currentRipples = loudRipples;
+       loudRipples.Play();
     }
 
     private void RippleStop()
@@ -85,7 +75,7 @@ public class SoundGageParticles : MonoBehaviour
         {
             loudRipples.Stop();
         }
-        else if (quietRipples.isPlaying)
+        if (quietRipples.isPlaying)
         {
             quietRipples.Stop();
         }
