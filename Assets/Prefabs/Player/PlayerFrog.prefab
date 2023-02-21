@@ -5322,6 +5322,7 @@ MonoBehaviour:
   cammoPossible: 1
   frogChild: {fileID: 5001282637517460703}
   vtScript: {fileID: 902715791695378627}
+  playerColl: {fileID: 2470091228479791628}
 --- !u!114 &6212728727143292398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,6 +5348,7 @@ MonoBehaviour:
   tongueCooldownTimer: 1
   tongueCooldown: 0
   isTonguing: 0
+  eyeGem: {fileID: 0}
   tongueKey: 324
 --- !u!114 &902715791695378627
 MonoBehaviour:

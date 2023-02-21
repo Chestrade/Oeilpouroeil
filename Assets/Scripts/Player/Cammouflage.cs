@@ -9,8 +9,14 @@ public class Cammouflage : MonoBehaviour
     [SerializeField] private bool cammoPossible;
     [SerializeField] private GameObject frogChild;
     [SerializeField] private VisionTarget vtScript;
+
     private Renderer rend;
     private PlayerController player;
+
+    [SerializeField] private MeshCollider playerColl;
+    private CapsuleCollider enemyColl;
+
+    
     
     
     // Start is called before the first frame update
@@ -21,6 +27,8 @@ public class Cammouflage : MonoBehaviour
         rend.enabled = true;
         rend.sharedMaterial = material[0];
         cammoPossible = false;
+        
+        enemyColl = GameObject.Find("Enemy/Mesh").GetComponent<CapsuleCollider>();
 
     }
 
@@ -37,14 +45,18 @@ public class Cammouflage : MonoBehaviour
         }
         if(player.isIdle && player.grounded && cammoPossible)
         {
+            Physics.IgnoreCollision(playerColl, enemyColl, true);
             rend.sharedMaterial = material[1];
             vtScript.visible = false;
         }
         else
         {
+            Physics.IgnoreCollision(playerColl, enemyColl, false);
             rend.sharedMaterial = material[0];
             vtScript.visible = true;
         }
        
     }
+
+    
 }
