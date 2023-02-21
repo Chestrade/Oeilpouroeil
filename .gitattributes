@@ -2,7 +2,6 @@
 *.wav filter=lfs diff=lfs merge=lfs -text
 <<<<<<< Updated upstream
 *.asset filter=lfs diff=lfs merge=lfs -text
-*.dll filter=lfs diff=lfs merge=lfs -text
 *.dll.meta filter=lfs diff=lfs merge=lfs -text
 =======
 .tga filter=lfs diff=lfs merge=lfs -text
