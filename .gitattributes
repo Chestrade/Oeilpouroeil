@@ -8,3 +8,4 @@
 .tga filter=lfs diff=lfs merge=lfs -text
 .anim filter=lfs diff=lfs merge=lfs -text
 >>>>>>> Stashed changes
+*.prefab filter=lfs diff=lfs merge=lfs -text
