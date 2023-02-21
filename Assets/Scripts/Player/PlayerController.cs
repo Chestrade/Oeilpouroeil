@@ -83,7 +83,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         grounded = Physics.Raycast(Frog.transform.position + Vector3.up * RayHeight, Vector3.down, out hit, playerHeight, LMask);
         
 
-        Debug.Log("Is grounded = " + grounded + " " + hit.transform.name);
+        //Debug.Log("Is grounded = " + grounded + " " + hit.transform.name);
 
         Input();
         SpeedControl();
