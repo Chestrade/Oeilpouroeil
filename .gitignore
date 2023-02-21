@@ -93,9 +93,9 @@ Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
 # Assets/Wwise/Editor/ProjectData.meta
 
 
-Assets/Wwise/Documentation
-Assets/Wwise/API/Runtime/Plugins
-Assets/Wwise/API/Runtime/**/Mac
+#Assets/Wwise/Documentation
+#Assets/Wwise/API/Runtime/Plugins
+#Assets/Wwise/API/Runtime/**/Mac
 
 ## --------------- ##
 ## End WWise Stuff ##
