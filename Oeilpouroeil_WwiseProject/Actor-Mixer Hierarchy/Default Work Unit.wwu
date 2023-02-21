@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D2461688-0ED3-4004-8448-95845436683D}" SchemaVersion="110">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{D2461688-0ED3-4004-8448-95845436683D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D2461688-0ED3-4004-8448-95845436683D}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Placeholders" ID="{77709074-462E-49E7-9E23-01ED2A425B2C}" ShortID="166635299">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="PLACEHOLDER_Frog_Ribbit" ID="{7BD4DAF9-DB8C-4088-BE64-D4C43B1F0889}" ShortID="403622573">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{9D8AC5BE-F0EE-484F-A528-C51A4239EAC9}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="1491"/>
+													<Property Name="Min" Type="Real64" Value="-859"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="447917__breviceps__cartoon-frog" ID="{804E2CAA-4D83-4135-A706-685FBB1D5893}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0175596015371414"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.117064010247609"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.503375244064722"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>447917__breviceps__cartoon-frog.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="803544457"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="447917__breviceps__cartoon-frog" ID="{804E2CAA-4D83-4135-A706-685FBB1D5893}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

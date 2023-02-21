@@ -27,5 +27,5 @@ Event	ID	Name			Wwise Object Path	Notes
 	4010507821	Rope_Pull			\Default Work Unit\Environnement\Rope_Pull	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	803544457	PLACEHOLDER_Frog_Ribbit	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\447917__breviceps__cartoon-frog_CAF21F95.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_Frog_Ribbit		68240
+	803544457	PLACEHOLDER_Frog_Ribbit	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Mac\SFX\447917__breviceps__cartoon-frog_CAF21F95.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_Frog_Ribbit		68240
 

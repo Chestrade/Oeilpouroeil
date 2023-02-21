@@ -26,7 +26,7 @@ public class SoundGageParticles : MonoBehaviour
     private void Start()
     {
         player = PlayerController.instance;
-       
+        animator = GetComponent<Animator>();
         //currentRipples = null;
     }
 
@@ -37,6 +37,7 @@ public class SoundGageParticles : MonoBehaviour
         {
          
             loudRipples.Play();
+            ribbit.Post(gameObject);
         }
         
        
@@ -44,20 +45,28 @@ public class SoundGageParticles : MonoBehaviour
     }
     private void Step()
     {
-        if(player.isIdle)
-        {
-            quietRipples.Stop();
-            loudRipples.Stop();
-        }
-        else if(player.grounded && player.moveSpeed == player.walkSpeed)
-        {
-            quietRipples.Play();
-        }
-        else if(player.grounded && player.moveSpeed == player.sprintSpeed)
+
+        if(animator.GetFloat("SpeedAnimations") >=0.6)
         {
             loudRipples.Play();
+            loudStepEvent.Post(gameObject);
+
         }
-        else
+        else if(player.isIdle)
+        {
+            RippleStop();
+        }
+        
+    }
+
+    private void QuietStep()
+    {
+        if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6)
+        {
+            quietRipples.Play();
+            quietStepEvent.Post(gameObject);
+        }
+        else if (player.isIdle)
         {
             RippleStop();
         }
@@ -65,8 +74,8 @@ public class SoundGageParticles : MonoBehaviour
 
     private void Land()
     {
-        //currentRipples = loudRipples;
        loudRipples.Play();
+
     }
 
     private void RippleStop()
@@ -84,8 +93,29 @@ public class SoundGageParticles : MonoBehaviour
             return;
         }
     }
-      
 
-   
-   
+
+
+    /* OLD CODE in Step() 
+        if (player.isIdle)
+        {
+            quietRipples.Stop();
+            loudRipples.Stop();
+        }
+        else if(player.grounded && player.moveSpeed == player.walkSpeed)
+        {
+            quietRipples.Play();
+        }
+        else if(player.grounded && player.moveSpeed == player.sprintSpeed)
+        {
+            loudRipples.Play();
+        }
+        else
+        {
+            RippleStop();
+        }
+        */
+
+
+
 }

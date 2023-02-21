@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{8AFB9B36-CB75-4696-B8C3-6124092857F7}" SchemaVersion="110">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{8AFB9B36-CB75-4696-B8C3-6124092857F7}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{8AFB9B36-CB75-4696-B8C3-6124092857F7}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Default_Soundbank" ID="{6C9A761E-063D-4464-B828-D2D1B4939508}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Music and Amb cues" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Player_Land" ID="{C4F764E6-A9C0-416E-B6DA-E9FBEB7E57A3}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Cammo_Exit" ID="{F30336AA-4940-41C7-AE04-420D558C623D}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UI" ID="{7B8B60C8-CC50-42C4-9D3E-103624801170}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Player_FS_Walk" ID="{25F38EF1-865E-43E5-B21B-FB9E77F6DCEF}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Frog_Ribbit" ID="{C1357FB9-100B-4594-A7E0-02F6F62F3D6A}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Environnement" ID="{DF83082C-1329-46C2-B804-358794A0AA2D}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Player" ID="{61412EE3-7B22-46F4-AC98-2369BD885096}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Player_FS_Run" ID="{E0ADD5A2-7776-489E-A9B1-B09C769A4691}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Tongue_Retreat" ID="{469274DE-FDC7-48ED-98A7-DC5419A32578}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Cammo_Enter" ID="{06955011-C373-4A63-B837-14A014A28F9D}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Enemies" ID="{DEDF6014-1A74-4B0A-9764-4A789F1FEBE3}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Player_Jump" ID="{152C09E6-645D-4BAC-906C-C5A9D39A10C0}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Player_Death" ID="{7C2B39F4-78AD-4BB6-A129-4112D3EF5793}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Toungue_Shoot" ID="{69E7721A-6600-4ED8-B2AD-53DC08D442E7}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

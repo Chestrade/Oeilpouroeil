@@ -15,7 +15,17 @@
 						<Event Name="Player_Land" ID="{C4F764E6-A9C0-416E-B6DA-E9FBEB7E57A3}"/>
 						<Event Name="Cammo_Enter" ID="{06955011-C373-4A63-B837-14A014A28F9D}"/>
 						<Event Name="Cammo_Exit" ID="{F30336AA-4940-41C7-AE04-420D558C623D}"/>
-						<Event Name="Frog_Ribbit" ID="{C1357FB9-100B-4594-A7E0-02F6F62F3D6A}"/>
+						<Event Name="Frog_Ribbit" ID="{C1357FB9-100B-4594-A7E0-02F6F62F3D6A}">
+							<ChildrenList>
+								<Action Name="" ID="{E809D148-B9C9-4597-88FF-373D6725CC2C}" ShortID="782136872">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PLACEHOLDER_Frog_Ribbit" ID="{7BD4DAF9-DB8C-4088-BE64-D4C43B1F0889}" WorkUnitID="{D2461688-0ED3-4004-8448-95845436683D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Toungue_Shoot" ID="{69E7721A-6600-4ED8-B2AD-53DC08D442E7}"/>
 						<Event Name="Tongue_Retreat" ID="{469274DE-FDC7-48ED-98A7-DC5419A32578}"/>
 						<Event Name="Player_Death" ID="{7C2B39F4-78AD-4BB6-A129-4112D3EF5793}"/>
