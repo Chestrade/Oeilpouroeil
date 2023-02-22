@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAnimations : MonoBehaviour
 {
@@ -22,6 +24,14 @@ public class PlayerAnimations : MonoBehaviour
     private void Update()
     {
         SpeedAnimations();
+    }
+
+    private void OnCollisionEnter (Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            animator.SetTrigger("Death");
+        }
     }
 
     private void SpeedAnimations()
