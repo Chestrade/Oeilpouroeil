@@ -31,6 +31,7 @@ public class PlayerAnimations : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             animator.SetTrigger("Death");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
