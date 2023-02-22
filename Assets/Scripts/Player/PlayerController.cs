@@ -25,7 +25,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     [Header("References")]
     public PlayerClimbing climbingScript;
-    private Animator anim;
     
 
     private float horizontalInput;
@@ -71,7 +70,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb.freezeRotation = true;
         readyToJump = true;
         isIdle = true;
-        anim = GetComponent<Animator>();
+      
         
        
     }
@@ -121,7 +120,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             readyToJump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
-            anim.SetTrigger("Jump");
         }
 
         if (UnityEngine.Input.anyKey)
@@ -141,7 +139,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (isIdle == true)
         {
             state = MovementState.Idle;
-            anim.SetFloat("SpeedAnimations", 0, 0.1f, Time.deltaTime);
         }
 
         //Mode - climbing
@@ -149,7 +146,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             state = MovementState.Climbing;
             moveSpeed = climbSpeed;
-            anim.SetTrigger("Climb");
+
         }
 
         //Mode - sprinting
@@ -157,7 +154,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             state = MovementState.Sprinting;
             moveSpeed = sprintSpeed;
-            anim.SetFloat("SpeedAnimations", 1, 0.1f, Time.deltaTime);
+
         }
 
         //Mode - walking
@@ -199,7 +196,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
         if(grounded && verticalInput != 0 || horizontalInput != 0)
         {
-            anim.SetFloat("SpeedAnimations", 0.5f, 0.1f, Time.deltaTime);
+           
         }
 
 
