@@ -10,10 +10,12 @@ public class PlayerAnimations : MonoBehaviour
     private Animator animator;
 
 
+
     private void Start()
     {
         player = PlayerController.instance;
         animator = GetComponent<Animator>();
+
     }
 
     

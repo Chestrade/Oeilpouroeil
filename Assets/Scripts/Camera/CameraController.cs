@@ -14,7 +14,6 @@ public class CameraController : MonoBehaviour
 
     //References
     private Transform parent;
-    private Animator anim;
     private bool rotatingR;
     private bool rotatingL;
 
@@ -22,7 +21,6 @@ public class CameraController : MonoBehaviour
     {
         parent = transform.parent;
         Cursor.lockState = CursorLockMode.Locked;
-        anim = GetComponentInParent<Animator>();
 
     }
 
