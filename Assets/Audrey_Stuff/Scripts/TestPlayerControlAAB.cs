@@ -33,6 +33,8 @@ public class TestPlayerControlAAB : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         // Move Character Controller
         controller.Move(moveDirection * Time.deltaTime);
+
+        print(Input.GetAxis("Vertical"));
     }
 
 }

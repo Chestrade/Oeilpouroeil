@@ -14,7 +14,7 @@ public class PlayerNoteManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        noteToRead = GetComponent<Note>();
+        noteToRead = FindObjectOfType<Note>();
     }
 
     // Update is called once per frame
