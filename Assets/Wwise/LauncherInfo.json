@@ -1,5 +1,5 @@
 {
-    "originalSdkFolder": "D:\\Programs\\Wwise\\SDK",
+    "originalSdkFolder": "Z:\\Wwise\\SDK",
     "currentVersion": {
         "build": 2644,
         "major": 1,
@@ -8,6 +8,22 @@
         "year": 2022
     },
     "installedBundleGroups": [
+        {
+            "id": "Packages",
+            "valueId": "Unity"
+        },
+        {
+            "id": "Packages",
+            "valueId": "Extensions"
+        },
+        {
+            "id": "DeploymentPlatforms",
+            "valueId": "Mac"
+        },
+        {
+            "id": "DeploymentPlatforms",
+            "valueId": "Windows"
+        },
         {
             "id": "Packages",
             "valueId": "Unity"
