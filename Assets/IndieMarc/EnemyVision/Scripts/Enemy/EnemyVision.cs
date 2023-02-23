@@ -97,6 +97,8 @@ namespace IndieMarc.EnemyVision
             if (enemy.GetState() == EnemyState.Patrol)
             {
                 DetectVisionTarget();
+               
+
 
                 if(group_detect)
                     DetectOtherEnemies();
@@ -105,6 +107,7 @@ namespace IndieMarc.EnemyVision
             //When just seen the VisionTarget, enemy alerted
             if (enemy.GetState() == EnemyState.Alert)
             {
+                
                 VisionTarget target_seen = CanSeeAnyVisionTarget();
 
                 vision_timer += target_seen ? Time.deltaTime : -Time.deltaTime;
@@ -112,10 +115,11 @@ namespace IndieMarc.EnemyVision
                 if (target_seen != null && vision_timer < -0.5f)
                 {
                     Alert(target_seen);
-
                     int distance = GetSeenDistance(target_seen.gameObject);
                     if (onSeeTarget != null)
                         onSeeTarget.Invoke(target_seen, distance);
+                    
+                    
                 }
 
                 if (target_seen != null)
@@ -145,15 +149,20 @@ namespace IndieMarc.EnemyVision
 
                 if (group_detect)
                     DetectOtherEnemies();
+
+                
             }
 
             //If seen long enough (detect time), will go into a chase
             if (enemy.GetState() == EnemyState.Chase)
             {
+                
+
                 bool can_see_target = CanSeeVisionTarget(seen_character);
 
                 vision_timer += can_see_target ? -Time.deltaTime : Time.deltaTime;
                 vision_timer = Mathf.Max(vision_timer, 0f);
+               
 
                 if (enemy.GetStateTimer() > 0.5f)
                 {
@@ -177,6 +186,7 @@ namespace IndieMarc.EnemyVision
             //After the chase, if VisionTarget is unseen, enemy will be confused
             if (enemy.GetState() == EnemyState.Confused)
             {
+               
                 VisionTarget target_seen = CanSeeAnyVisionTarget();
                 if (target_seen != null && target_seen == seen_character)
                 {
@@ -212,6 +222,9 @@ namespace IndieMarc.EnemyVision
                     ResumeDefault();
                 }
             }
+
+            
+
         }
 
         //In case using vision without enemy behavior, detect without changing state
@@ -379,6 +392,7 @@ namespace IndieMarc.EnemyVision
 
             if (onAlert != null)
                 onAlert.Invoke(target);
+            
         }
 
         //Call this function from another script to manually start chasing the target

@@ -107,6 +107,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Enemy_Confused" ID="{FF622A46-1CC5-47DD-A8DD-9263716FC27B}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environnement" ID="{DF83082C-1329-46C2-B804-358794A0AA2D}" ShortID="1001260095">

@@ -36,7 +36,9 @@ namespace IndieMarc.EnemyVision
         public float fall_speed = 5f;
         public LayerMask obstacle_mask = ~(0);
         public bool use_pathfind = false;
-        
+
+        public AK.Wwise.Event enemyFs;
+
 
         [Header("State")]
         public EnemyState state = EnemyState.Patrol;
@@ -53,7 +55,7 @@ namespace IndieMarc.EnemyVision
         [Header("Follow")]
         public GameObject follow_target;
         public float memory_duration = 4f;
-        
+
         public UnityAction onDeath;
 
         private Rigidbody rigid;
@@ -180,17 +182,22 @@ namespace IndieMarc.EnemyVision
 
             if (state == EnemyState.Patrol)
             {
+                
                 UpdatePatrol();
+                
             }
 
             if (state == EnemyState.Chase)
             {
                 UpdateFollow();
+                
+
             }
 
             if (state == EnemyState.Confused)
             {
                 UpdateConfused();
+                
             }
 
             //Manual Rotation
@@ -300,6 +307,7 @@ namespace IndieMarc.EnemyVision
 
         private void UpdateFollow()
         {
+
             Vector3 targ = follow_target ? follow_target.transform.position : last_seen_pos;
 
             //Use memory if no more target
@@ -386,6 +394,7 @@ namespace IndieMarc.EnemyVision
                 ChangeState(EnemyState.Alert);
                 SetAlertTarget(pos);
                 StopMove();
+                
             }
         }
 
@@ -394,6 +403,7 @@ namespace IndieMarc.EnemyVision
             ChangeState(EnemyState.Chase);
             SetFollowTarget(target);
             using_navmesh = true;
+            
         }
 
         public void MoveTo(Vector3 pos, float speed = 1f)
@@ -604,7 +614,12 @@ namespace IndieMarc.EnemyVision
                 }
             }
         }
-        
+
+        private void EnemyFootstep()
+        {
+            enemyFs.Post(gameObject);
+        }
+
     }
     
 

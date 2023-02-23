@@ -1,6 +1,10 @@
 Event	ID	Name			Wwise Object Path	Notes
 	131181555	Enemy_FS			\Default Work Unit\Enemies\Enemy_FS	
+	493036092	Enemy_Alert			\Default Work Unit\Enemies\Enemy_Alert	
 	522109850	Frog_Ribbit			\Default Work Unit\Player\Frog_Ribbit	
+	1522974588	Enemy_Patrol			\Default Work Unit\Enemies\Enemy_Patrol	
+	3549990139	Enemy_Confused			\Default Work Unit\Enemies\Enemy_Confused	
+	3975125555	Enemy_Agro			\Default Work Unit\Enemies\Enemy_Agro	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	38320581	Foley_FS_Anton_Stone_Walk_06	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_06_C83D63CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_06		11148
