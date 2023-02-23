@@ -1,3 +1,4 @@
+using IndieMarc.EnemyVision;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,11 @@ public class SoundGageParticles : MonoBehaviour
     public AK.Wwise.Event quietStepEvent;
     public AK.Wwise.Event loudStepEvent;
 
+    [Header("Enemy Alert")]
+    [SerializeField] private float quietRange;
+    [SerializeField] private float loudRange;
 
-    //private ParticleSystem currentRipples;
+    private float alert_range;
 
     private PlayerController player;
     private Animator animator;
@@ -27,7 +31,7 @@ public class SoundGageParticles : MonoBehaviour
     {
         player = PlayerController.instance;
         animator = GetComponent<Animator>();
-        //currentRipples = null;
+        alert_range = 0f;
     }
 
     private void Update()
@@ -35,9 +39,10 @@ public class SoundGageParticles : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-         
             loudRipples.Play();
             ribbit.Post(gameObject);
+            alert_range = loudRange;
+            TriggerNoise();
         }
         
        
@@ -50,6 +55,8 @@ public class SoundGageParticles : MonoBehaviour
         {
             loudRipples.Play();
             loudStepEvent.Post(gameObject);
+            alert_range = loudRange;
+            TriggerNoise();
 
         }
         else if(player.isIdle)
@@ -65,21 +72,29 @@ public class SoundGageParticles : MonoBehaviour
         {
             quietRipples.Play();
             quietStepEvent.Post(gameObject);
+            TriggerNoise();
+            alert_range = quietRange;
         }
         else if (player.isIdle)
         {
             RippleStop();
+            
         }
     }
 
     private void Land()
     {
-       loudRipples.Play();
+        loudRipples.Play();
+        alert_range = loudRange;
+        TriggerNoise();
+        
 
     }
 
     private void RippleStop()
     {
+        alert_range = 0f;
+
         if (loudRipples.isPlaying)
         {
             loudRipples.Stop();
@@ -93,29 +108,16 @@ public class SoundGageParticles : MonoBehaviour
             return;
         }
     }
-
-
-
-    /* OLD CODE in Step() 
-        if (player.isIdle)
+    public void TriggerNoise()
+    {
+        List<EnemyVision> list = EnemyVision.GetAllInRange(transform.position, alert_range);
+        foreach (EnemyVision enemy in list)
         {
-            quietRipples.Stop();
-            loudRipples.Stop();
+            enemy.Alert(transform.position);
         }
-        else if(player.grounded && player.moveSpeed == player.walkSpeed)
-        {
-            quietRipples.Play();
-        }
-        else if(player.grounded && player.moveSpeed == player.sprintSpeed)
-        {
-            loudRipples.Play();
-        }
-        else
-        {
-            RippleStop();
-        }
-        */
-
-
+       
+       
+    }
 
 }
+
