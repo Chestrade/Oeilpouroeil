@@ -25,16 +25,55 @@
 				<GameParameter Id="1537890915" Name="Enemy_Alert_Level"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{D9B41A57-EBC6-D96A-681B-709D2FFE1962}">
+		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{E0E52379-8E3A-8BC4-EE8E-DC20A5623FD4}">
 			<ShortName>Default_Soundbank</ShortName>
 			<Path>Default_Soundbank.bnk</Path>
 			<Media>
+				<File Id="38320581" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Stone_Walk_06.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_06_C83D63CF.wem</CachePath>
+				</File>
+				<File Id="498400401" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Stone_Walk_01.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_01_D521EF77.wem</CachePath>
+				</File>
+				<File Id="585691582" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Stone_Walk_04.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_04_6881B244.wem</CachePath>
+				</File>
+				<File Id="630012120" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Stone_Walk_02.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_02_3F110DC0.wem</CachePath>
+				</File>
+				<File Id="650197900" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Stone_Walk_07.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_07_4B90DBD0.wem</CachePath>
+				</File>
 				<File Id="803544457" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>447917__breviceps__cartoon-frog.wav</ShortName>
 					<CachePath>SFX/447917__breviceps__cartoon-frog_CAF21F95.wem</CachePath>
 				</File>
+				<File Id="908796425" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Stone_Walk_05.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_05_56C4F452.wem</CachePath>
+				</File>
+				<File Id="1054012413" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Stone_Walk_03.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_03_843C4C96.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
+				<Event Id="131181555" Name="Enemy_FS" DurationType="OneShot" DurationMin="0.019066922" DurationMax="0.10030791">
+					<MediaRefs>
+						<MediaRef Id="38320581"/>
+						<MediaRef Id="498400401"/>
+						<MediaRef Id="585691582"/>
+						<MediaRef Id="630012120"/>
+						<MediaRef Id="650197900"/>
+						<MediaRef Id="908796425"/>
+						<MediaRef Id="1054012413"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="522109850" Name="Frog_Ribbit" DurationType="OneShot" DurationMin="0.35383996" DurationMax="0.427897">
 					<MediaRefs>
 						<MediaRef Id="803544457"/>
@@ -43,5 +82,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5C538B97-11E0-7FDD-241B-D0E581679307}</FileHash>
+	<FileHash>{614EF554-637F-494B-FE74-D61CA8D47E84}</FileHash>
 </SoundBanksInfo>

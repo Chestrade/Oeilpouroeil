@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ENEMY_FS = 131181555U;
         static const AkUniqueID FROG_RIBBIT = 522109850U;
     } // namespace EVENTS
 

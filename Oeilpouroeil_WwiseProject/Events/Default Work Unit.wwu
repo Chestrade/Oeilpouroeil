@@ -48,10 +48,65 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="Enemy_FS" ID="{1B322693-5492-4694-8819-580FEA7367C4}"/>
-						<Event Name="Enemy_Alert" ID="{785729C7-AB75-40F8-9DF8-F06521C67186}"/>
-						<Event Name="Enemy_Agro" ID="{2A8D55BD-58A9-438F-8E43-FF15503F6FB6}"/>
+						<Event Name="Enemy_FS" ID="{1B322693-5492-4694-8819-580FEA7367C4}">
+							<ChildrenList>
+								<Action Name="" ID="{A01798E6-7025-4A6A-9D71-7D987C526295}" ShortID="561875763">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PLACEHOLDER_EnemyFS" ID="{F5415312-DEC7-4273-AFA4-4A862531042F}" WorkUnitID="{D2461688-0ED3-4004-8448-95845436683D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Enemy_Alert" ID="{785729C7-AB75-40F8-9DF8-F06521C67186}">
+							<ChildrenList>
+								<Action Name="" ID="{02EAFA3D-5452-413F-9D2A-92138A6F4FF0}" ShortID="460508003">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="50"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enemy_Alert_Level" ID="{AE1A9328-FFC7-4379-8DDB-FA397339DC06}" WorkUnitID="{8CC81C94-3681-4B2C-BE1C-8D3351411775}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Enemy_Agro" ID="{2A8D55BD-58A9-438F-8E43-FF15503F6FB6}">
+							<ChildrenList>
+								<Action Name="" ID="{B852E0DA-E250-419D-ACE1-CF21143FFCC6}" ShortID="125393642">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="100"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enemy_Alert_Level" ID="{AE1A9328-FFC7-4379-8DDB-FA397339DC06}" WorkUnitID="{8CC81C94-3681-4B2C-BE1C-8D3351411775}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Enemy_Death" ID="{B8226431-A6F8-4E1F-865C-923191EBE466}"/>
+						<Event Name="Enemy_Patrol" ID="{00ECC5C0-F353-4220-A55F-3D7CC1A71BE8}">
+							<ChildrenList>
+								<Action Name="" ID="{2A4D158F-9E7A-4387-A1EE-D475C6E8909A}" ShortID="832333993">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enemy_Alert_Level" ID="{AE1A9328-FFC7-4379-8DDB-FA397339DC06}" WorkUnitID="{8CC81C94-3681-4B2C-BE1C-8D3351411775}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environnement" ID="{DF83082C-1329-46C2-B804-358794A0AA2D}" ShortID="1001260095">

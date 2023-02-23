@@ -56,6 +56,228 @@
 								<ActiveSource Name="447917__breviceps__cartoon-frog" ID="{804E2CAA-4D83-4135-A706-685FBB1D5893}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<RandomSequenceContainer Name="PLACEHOLDER_EnemyFS" ID="{F5415312-DEC7-4273-AFA4-4A862531042F}" ShortID="526734424">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{87429EEA-0AAF-42D9-BD29-E650BBCE859F}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="354"/>
+													<Property Name="Min" Type="Real64" Value="-253"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Foley_FS_Anton_Stone_Walk_01" ID="{EE2E7F44-C57C-43F2-A024-8002613FFE53}" ShortID="802464715">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Stone_Walk_01" ID="{816F8660-9434-48B8-A91A-B60F6665FECD}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.00320938223936446"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.085917018346382"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.137690115486215"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Stone_Walk_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="498400401"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Stone_Walk_01" ID="{816F8660-9434-48B8-A91A-B60F6665FECD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Stone_Walk_02" ID="{5F4184D6-3B5E-4EAD-A42A-B504FE557258}" ShortID="54824500">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Stone_Walk_02" ID="{70188016-7F39-496A-9334-65BD837397F6}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.00534999046347512"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.0866698455082968"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Stone_Walk_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="630012120"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Stone_Walk_02" ID="{70188016-7F39-496A-9334-65BD837397F6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Stone_Walk_03" ID="{E16A446B-6E84-4B28-8FFF-C1C4E493B863}" ShortID="72343250">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Stone_Walk_03" ID="{0CADB608-E3BF-4978-86B2-E307E22A3169}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0334742619789349"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.067904931442982"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Stone_Walk_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1054012413"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Stone_Walk_03" ID="{0CADB608-E3BF-4978-86B2-E307E22A3169}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Stone_Walk_04" ID="{5A6CE24A-7F43-4D79-93A9-866D290A0F68}" ShortID="249919219">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Stone_Walk_04" ID="{16519DB4-3480-4825-BB4F-439BCD3D05A0}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0400309760456623"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.0892256694993675"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Stone_Walk_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="585691582"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Stone_Walk_04" ID="{16519DB4-3480-4825-BB4F-439BCD3D05A0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Stone_Walk_05" ID="{99C6CA13-FB1C-4209-8C0C-C057FDDA2174}" ShortID="1007694285">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Stone_Walk_05" ID="{B8B08F33-715C-48F2-9129-79FC878DAF9F}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0402716849979867"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.100029669188548"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Stone_Walk_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="908796425"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Stone_Walk_05" ID="{B8B08F33-715C-48F2-9129-79FC878DAF9F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Stone_Walk_06" ID="{696EC610-B82F-4209-9165-2DB7B04221B3}" ShortID="907712751">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Stone_Walk_06" ID="{A98016CF-2E49-454D-9900-A2610E637BE0}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.0626623858266047"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Stone_Walk_06.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="38320581"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Stone_Walk_06" ID="{A98016CF-2E49-454D-9900-A2610E637BE0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Stone_Walk_07" ID="{B063FA2E-EF7D-4FEE-9BE0-20A87077AA4C}" ShortID="679663172">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Stone_Walk_07" ID="{ED6A78A4-702E-40F3-B851-5E80633FAE60}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0641634348443428"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.0875563537980093"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Stone_Walk_07.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="650197900"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Stone_Walk_07" ID="{ED6A78A4-702E-40F3-B851-5E80633FAE60}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{C4DF11D7-7343-4E2F-B061-E7A3726E4FC5}"/>
+							</PositioningInfo>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>

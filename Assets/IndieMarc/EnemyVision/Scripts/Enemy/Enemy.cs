@@ -36,6 +36,7 @@ namespace IndieMarc.EnemyVision
         public float fall_speed = 5f;
         public LayerMask obstacle_mask = ~(0);
         public bool use_pathfind = false;
+        
 
         [Header("State")]
         public EnemyState state = EnemyState.Patrol;
@@ -603,6 +604,8 @@ namespace IndieMarc.EnemyVision
                 }
             }
         }
+        
     }
+    
 
 }

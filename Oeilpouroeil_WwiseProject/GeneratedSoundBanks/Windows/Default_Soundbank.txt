@@ -1,6 +1,14 @@
 Event	ID	Name			Wwise Object Path	Notes
+	131181555	Enemy_FS			\Default Work Unit\Enemies\Enemy_FS	
 	522109850	Frog_Ribbit			\Default Work Unit\Player\Frog_Ribbit	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	38320581	Foley_FS_Anton_Stone_Walk_06	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_06_C83D63CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_06		11148
+	498400401	Foley_FS_Anton_Stone_Walk_01	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_01_D521EF77.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_01		9228
+	585691582	Foley_FS_Anton_Stone_Walk_04	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_04_6881B244.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_04		8776
+	630012120	Foley_FS_Anton_Stone_Walk_02	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_02_3F110DC0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_02		15384
+	650197900	Foley_FS_Anton_Stone_Walk_07	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_07_4B90DBD0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_07		4220
 	803544457	PLACEHOLDER_Frog_Ribbit	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\447917__breviceps__cartoon-frog_CAF21F95.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_Frog_Ribbit		68240
+	908796425	Foley_FS_Anton_Stone_Walk_05	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_05_56C4F452.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_05		10636
+	1054012413	Foley_FS_Anton_Stone_Walk_03	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_03_843C4C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_03		6172
 

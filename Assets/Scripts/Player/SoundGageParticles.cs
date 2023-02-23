@@ -11,8 +11,8 @@ public class SoundGageParticles : MonoBehaviour
 
     [Header("Wwise Events")]
     public AK.Wwise.Event ribbit;
-    public AK.Wwise.Event quietStepEvent;
-    public AK.Wwise.Event loudStepEvent;
+   // public AK.Wwise.Event quietStepEvent;
+    //public AK.Wwise.Event loudStepEvent;
 
     [Header("Enemy Alert")]
     [SerializeField] private float quietRange;
@@ -54,7 +54,7 @@ public class SoundGageParticles : MonoBehaviour
         if(animator.GetFloat("SpeedAnimations") >=0.6)
         {
             loudRipples.Play();
-            loudStepEvent.Post(gameObject);
+            //loudStepEvent.Post(gameObject);
             alert_range = loudRange;
             TriggerNoise();
 
@@ -71,7 +71,7 @@ public class SoundGageParticles : MonoBehaviour
         if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6)
         {
             quietRipples.Play();
-            quietStepEvent.Post(gameObject);
+           //quietStepEvent.Post(gameObject);
             TriggerNoise();
             alert_range = quietRange;
         }
