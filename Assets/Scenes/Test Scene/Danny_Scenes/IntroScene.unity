@@ -4731,14 +4731,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 719458200052851456, guid: 082eaabc82929f74d918059d8fa1e081, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: d33885b57e3cafb48a227e56436055e6, type: 2}
-    - target: {fileID: 1741762515262603455, guid: 082eaabc82929f74d918059d8fa1e081, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 1823fa9ba3b60ad48b7ce68902e25d09, type: 2}
     - target: {fileID: 2470091228479791625, guid: 082eaabc82929f74d918059d8fa1e081, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4807,10 +4799,6 @@ PrefabInstance:
       propertyPath: m_listeners.initialListenerList.Array.data[0]
       value: 
       objectReference: {fileID: 2470091228479791624}
-    - target: {fileID: 7736336748388939398, guid: 082eaabc82929f74d918059d8fa1e081, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 8ebcb865a26cde44d83cb87cfb99f31f, type: 2}
     m_RemovedComponents:
     - {fileID: 5375721582105218591, guid: 082eaabc82929f74d918059d8fa1e081, type: 3}
     - {fileID: 6942844029502168164, guid: 082eaabc82929f74d918059d8fa1e081, type: 3}
