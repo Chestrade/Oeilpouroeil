@@ -14,8 +14,6 @@ public class CameraController : MonoBehaviour
 
     //References
     private Transform parent;
-    private bool rotatingR;
-    private bool rotatingL;
 
     private void Start()
     {
