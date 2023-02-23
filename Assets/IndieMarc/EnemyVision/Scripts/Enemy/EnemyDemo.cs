@@ -14,11 +14,8 @@ namespace IndieMarc.EnemyVision
         public GameObject exclama_prefab;
         public GameObject death_fx_prefab;
 
-        [Header("Wwise Events")]
-        public AK.Wwise.Event enemyPatrolEvent;
         public AK.Wwise.Event enemyAlertEvent;
         public AK.Wwise.Event enemyAgroEvent;
-        public AK.Wwise.Event enemyConfusedEvent;
 
         private EnemyVision enemy;
         private Animator animator;

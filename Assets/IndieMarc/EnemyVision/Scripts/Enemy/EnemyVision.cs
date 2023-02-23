@@ -34,6 +34,11 @@ namespace IndieMarc.EnemyVision
         public GameObject vision_prefab;
         public GameObject death_fx_prefab;
 
+        [Header("Wwise Events")]
+        public AK.Wwise.Event enemyPatrolEvent;
+       
+        public AK.Wwise.Event enemyConfusedEvent;
+
         public UnityAction<VisionTarget, int> onSeeTarget; //As soon as seen (Patrol->Alert)  int:0=touch, 1=near, 2=far, 3:other
         public UnityAction<VisionTarget, int> onDetectTarget; //detect_time seconds after seen (Alert->Chase)  int:0=touch, 1=near, 2=far
         public UnityAction<VisionTarget> onTouchTarget;
@@ -78,7 +83,11 @@ namespace IndieMarc.EnemyVision
             }
 
             if (enemy != null)
-                enemy.ChangeState(EnemyState.Patrol);
+            { 
+                enemy.ChangeState(EnemyState.Patrol); 
+                enemyPatrolEvent.Post(gameObject); 
+            }
+                
             seen_character = null;
         }
 
@@ -96,8 +105,10 @@ namespace IndieMarc.EnemyVision
             //While patroling, detect targets
             if (enemy.GetState() == EnemyState.Patrol)
             {
+                
+
                 DetectVisionTarget();
-               
+                      
 
 
                 if(group_detect)
@@ -421,9 +432,19 @@ namespace IndieMarc.EnemyVision
             if (enemy != null)
             {
                 if (dont_return)
+                { 
                     enemy.ChangeState(EnemyState.Confused);
-                else
+                    enemyConfusedEvent.Post(gameObject);
+                }
+                    
+                    
+                else 
+                { 
                     enemy.ChangeState(EnemyState.Patrol);
+                    enemyPatrolEvent.Post(gameObject);
+                }
+                    
+
             }
         }
 
