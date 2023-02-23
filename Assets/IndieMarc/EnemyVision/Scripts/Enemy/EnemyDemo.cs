@@ -16,6 +16,7 @@ namespace IndieMarc.EnemyVision
 
         public AK.Wwise.Event enemyAlertEvent;
         public AK.Wwise.Event enemyAgroEvent;
+        public AK.Wwise.Event enemyDeathEvent;
 
         private EnemyVision enemy;
         private Animator animator;
@@ -83,8 +84,10 @@ namespace IndieMarc.EnemyVision
 
         private void OnDeath()
         {
-            if(death_fx_prefab)
-                Instantiate(death_fx_prefab, transform.position + Vector3.up * 0.5f, death_fx_prefab.transform.rotation);
+            if (death_fx_prefab)
+            { 
+                Instantiate(death_fx_prefab, transform.position + Vector3.up * 0.5f, death_fx_prefab.transform.rotation); 
+            }
         }
     }
 }
