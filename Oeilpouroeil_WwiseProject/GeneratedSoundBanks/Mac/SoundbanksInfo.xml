@@ -25,7 +25,7 @@
 				<GameParameter Id="1537890915" Name="Enemy_Alert_Level"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{EBE0EDB0-99BC-0D3B-2694-E63422FFA9FF}">
+		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{E01DCD7D-E8A4-1A73-4816-20F0CAC322EC}">
 			<ShortName>Default_Soundbank</ShortName>
 			<Path>Default_Soundbank.bnk</Path>
 			<Media>
@@ -49,10 +49,6 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="3328279379" Name="Gate_Open" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="352576276" Name="Level_Start" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="843066888" Name="Level_Stop" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="3908297853" Name="Menu_Start" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="2696506367" Name="Menu_Stop" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3541546815" Name="Pillar_Slide" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3083087645" Name="Player_Death" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="473928874" Name="Player_FS_Run" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
@@ -68,5 +64,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{186337FE-7D70-D51A-E87C-A517B19C872C}</FileHash>
+	<FileHash>{C9842D4E-DF2C-F6FE-59C4-510AE821820F}</FileHash>
 </SoundBanksInfo>
