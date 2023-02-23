@@ -59,6 +59,7 @@
 						<RandomSequenceContainer Name="PLACEHOLDER_EnemyFS" ID="{F5415312-DEC7-4273-AFA4-4A862531042F}" ShortID="526734424">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -72,9 +73,11 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
-								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Distance" ID="{E54D9B2C-D7F8-4594-A96D-F8915BEFEDE4}" WorkUnitID="{FB9234BF-F331-44DB-9EAC-6738B9A7C6FA}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
 								</Reference>
@@ -276,6 +279,7 @@
 							</ChildrenList>
 							<PositioningInfo>
 								<Panner Name="" ID="{C4DF11D7-7343-4E2F-B061-E7A3726E4FC5}"/>
+								<Position Name="" ID="{0F30D819-C01F-4DF1-9CC5-68078AB27B51}"/>
 							</PositioningInfo>
 						</RandomSequenceContainer>
 					</ChildrenList>

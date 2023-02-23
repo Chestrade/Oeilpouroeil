@@ -25,7 +25,7 @@
 				<GameParameter Id="1537890915" Name="Enemy_Alert_Level"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{E0E52379-8E3A-8BC4-EE8E-DC20A5623FD4}">
+		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{3DF12F46-D0FD-7B9E-B4B8-60545E1A362D}">
 			<ShortName>Default_Soundbank</ShortName>
 			<Path>Default_Soundbank.bnk</Path>
 			<Media>
@@ -63,7 +63,7 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="131181555" Name="Enemy_FS" DurationType="OneShot" DurationMin="0.019066922" DurationMax="0.10030791">
+				<Event Id="131181555" Name="Enemy_FS" MaxAttenuation="15" DurationType="OneShot" DurationMin="0.019066922" DurationMax="0.10030791">
 					<MediaRefs>
 						<MediaRef Id="38320581"/>
 						<MediaRef Id="498400401"/>
@@ -82,5 +82,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{614EF554-637F-494B-FE74-D61CA8D47E84}</FileHash>
+	<FileHash>{50D64B8D-A77E-21F9-9792-9938BBB1A01F}</FileHash>
 </SoundBanksInfo>
