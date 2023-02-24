@@ -12,7 +12,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     [SerializeField] private float maxSlopeAngle;
-    [SerializeField] public float climbSpeed;//public pour avoir acces dans SoundGageParticles
+    //AAB [SerializeField] public float climbSpeed;//public pour avoir acces dans SoundGageParticles
     [SerializeField] private Transform orientation;
 
     [Header("Keybinds")]
@@ -24,7 +24,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private LayerMask whatIsGround;
 
     [Header("References")]
-    public PlayerClimbing climbingScript;
+    //AAB public PlayerClimbing climbingScript;
     
 
     private float horizontalInput;
@@ -55,7 +55,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         Walking,
         Sprinting,
-        Climbing,
+        //AAB Climbing,
         Air,
         Idle
     }
@@ -142,12 +142,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
 
         //Mode - climbing
-        if (climbing)
+       /*AAB if (climbing)
         {
             state = MovementState.Climbing;
             moveSpeed = climbSpeed;
 
-        }
+        } AAB*/
 
         //Mode - sprinting
         if (grounded && UnityEngine.Input.GetKey(sprintKey))
@@ -173,7 +173,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void MovePlayer()
     {
-        if (climbingScript.exitingWall) return;
+        //AAB if (climbingScript.exitingWall) return;
         
         // Calcule la direction du mouvement (le joueur marche toujours dans la direction qu'il regarde)
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
