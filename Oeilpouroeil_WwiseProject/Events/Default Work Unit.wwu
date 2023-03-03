@@ -124,6 +124,7 @@
 						<Event Name="Rope_Pull" ID="{C1E0887F-05F9-4D0E-8739-830D06F9D278}"/>
 						<Event Name="Gate_Open" ID="{2CB9B2AE-BE52-4AE1-AD6E-16446760E961}"/>
 						<Event Name="Pillar_Slide" ID="{C3E94C84-4EF2-4554-9FDA-CC8E47EC7BE3}"/>
+						<Event Name="Plank_Crack" ID="{9F84E8D7-9359-4911-BF39-3BCD1E21F708}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music and Amb cues" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" ShortID="90664474">
