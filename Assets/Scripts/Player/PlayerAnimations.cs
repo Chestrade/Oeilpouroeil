@@ -9,6 +9,7 @@ public class PlayerAnimations : MonoBehaviour
     // References 
     public AK.Wwise.Event deathEvent;
     public AK.Wwise.Event jumpEvent;
+    
 
     private PlayerController player;
     private Animator animator;

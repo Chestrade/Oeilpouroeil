@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class TongueAnim : MonoBehaviour
 {
+
+    public AK.Wwise.Event tongueShoot;
+    
+
     private Animator tongueAnimator;
+
 
     private void Start()
     {
@@ -17,6 +22,7 @@ public class TongueAnim : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Y))
         {
             tongueAnimator.SetTrigger("TongueOut");
+            tongueShoot.Post(gameObject);
         }
     }
 }
