@@ -7,25 +7,33 @@ public class Rocks : MonoBehaviour
     public GameObject interactPrompt;
     public bool rocksPushed;
 
-    public Transform rockFallTransform;
+    public Transform[] rockFallTransform;
     public AudioSource rockFallSFX;
+
+    private bool rocksPushStep1;
+    private bool rocksPushStep2;
+
     void Start()
     {
-    //    interactPrompt.SetActive(false);
+        interactPrompt.SetActive(false);
     }
 
     private void Update()
     {
-        if(rocksPushed)
+        if(rocksPushStep1)
         {
-            transform.position = Vector3.Lerp(transform.position, rockFallTransform.position, 2 * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, rockFallTransform[0].position, 1.5f * Time.deltaTime);
+        }
+        if (rocksPushStep2)
+        {
+            transform.position = Vector3.Lerp(transform.position, rockFallTransform[1].position, 2f * Time.deltaTime);
         }
     }
 
     public void PushRocks()
     {
         rocksPushed = true;
-        print("WEEEEEE");
+        StartCoroutine(PushDelay());
 
         //Play SFX
         rockFallSFX.Play();
@@ -39,5 +47,24 @@ public class Rocks : MonoBehaviour
     public void PlayerExitProximity()
     {
         interactPrompt.SetActive(false);
+    }
+
+    IEnumerator PushDelay()
+    {
+        rocksPushStep1 = true;
+        yield return new WaitForSeconds(1f);
+        {
+            rocksPushStep1 = false;
+            rocksPushStep2 = true;
+
+
+        }
+    }
+
+
+    public void OnDrawGizmos()
+    {
+        Debug.DrawLine(transform.position, rockFallTransform[0].position, Color.green);
+        Debug.DrawLine(rockFallTransform[0].position, rockFallTransform[1].position, Color.green);
     }
 }
