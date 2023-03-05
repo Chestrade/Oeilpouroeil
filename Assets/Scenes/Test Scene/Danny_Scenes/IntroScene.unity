@@ -3514,6 +3514,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9036d9076e78b49ac648e19cf14935, type: 3}
+--- !u!21 &1258883093
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!4 &1260645619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8931065871251309818, guid: eae9f115fa4948e4bb5100b9166a6b52, type: 3}
@@ -5270,6 +5298,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1310824646}
     m_Modifications:
+    - target: {fileID: 4682163720369879358, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682163720369879358, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682163721074298584, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682163721074298584, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961156, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_Name
       value: Statue
@@ -5280,31 +5324,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.21
+      value: -12.35
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.88
+      value: -7.88
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 56.57
+      value: 56.96
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.4924803
+      value: -0.3907867
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5312,7 +5356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.8703236
+      value: -0.9204813
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalRotation.z
@@ -5324,7 +5368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -239.007
+      value: -226.007
       objectReference: {fileID: 0}
     - target: {fileID: 4682163721545961157, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5333,6 +5377,18 @@ PrefabInstance:
     - target: {fileID: 4682163721545961158, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
       propertyPath: m_Radius
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8753168088217119190, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8753168088217119190, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8753168088217119190, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b4e71c5ea31e854f96efe2e573dca31, type: 3}
@@ -5644,34 +5700,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6382559765315790555, guid: 68c729a2e6aba714b8385741315f13eb, type: 3}
   m_PrefabInstance: {fileID: 2011638382}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &2012752061
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &2052954220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6092,7 +6120,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 0
   distanceHeightBlend: 0.5
-  material: {fileID: 2012752061}
+  material: {fileID: 1258883093}
 --- !u!114 &2470091228479791619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6615,13 +6643,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1310824646}
     m_Modifications:
+    - target: {fileID: 274915498860966393, guid: 20b5dc724256cbf4a855df565fe5f1fc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 274915498860966393, guid: 20b5dc724256cbf4a855df565fe5f1fc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7285511492778969220, guid: 20b5dc724256cbf4a855df565fe5f1fc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7285511492778969220, guid: 20b5dc724256cbf4a855df565fe5f1fc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7285511493393425741, guid: 20b5dc724256cbf4a855df565fe5f1fc, type: 3}
       propertyPath: m_LocalPosition.z
