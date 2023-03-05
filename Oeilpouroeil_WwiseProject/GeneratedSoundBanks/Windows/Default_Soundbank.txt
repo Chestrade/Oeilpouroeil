@@ -1,18 +1,41 @@
 Event	ID	Name			Wwise Object Path	Notes
 	131181555	Enemy_FS			\Default Work Unit\Enemies\Enemy_FS	
+	352576276	Level_Start			\Default Work Unit\Music and Amb cues\Level_Start	
+	473928874	Player_FS_Run			\Default Work Unit\Player\Player_FS_Run	
 	493036092	Enemy_Alert			\Default Work Unit\Enemies\Enemy_Alert	
 	522109850	Frog_Ribbit			\Default Work Unit\Player\Frog_Ribbit	
+	596109183	Crystal_Fall			\Default Work Unit\Environnement\Crystal_Fall	Son du crystal qui tombe ou qui se dépose 
+	843066888	Level_Stop			\Default Work Unit\Music and Amb cues\Level_Stop	
+	902388388	Plank_Crack			\Default Work Unit\Environnement\Plank_Crack	
+	1126357445	Tongue_Retreat			\Default Work Unit\Player\Tongue_Retreat	
+	1205999388	Enemy_Death			\Default Work Unit\Enemies\Enemy_Death	
+	1305133589	Player_Jump			\Default Work Unit\Player\Player_Jump	
+	1327016585	Cammo_Enter			\Default Work Unit\Player\Cammo_Enter	
 	1522974588	Enemy_Patrol			\Default Work Unit\Enemies\Enemy_Patrol	
+	1781252372	Player_FS_Walk			\Default Work Unit\Player\Player_FS_Walk	
+	2018101552	Toungue_Shoot			\Default Work Unit\Player\Toungue_Shoot	
+	2163476404	UI_Menu_Hover			\Default Work Unit\UI\UI_Menu_Hover	
+	2289956921	Boulders_Fall			\Default Work Unit\Environnement\Boulders_Fall	
+	2458140901	Cammo_Exit			\Default Work Unit\Player\Cammo_Exit	
+	2690505134	UI_Menu_Click			\Default Work Unit\UI\UI_Menu_Click	
+	2696506367	Menu_Stop			\Default Work Unit\Music and Amb cues\Menu_Stop	
+	3083087645	Player_Death			\Default Work Unit\Player\Player_Death	
+	3328279379	Gate_Open			\Default Work Unit\Environnement\Gate_Open	
+	3511630412	UI_Menu_Return			\Default Work Unit\UI\UI_Menu_Return	
+	3541546815	Pillar_Slide			\Default Work Unit\Environnement\Pillar_Slide	
 	3549990139	Enemy_Confused			\Default Work Unit\Enemies\Enemy_Confused	
+	3629196698	Player_Land			\Default Work Unit\Player\Player_Land	
+	3908297853	Menu_Start			\Default Work Unit\Music and Amb cues\Menu_Start	
 	3975125555	Enemy_Agro			\Default Work Unit\Enemies\Enemy_Agro	
+	4010507821	Rope_Pull			\Default Work Unit\Environnement\Rope_Pull	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	38320581	Foley_FS_Anton_Stone_Walk_06	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_06_C83D63CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_06		11148
-	498400401	Foley_FS_Anton_Stone_Walk_01	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_01_D521EF77.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_01		9228
-	585691582	Foley_FS_Anton_Stone_Walk_04	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_04_6881B244.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_04		8776
-	630012120	Foley_FS_Anton_Stone_Walk_02	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_02_3F110DC0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_02		15384
-	650197900	Foley_FS_Anton_Stone_Walk_07	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_07_4B90DBD0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_07		4220
+	498400401	Foley_FS_Anton_Stone_Walk_01	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_01_BBDD5383.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_01		9228
+	585691582	Foley_FS_Anton_Stone_Walk_04	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_04_8115A761.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_04		8776
+	630012120	Foley_FS_Anton_Stone_Walk_02	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_02_A4E7719C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_02		15384
+	650197900	Foley_FS_Anton_Stone_Walk_07	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_07_36792A93.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_07		4220
 	803544457	PLACEHOLDER_Frog_Ribbit	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\447917__breviceps__cartoon-frog_CAF21F95.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_Frog_Ribbit		68240
-	908796425	Foley_FS_Anton_Stone_Walk_05	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_05_56C4F452.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_05		10636
-	1054012413	Foley_FS_Anton_Stone_Walk_03	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_03_843C4C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_03		6172
+	908796425	Foley_FS_Anton_Stone_Walk_05	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_05_967909F3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_05		10636
+	1054012413	Foley_FS_Anton_Stone_Walk_03	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_03_12CF5754.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_03		6172
 

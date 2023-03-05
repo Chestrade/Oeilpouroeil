@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerAnimations : MonoBehaviour
 {
     // References 
+    public AK.Wwise.Event deathEvent;
 
     private PlayerController player;
     private Animator animator;
@@ -31,6 +32,7 @@ public class PlayerAnimations : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             animator.SetTrigger("Death");
+            deathEvent.Post(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -66,4 +68,5 @@ public class PlayerAnimations : MonoBehaviour
             animator.SetTrigger("Jump");
         }
     }
+
 }
