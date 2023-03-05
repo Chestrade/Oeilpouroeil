@@ -3707,7 +3707,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1977617751557745874, guid: 932cd52620a3e4a4eb4aa7188513671d, type: 3}
   m_PrefabInstance: {fileID: 1597599457}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1614545762
+--- !u!21 &1610230744
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -5379,7 +5379,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 0
   distanceHeightBlend: 0.5
-  material: {fileID: 1614545762}
+  material: {fileID: 1610230744}
 --- !u!114 &2470091228479791619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6029,6 +6029,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1310824646}
     m_Modifications:
+    - target: {fileID: 7285511493393425741, guid: 20b5dc724256cbf4a855df565fe5f1fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.29
+      objectReference: {fileID: 0}
     - target: {fileID: 7285511493839919104, guid: 20b5dc724256cbf4a855df565fe5f1fc, type: 3}
       propertyPath: m_Name
       value: Rock Holder
