@@ -23,6 +23,7 @@ public class StatueInteractable : MonoBehaviour
     {
         noteManager = FindObjectOfType<NoteManager>();
         interactPrompt.SetActive(false);   //When the game start, the prompt is turned off
+        interactPromptHint.SetActive(false);
         collectedEyeManager = FindObjectOfType<CollectedEyeManager>();
         collectedStatueManager = FindObjectOfType<CollectedStatueManager>();
 
