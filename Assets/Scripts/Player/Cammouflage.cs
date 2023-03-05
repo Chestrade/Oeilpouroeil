@@ -5,17 +5,22 @@ using IndieMarc.EnemyVision;
 
 public class Cammouflage : MonoBehaviour
 {
+
+    [Header("Materials and Refs")]
     public Material[] material;
     [SerializeField] private bool cammoPossible;
     [SerializeField] private GameObject frogChild;
     [SerializeField] private VisionTarget vtScript;
+    [SerializeField] private MeshCollider playerColl;
+
+    [Header("Wwise Events")]
+    public AK.Wwise.Event cammoEnter;
+    public AK.Wwise.Event cammoExit;
 
     private Renderer rend;
     private PlayerController player;
-
-    [SerializeField] private MeshCollider playerColl;
     private CapsuleCollider enemyColl;
-
+    private bool wwiseEventPlayed;
     
     
     
@@ -27,6 +32,7 @@ public class Cammouflage : MonoBehaviour
         rend.enabled = true;
         rend.sharedMaterial = material[0];
         cammoPossible = false;
+        wwiseEventPlayed = false;
         
         enemyColl = GameObject.Find("Enemy/Mesh").GetComponent<CapsuleCollider>();
 
@@ -35,6 +41,7 @@ public class Cammouflage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //trigger acces au cammouflage
         if(Input.GetKeyDown(KeyCode.C) && cammoPossible == false)
         {
             cammoPossible = true;
@@ -43,18 +50,38 @@ public class Cammouflage : MonoBehaviour
         {
             cammoPossible = false;            
         }
+
+        //cammouflage
         if(player.isIdle && player.grounded && cammoPossible)
         {
             Physics.IgnoreCollision(playerColl, enemyColl, true);
             rend.sharedMaterial = material[1];
             vtScript.visible = false;
+
+            if(wwiseEventPlayed == false)
+            {
+                cammoEnter.Post(gameObject);
+                //Debug.Log("The frog is cammouflaged");
+                wwiseEventPlayed = true;
+            }
+
         }
         else
         {
             Physics.IgnoreCollision(playerColl, enemyColl, false);
             rend.sharedMaterial = material[0];
             vtScript.visible = true;
+
+            if(wwiseEventPlayed == true)
+            {
+                cammoExit.Post(gameObject);
+                //Debug.Log("The frog is not cammouflaged");
+                wwiseEventPlayed = false;
+            }
+            
         }
+
+    
        
     }
 
