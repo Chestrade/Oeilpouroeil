@@ -20,6 +20,7 @@ namespace IndieMarc.EnemyVision
 
         private EnemyVision enemy;
         private Animator animator;
+        private GlobalDangerLevel dangerLevel;
         
         void Start()
         {
