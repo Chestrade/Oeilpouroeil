@@ -1105,6 +1105,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6382559765315790555, guid: 68c729a2e6aba714b8385741315f13eb, type: 3}
   m_PrefabInstance: {fileID: 322366323}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &353266246
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/FogPlus
+  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &367654576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1145,7 @@ GameObject:
   - component: {fileID: 367654580}
   - component: {fileID: 367654579}
   - component: {fileID: 367654578}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2285,7 +2313,7 @@ GameObject:
   - component: {fileID: 833145243}
   - component: {fileID: 833145245}
   - component: {fileID: 833145244}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2420,7 +2448,7 @@ GameObject:
   - component: {fileID: 854023247}
   - component: {fileID: 854023249}
   - component: {fileID: 854023248}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2930,7 +2958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946450432}
   - component: {fileID: 946450433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Interact Prompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3117,34 +3145,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6382559765315790555, guid: 68c729a2e6aba714b8385741315f13eb, type: 3}
   m_PrefabInstance: {fileID: 978210697}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1003826009
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/FogPlus
-  m_Shader: {fileID: 4800000, guid: 39ef0b8c9be96494d9f8b2f2c54a28c5, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &1038714602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5277,7 +5277,7 @@ GameObject:
   - component: {fileID: 1999463001}
   - component: {fileID: 1999463003}
   - component: {fileID: 1999463004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -5813,7 +5813,7 @@ MonoBehaviour:
   heightFogIntensity: 1
   useHeightFogOnSky: 0
   distanceHeightBlend: 0.5
-  material: {fileID: 1003826009}
+  material: {fileID: 353266246}
 --- !u!114 &2470091228479791619
 MonoBehaviour:
   m_ObjectHideFlags: 0
