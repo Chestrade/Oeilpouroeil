@@ -13,6 +13,7 @@ public class SoundGageParticles : MonoBehaviour
     public AK.Wwise.Event ribbit;
     public AK.Wwise.Event quietStepEvent;
     public AK.Wwise.Event loudStepEvent;
+    public AK.Wwise.Event landEvent; //jump event dans PlayerAnimations
 
     [Header("Enemy Alert")]
     [SerializeField] private float quietRange;
@@ -86,6 +87,7 @@ public class SoundGageParticles : MonoBehaviour
     {
         loudRipples.Play();
         alert_range = loudRange;
+        landEvent.Post(gameObject);
         TriggerNoise();
         
 

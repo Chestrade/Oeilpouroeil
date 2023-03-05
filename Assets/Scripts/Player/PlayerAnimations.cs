@@ -8,6 +8,7 @@ public class PlayerAnimations : MonoBehaviour
 {
     // References 
     public AK.Wwise.Event deathEvent;
+    public AK.Wwise.Event jumpEvent;
 
     private PlayerController player;
     private Animator animator;
@@ -66,6 +67,7 @@ public class PlayerAnimations : MonoBehaviour
         if (UnityEngine.Input.GetKeyDown(KeyCode.Space) && player.grounded)
         {
             animator.SetTrigger("Jump");
+            jumpEvent.Post(gameObject);
         }
     }
 
