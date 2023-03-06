@@ -114,6 +114,13 @@ namespace IndieMarc.EnemyVision
             current_path = 0;
             if (path_list.Count >= 2)
                 current_path = 1; //Dont start at start pos
+
+
+            isCountedAsPatrolling = false;
+            isCountedAsAlerted = false;
+            isCountedAsChasing = false;
+            isCountedAsConfused = false;
+
         }
 
         private void OnDestroy()
@@ -123,10 +130,7 @@ namespace IndieMarc.EnemyVision
 
         void Start()
         {
-            isCountedAsPatrolling = false;
-            isCountedAsAlerted = false;
-            isCountedAsChasing = false;
-            isCountedAsConfused = false;
+            
         }
 
         private void RefreshPatrol()

@@ -38,6 +38,8 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
 
     void Start()
     {
+        
+
         currentDangerLevel = DangerLevel.Low;
         currentSwitch = dangerLevel[1];
         enemyComponents = FindObjectsOfType<Enemy>();
@@ -54,6 +56,8 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
     }
     void EnemyCount()
     {
+        
+
         foreach (Enemy enemy in enemies)
         {
             if(enemy.state == EnemyState.Patrol)
@@ -63,51 +67,57 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
                     patrolEnemyCount++;
                     enemy.isCountedAsPatrolling = true;
                 }
+                enemy.isCountedAsAlerted = false;
+                enemy.isCountedAsChasing = false;
+                enemy.isCountedAsConfused = false;
             }
-            else
-            {
-                enemy.isCountedAsPatrolling = false;
-            }
-
-            if (enemy.state == EnemyState.Alert)
+       
+            else if (enemy.state == EnemyState.Alert)
             {
                 if (!enemy.isCountedAsAlerted)
                 {
                     alertEnemyCount++;
                     enemy.isCountedAsAlerted = true;
                 }
+                enemy.isCountedAsPatrolling = false;
+                enemy.isCountedAsChasing = false;
+                enemy.isCountedAsConfused = false;
             }
-            else
-            {
-                enemy.isCountedAsAlerted = false;
-            }
+            
 
-            if(enemy.state == EnemyState.Chase)
+            else if(enemy.state == EnemyState.Chase)
             {
                 if(!enemy.isCountedAsChasing)
                 {
                     chaseEnemyCount++;
                     enemy.isCountedAsChasing = true;
                 }
-            }
-            else
-            {
-                enemy.isCountedAsChasing = false;
+                enemy.isCountedAsPatrolling = false;
+                enemy.isCountedAsAlerted = false;
+                enemy.isCountedAsConfused = false;
             }
 
-            if (enemy.state ==EnemyState.Confused) 
+
+            else if (enemy.state ==EnemyState.Confused) 
             {
                 if (!enemy.isCountedAsConfused)
                 {
                     confusedEnemyCount++; 
                     enemy.isCountedAsConfused = true;
                 }
-                
+                enemy.isCountedAsPatrolling = false;
+                enemy.isCountedAsAlerted = false;
+                enemy.isCountedAsChasing = false;
+
             }
             else
             {
-                enemy.isCountedAsChasing= false;
+                enemy.isCountedAsPatrolling = false;
+                enemy.isCountedAsAlerted = false;
+                enemy.isCountedAsChasing = false;
+                enemy.isCountedAsConfused = false;
             }
+
         }
 
         foreach (Enemy enemy in enemies)
@@ -122,11 +132,11 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
                 {
                     alertEnemyCount--;
                 }
-                if(enemy.previousState!=EnemyState.Chase)
+                if(enemy.previousState ==EnemyState.Chase)
                 {
                     chaseEnemyCount--;
                 }
-                if(enemy.previousState>EnemyState.Confused)
+                if(enemy.previousState ==EnemyState.Confused)
                 {
                     confusedEnemyCount--;
                 }
@@ -134,12 +144,21 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
             }
         }
 
-        Debug.Log(patrolEnemyCount + "enemies are patrolling");
-        Debug.Log(alertEnemyCount + "enemies are alerted");
-        Debug.Log(chaseEnemyCount + "enemies are chasing");
-        Debug.Log(confusedEnemyCount + "enemies are confused");
+
+       // Debug.Log(patrolEnemyCount + " enemies are patrolling");
+       // Debug.Log(alertEnemyCount + " enemies are alerted");
+      //  Debug.Log(chaseEnemyCount + " enemies are chasing");
+       // Debug.Log(confusedEnemyCount + " enemies are confused");
     }
-    
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 200, 20), "Number of enemies patrolling: " + patrolEnemyCount);
+        GUI.Label(new Rect(10, 30, 200, 20), "Number of enemies on alert: " + alertEnemyCount);
+        GUI.Label(new Rect(10, 50, 200, 20), "Number of enemies chasing: " + chaseEnemyCount);
+        GUI.Label(new Rect(10, 70, 200, 20), "Number of enemies confused: " + confusedEnemyCount);
+    }
+
 }
 
 
