@@ -17,6 +17,7 @@ public class StatueInteractable : MonoBehaviour
     private CollectedEyeManager collectedEyeManager;
     private CollectedStatueManager collectedStatueManager;
     public int statueID;
+    private EndingPortal endingPortal;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class StatueInteractable : MonoBehaviour
         interactPromptHint.SetActive(false);
         collectedEyeManager = FindObjectOfType<CollectedEyeManager>();
         collectedStatueManager = FindObjectOfType<CollectedStatueManager>();
-
+        endingPortal = FindObjectOfType<EndingPortal>();
     }
 
 
@@ -55,7 +56,7 @@ public class StatueInteractable : MonoBehaviour
         collectedEyeManager.DisableEye();
         collectedStatueManager.statueID = statueID;
         collectedStatueManager.EnableStatue();
-
+        endingPortal.PortaleEnabled();
         PlayerPrefs.SetInt("Statue" + statueID, 1);
 
     }

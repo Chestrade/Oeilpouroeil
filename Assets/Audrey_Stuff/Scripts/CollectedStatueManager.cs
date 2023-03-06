@@ -7,9 +7,12 @@ public class CollectedStatueManager : MonoBehaviour
     public GameObject[] statue;
     public int statueID;
 
+    public PlayerTongue playerTongue;
 
     void Start()
     {
+        playerTongue = GetComponent<PlayerTongue>();    
+
         for (int i = 0; i < statue.Length; i++)
         {
             statue[i].gameObject.SetActive(false);
@@ -40,6 +43,13 @@ public class CollectedStatueManager : MonoBehaviour
     public void EnableStatue()
     {
         statue[statueID].gameObject.SetActive(true);
+
+        if (statueID == 1)
+        {
+
+            playerTongue.enabled = true;
+
+        }
     }
 
 }
