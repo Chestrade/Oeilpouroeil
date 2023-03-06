@@ -27,7 +27,6 @@
 							</ChildrenList>
 						</Event>
 						<Event Name="Toungue_Shoot" ID="{69E7721A-6600-4ED8-B2AD-53DC08D442E7}"/>
-						<Event Name="Tongue_Retreat" ID="{469274DE-FDC7-48ED-98A7-DC5419A32578}"/>
 						<Event Name="Player_Death" ID="{7C2B39F4-78AD-4BB6-A129-4112D3EF5793}"/>
 					</ChildrenList>
 				</Folder>
@@ -40,6 +39,9 @@
 						<Event Name="UI_Menu_Click" ID="{3613AB66-38CF-4373-BE39-C4905DAD7157}"/>
 						<Event Name="UI_Menu_Hover" ID="{AC351019-B3C8-4985-A8C6-5B30D8CC1269}"/>
 						<Event Name="UI_Menu_Return" ID="{65BA1B7F-DC3D-4A4C-B36B-0CAC853498BB}"/>
+						<Event Name="UI_Prompt_Popup" ID="{63CCDAEB-5DE2-4402-869C-3CBCC1ACED47}"/>
+						<Event Name="UI_Prompt_Select" ID="{5EEC0367-C7C4-4093-8607-8FF027F0E6A9}"/>
+						<Event Name="UI_Prompt_Vanish" ID="{4C413F96-E1E1-4DE0-95A1-78966D392672}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemies" ID="{DEDF6014-1A74-4B0A-9764-4A789F1FEBE3}" ShortID="348139145">
@@ -91,7 +93,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Enemy_Death" ID="{B8226431-A6F8-4E1F-865C-923191EBE466}"/>
 						<Event Name="Enemy_Patrol" ID="{00ECC5C0-F353-4220-A55F-3D7CC1A71BE8}">
 							<ChildrenList>
 								<Action Name="" ID="{2A4D158F-9E7A-4387-A1EE-D475C6E8909A}" ShortID="832333993">
@@ -116,7 +117,7 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="Crystal_Fall" ID="{589FB5D1-1241-42BD-A89F-003469B8C282}">
+						<Event Name="Crystal_Glow_Loop" ID="{589FB5D1-1241-42BD-A89F-003469B8C282}">
 							<Comment>Son du crystal qui tombe ou qui se dépose
 </Comment>
 						</Event>
@@ -125,6 +126,8 @@
 						<Event Name="Gate_Open" ID="{2CB9B2AE-BE52-4AE1-AD6E-16446760E961}"/>
 						<Event Name="Pillar_Slide" ID="{C3E94C84-4EF2-4554-9FDA-CC8E47EC7BE3}"/>
 						<Event Name="Plank_Crack" ID="{9F84E8D7-9359-4911-BF39-3BCD1E21F708}"/>
+						<Event Name="Portal_Trigger" ID="{315EB32A-DD09-459D-9ECB-30079F7792F3}"/>
+						<Event Name="Note_Open" ID="{83C8401C-DB8B-4A17-B472-253DC6F98A3A}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music and Amb cues" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" ShortID="90664474">

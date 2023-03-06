@@ -59,7 +59,7 @@ public class PlayerAnimations : MonoBehaviour
         }
 
     
-        if (player.grounded && UnityEngine.Input.GetKey(KeyCode.LeftShift) && player.isIdle == false)
+        if (player.grounded && UnityEngine.Input.GetKey(KeyCode.LeftShift) && UnityEngine.Input.GetAxisRaw("Horizontal") != 0 || UnityEngine.Input.GetAxisRaw("Vertical") != 0)
         {
             animator.SetFloat("SpeedAnimations", 1, 0.1f, Time.deltaTime);
         }

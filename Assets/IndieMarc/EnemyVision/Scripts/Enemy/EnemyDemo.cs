@@ -62,7 +62,7 @@ namespace IndieMarc.EnemyVision
             //Add code for when target get seen and enemy get alerted, 0=touch, 1=near, 2=far, 3=other
             if (distance >= 0)
             {
-               // enemyAlertEvent.Post(gameObject);
+               enemyAlertEvent.Post(gameObject);
                // Debug.Log("The enemy is alert");
             }
             
@@ -74,7 +74,7 @@ namespace IndieMarc.EnemyVision
             //Add code for when the enemy detect you as a threat (and start chasing), 0=touch, 1=near, 2=far, 3=other
              
             
-           // enemyAgroEvent.Post(gameObject);
+           enemyAgroEvent.Post(gameObject);
            // Debug.Log("The enemy is chasing the player.");
             
         }
