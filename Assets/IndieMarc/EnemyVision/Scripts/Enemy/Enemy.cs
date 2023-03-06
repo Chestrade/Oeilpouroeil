@@ -42,11 +42,17 @@ namespace IndieMarc.EnemyVision
 
         [Header("State")]
         public EnemyState state = EnemyState.Patrol;
+        public EnemyState previousState;
 
         [Header("Patrol")]
         public EnemyPatrolType type;
         public float wait_time = 1f;
         public GameObject[] patrol_path;
+
+        public bool isCountedAsPatrolling;
+        public bool isCountedAsAlerted;
+        public bool isCountedAsChasing;
+        public bool isCountedAsConfused;
 
         [Header("Alert")]
         public float alert_wait_time = 3f;
@@ -117,7 +123,10 @@ namespace IndieMarc.EnemyVision
 
         void Start()
         {
-            
+            isCountedAsPatrolling = false;
+            isCountedAsAlerted = false;
+            isCountedAsChasing = false;
+            isCountedAsConfused = false;
         }
 
         private void RefreshPatrol()
@@ -166,6 +175,8 @@ namespace IndieMarc.EnemyVision
                 rigid.velocity = current_move;
             }
         }
+
+        
 
         private void Update()
         {

@@ -33,6 +33,7 @@ namespace IndieMarc.EnemyVision
         public Transform eye;
         public GameObject vision_prefab;
         public GameObject death_fx_prefab;
+        private GlobalDangerLevel globalDanger;
 
         [Header("Wwise Events")]
         public AK.Wwise.Event enemyPatrolEvent;
@@ -62,6 +63,7 @@ namespace IndieMarc.EnemyVision
             enemy = GetComponent<Enemy>();
             if(enemy != null)
                 enemy.onDeath += OnDeath;
+            
         }
 
         private void OnDestroy()
@@ -71,6 +73,8 @@ namespace IndieMarc.EnemyVision
 
         void Start()
         {
+            globalDanger = GlobalDangerLevel.instance;
+
             if (vision_prefab)
             {
                 GameObject vis = Instantiate(vision_prefab, GetEye(), Quaternion.identity);

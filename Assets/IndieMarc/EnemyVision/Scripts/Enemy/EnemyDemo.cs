@@ -20,10 +20,11 @@ namespace IndieMarc.EnemyVision
 
         private EnemyVision enemy;
         private Animator animator;
-        private GlobalDangerLevel dangerLevel;
-        
+        private GlobalDangerLevel globalDanger;
+
         void Start()
         {
+            globalDanger = GlobalDangerLevel.instance;
             animator = GetComponentInChildren<Animator>();
             enemy = GetComponent<EnemyVision>();
             enemy.onDeath += OnDeath;
@@ -61,8 +62,8 @@ namespace IndieMarc.EnemyVision
             //Add code for when target get seen and enemy get alerted, 0=touch, 1=near, 2=far, 3=other
             if (distance >= 0)
             {
-                enemyAlertEvent.Post(gameObject);
-                Debug.Log("The enemy is alert");
+               // enemyAlertEvent.Post(gameObject);
+               // Debug.Log("The enemy is alert");
             }
             
         }
@@ -73,8 +74,8 @@ namespace IndieMarc.EnemyVision
             //Add code for when the enemy detect you as a threat (and start chasing), 0=touch, 1=near, 2=far, 3=other
              
             
-            enemyAgroEvent.Post(gameObject);
-            Debug.Log("The enemy is chasing the player.");
+           // enemyAgroEvent.Post(gameObject);
+           // Debug.Log("The enemy is chasing the player.");
             
         }
 

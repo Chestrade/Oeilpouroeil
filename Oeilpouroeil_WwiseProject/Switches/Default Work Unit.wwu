@@ -3,7 +3,14 @@
 	<Switches>
 		<WorkUnit Name="Default Work Unit" ID="{62DD9A1A-E444-4C53-9A83-A9A6276F8D77}" PersistMode="Standalone">
 			<ChildrenList>
-				<SwitchGroup Name="New_Switch_Group" ID="{79ECBEB1-E0D0-4083-A35C-1F78AA46F7D8}"/>
+				<SwitchGroup Name="Danger_Level" ID="{79ECBEB1-E0D0-4083-A35C-1F78AA46F7D8}">
+					<ChildrenList>
+						<Switch Name="Danger_Low" ID="{5983D482-2E54-44DA-B30B-7A8A995AE42B}"/>
+						<Switch Name="Danger_Medium" ID="{3EA17A7E-5BE4-43E3-B2E4-CFF5DB341F26}"/>
+						<Switch Name="Danger_High" ID="{119B3D70-4F18-4657-B6DE-147ED9745DAB}"/>
+						<Switch Name="Hidden" ID="{4F40196B-0191-4906-9EE3-B37568647486}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>
