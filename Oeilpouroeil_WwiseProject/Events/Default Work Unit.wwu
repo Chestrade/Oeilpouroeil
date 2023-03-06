@@ -117,7 +117,7 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="Crystal_Fall" ID="{589FB5D1-1241-42BD-A89F-003469B8C282}">
+						<Event Name="Crystal_Glow_Loop" ID="{589FB5D1-1241-42BD-A89F-003469B8C282}">
 							<Comment>Son du crystal qui tombe ou qui se dépose
 </Comment>
 						</Event>
