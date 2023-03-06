@@ -13,7 +13,7 @@ public class SoundGageParticles : MonoBehaviour
     public AK.Wwise.Event ribbit;
     public AK.Wwise.Event quietStepEvent;
     public AK.Wwise.Event loudStepEvent;
-    public AK.Wwise.Event landEvent; //jump event dans PlayerAnimations
+    public AK.Wwise.Event landEvent; //jump event dans PlayerAnimations. Surement à mettre dans le playercontroller dans la fonction qui call le jump
 
     [Header("Enemy Alert")]
     [SerializeField] private float quietRange;
