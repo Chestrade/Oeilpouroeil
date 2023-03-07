@@ -39,7 +39,7 @@
 				<Property Name="GenerateSoundBanks\ShowHierarchy" Type="bool" Value="True"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="1SK7FnFhCkurflY8BY1nCg=="/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value=""/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="HnaabD0GZES4KNLRtJOVCA=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
 				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups_v2" Type="string" Value="eY1Zd1V330iTbN9seRJqdgEAD97IAAAAwKQRT/5/AAAYO++hawIAAAAAAABrAgAAwKQRT/5/AAAEkm9P/n8AADA0Xq5rAgAAAAAAAGsCAAAIAAAAawIAALjoD97IAAAAAACET/5/AAAfAYRP/n8AAAAAhE/+fwAAwKQRT/5/AADApBFP/n8AABg776FrAgAAAQAAADYYpwxouU9FoX5+2KJWtpEBAA/eyAAAAMCkEU/+fwAAGDvvoWsCAAAAAAAAawIAAMCkEU/+fwAABJJvT/5/AAAwNF6uawIAAAAAAABrAgAACAAAAGsCAAC46A/eyAAAAAAAhE/+fwAAHwGET/5/AAAAAIRP/n8AAMCkEU/+fwAAwKQRT/5/AAAYO++hawIAAAEAAAA="/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>

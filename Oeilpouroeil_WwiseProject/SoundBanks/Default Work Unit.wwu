@@ -5,12 +5,11 @@
 			<ChildrenList>
 				<SoundBank Name="Default_Soundbank" ID="{6C9A761E-063D-4464-B828-D2D1B4939508}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Enemy_Alert" ID="{785729C7-AB75-40F8-9DF8-F06521C67186}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Enemy_Patrol" ID="{00ECC5C0-F353-4220-A55F-3D7CC1A71BE8}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Enemy_Agro" ID="{2A8D55BD-58A9-438F-8E43-FF15503F6FB6}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Frog_Ribbit" ID="{C1357FB9-100B-4594-A7E0-02F6F62F3D6A}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Enemy_FS" ID="{1B322693-5492-4694-8819-580FEA7367C4}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Enemy_Confused" ID="{FF622A46-1CC5-47DD-A8DD-9263716FC27B}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Music and Amb cues" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UI" ID="{7B8B60C8-CC50-42C4-9D3E-103624801170}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Environnement" ID="{DF83082C-1329-46C2-B804-358794A0AA2D}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Player" ID="{61412EE3-7B22-46F4-AC98-2369BD885096}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Enemies" ID="{DEDF6014-1A74-4B0A-9764-4A789F1FEBE3}" WorkUnitID="{5FB07456-3149-45C3-A6B3-36CA4F5901AB}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
