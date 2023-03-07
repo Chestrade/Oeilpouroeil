@@ -122,7 +122,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if (UnityEngine.Input.anyKey)
+        if (UnityEngine.Input.GetAxisRaw("Horizontal") != 0 || UnityEngine.Input.GetAxisRaw("Vertical") != 0)
         {
             isIdle = false;
         }
