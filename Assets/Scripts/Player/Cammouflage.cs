@@ -12,6 +12,7 @@ public class Cammouflage : MonoBehaviour
     [SerializeField] private GameObject frogChild;
     [SerializeField] private VisionTarget vtScript;
     [SerializeField] private MeshCollider playerColl;
+    [SerializeField] protected ParticleSystem cammoParticles;
 
     [Header("Wwise Events")]
     public AK.Wwise.Event cammoEnter;
