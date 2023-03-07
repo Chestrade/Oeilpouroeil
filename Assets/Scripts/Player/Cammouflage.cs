@@ -12,7 +12,8 @@ public class Cammouflage : MonoBehaviour
     [SerializeField] private GameObject frogChild;
     [SerializeField] private VisionTarget vtScript;
     [SerializeField] private MeshCollider playerColl;
-    [SerializeField] protected ParticleSystem cammoParticles;
+    [SerializeField] protected ParticleSystem enterCammoParticles;
+    [SerializeField] protected ParticleSystem exitCammoParticles;
 
     [Header("Wwise Events")]
     public AK.Wwise.Event cammoEnter;
@@ -24,8 +25,13 @@ public class Cammouflage : MonoBehaviour
     private PlayerController player;
     private CapsuleCollider enemyColl;
     private bool wwiseEventPlayed;
+
+    //particle system variables
     
     
+
+
+
     
     // Start is called before the first frame update
     void Start()
@@ -38,6 +44,8 @@ public class Cammouflage : MonoBehaviour
         wwiseEventPlayed = false;
         isCammouflaged = false;
         
+        
+        
         enemyColl = GameObject.Find("Enemy/Mesh").GetComponent<CapsuleCollider>();
 
     }
@@ -45,28 +53,39 @@ public class Cammouflage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //trigger acces au cammouflage
-        if(Input.GetKeyDown(KeyCode.C) && cammoPossible == false)
+        ToggleCammo();
+        UseCammo();
+    }
+
+    public void ToggleCammo()
+    {
+        //changer le code ici pour que cammouflage s'active avec la statue
+        if (Input.GetKeyDown(KeyCode.C) && cammoPossible == false)
         {
             cammoPossible = true;
         }
-        else if(Input.GetKeyDown(KeyCode.C) && cammoPossible == true)
+        else if (Input.GetKeyDown(KeyCode.C) && cammoPossible == true)
         {
-            cammoPossible = false;            
+            cammoPossible = false;
         }
+    }
 
-        //cammouflage
-        if(player.isIdle && player.grounded && cammoPossible)
+    void UseCammo()
+    {
+        if (player.isIdle && player.grounded && cammoPossible)
         {
             isCammouflaged = true;
             Physics.IgnoreCollision(playerColl, enemyColl, true);
             rend.sharedMaterial = material[1];
             vtScript.visible = false;
             
+           
 
-            if(wwiseEventPlayed == false)
+
+            if (wwiseEventPlayed == false)
             {
                 cammoEnter.Post(gameObject);
+                enterCammoParticles.Play();
                 //Debug.Log("The frog is cammouflaged");
                 wwiseEventPlayed = true;
             }
@@ -79,19 +98,17 @@ public class Cammouflage : MonoBehaviour
             rend.sharedMaterial = material[0];
             vtScript.visible = true;
 
-            if(wwiseEventPlayed == true)
+            if (wwiseEventPlayed == true)
             {
                 cammoExit.Post(gameObject);
+                exitCammoParticles.Play();
                 //Debug.Log("The frog is not cammouflaged");
                 wwiseEventPlayed = false;
             }
-            
-        }
 
         
-    
-       
-    }
 
+        }
+    }
     
 }
