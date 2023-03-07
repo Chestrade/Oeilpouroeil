@@ -18,16 +18,12 @@ public class SoundGageParticles : MonoBehaviour
     [Header("Enemy Alert")]
     [SerializeField] private float quietRange;
     [SerializeField] private float loudRange;
-
     private float alert_range;
 
     private PlayerController player;
     private Animator animator;
 
-    private bool quietStep;
-    private bool loudStep;
-   
-
+    
     private void Start()
     {
         player = PlayerController.instance;
@@ -95,7 +91,7 @@ public class SoundGageParticles : MonoBehaviour
 
     private void RippleStop()
     {
-        alert_range = 0f;
+       alert_range = 0f;
 
         if (loudRipples.isPlaying)
         {
