@@ -14,10 +14,14 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
     public AK.Wwise.Switch[] dangerLevel;
     private AK.Wwise.Switch currentSwitch;
 
+
     private Enemy[] enemyComponents;
     public List<Enemy> enemies = new List<Enemy>();
-  
-   
+
+
+    private Cammouflage cammo;
+    private PlayerController player;
+
     private int patrolEnemyCount;
     private int alertEnemyCount;
     private int chaseEnemyCount;
@@ -38,10 +42,11 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
 
     void Start()
     {
-        
-
+        player = PlayerController.instance;
+        cammo = player.GetComponent<Cammouflage>();
         currentDangerLevel = DangerLevel.Low;
         currentSwitch = dangerLevel[1];
+        currentSwitch.SetValue(gameObject);
         enemyComponents = FindObjectsOfType<Enemy>();
 
         foreach (Enemy enemy in enemyComponents)
@@ -53,6 +58,7 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
     private void Update()
     {
         EnemyCount();
+        SetState();
     }
     void EnemyCount()
     {
@@ -143,12 +149,50 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
                 enemy.previousState = enemy.state;
             }
         }
+    }
 
+    void SetState()
+    {
+        if (!cammo.isCammouflaged) 
+        {
+            if (chaseEnemyCount > 0)
+            {
+                currentDangerLevel = DangerLevel.High;
+            }
+            else if (confusedEnemyCount > 0 || alertEnemyCount > 0 && chaseEnemyCount == 0)
+            {
+                currentDangerLevel = DangerLevel.Medium;
+            }
+            else if (chaseEnemyCount == 0 && confusedEnemyCount == 0 && alertEnemyCount == 0)
+            {
+                currentDangerLevel = DangerLevel.Low;
+            }
+            else
+            {
+                Debug.Log("The frog is not cammouflaged. But there is no danger level set.");
+            }
+        }
+        if (cammo.isCammouflaged)
+        {
+            if (chaseEnemyCount > 0)
+            {
+                currentDangerLevel = DangerLevel.Medium;
+            }
+            else if (confusedEnemyCount > 0 || alertEnemyCount > 0 && chaseEnemyCount == 0)
+            {
+                currentDangerLevel = DangerLevel.Low;
+            }
+            else if (chaseEnemyCount == 0 && confusedEnemyCount == 0 && alertEnemyCount == 0)
+            {
+                currentDangerLevel = DangerLevel.Hidden;
+            }
+            else
+            {
+                Debug.Log("The frog is cammouflaged. But there is no danger level set.");
+            }
+        }
 
-       // Debug.Log(patrolEnemyCount + " enemies are patrolling");
-       // Debug.Log(alertEnemyCount + " enemies are alerted");
-      //  Debug.Log(chaseEnemyCount + " enemies are chasing");
-       // Debug.Log(confusedEnemyCount + " enemies are confused");
+        Debug.Log("Frog cammo = " + cammo.isCammouflaged);
     }
 
     void OnGUI()
@@ -157,6 +201,10 @@ public class GlobalDangerLevel : SingletonMonoBehaviour<GlobalDangerLevel>
         GUI.Label(new Rect(10, 30, 200, 20), "Number of enemies on alert: " + alertEnemyCount);
         GUI.Label(new Rect(10, 50, 200, 20), "Number of enemies chasing: " + chaseEnemyCount);
         GUI.Label(new Rect(10, 70, 200, 20), "Number of enemies confused: " + confusedEnemyCount);
+
+        Debug.Log("Danger level : " + currentDangerLevel);
+        //GUI.Label(new Rect(10, 100, 200, 20), "The current switch is : " + currentSwitch);
+        //GUI.Label(new Rect(10, 120, 200, 20), "The current danger level is : " + currentDangerLevel);
     }
 
 }

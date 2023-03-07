@@ -17,6 +17,8 @@ public class Cammouflage : MonoBehaviour
     public AK.Wwise.Event cammoEnter;
     public AK.Wwise.Event cammoExit;
 
+    public bool isCammouflaged;
+
     private Renderer rend;
     private PlayerController player;
     private CapsuleCollider enemyColl;
@@ -33,6 +35,7 @@ public class Cammouflage : MonoBehaviour
         rend.sharedMaterial = material[0];
         cammoPossible = false;
         wwiseEventPlayed = false;
+        isCammouflaged = false;
         
         enemyColl = GameObject.Find("Enemy/Mesh").GetComponent<CapsuleCollider>();
 
@@ -54,9 +57,11 @@ public class Cammouflage : MonoBehaviour
         //cammouflage
         if(player.isIdle && player.grounded && cammoPossible)
         {
+            isCammouflaged = true;
             Physics.IgnoreCollision(playerColl, enemyColl, true);
             rend.sharedMaterial = material[1];
             vtScript.visible = false;
+            
 
             if(wwiseEventPlayed == false)
             {
@@ -68,6 +73,7 @@ public class Cammouflage : MonoBehaviour
         }
         else
         {
+            isCammouflaged = false;
             Physics.IgnoreCollision(playerColl, enemyColl, false);
             rend.sharedMaterial = material[0];
             vtScript.visible = true;
@@ -81,6 +87,7 @@ public class Cammouflage : MonoBehaviour
             
         }
 
+        
     
        
     }
