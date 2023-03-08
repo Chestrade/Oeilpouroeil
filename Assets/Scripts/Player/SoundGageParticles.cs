@@ -48,7 +48,7 @@ public class SoundGageParticles : MonoBehaviour
     private void Step()
     {
 
-        if(animator.GetFloat("SpeedAnimations") >=0.6)
+        if(animator.GetFloat("SpeedAnimations") >=0.6 && player.grounded)
         {
             loudRipples.Play();
             loudStepEvent.Post(gameObject);
@@ -56,7 +56,7 @@ public class SoundGageParticles : MonoBehaviour
             TriggerNoise();
 
         }
-        else if(player.isIdle)
+        else if(player.isIdle || player.grounded)
         {
             RippleStop();
         }
@@ -65,17 +65,16 @@ public class SoundGageParticles : MonoBehaviour
 
     private void QuietStep()
     {
-        if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6)
+        if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded)
         {
             quietRipples.Play();
             quietStepEvent.Post(gameObject);
             TriggerNoise();
             alert_range = quietRange;
         }
-        else if (player.isIdle)
+        else if (player.isIdle || !player.grounded)
         {
-            RippleStop();
-            
+            RippleStop();  
         }
     }
 
