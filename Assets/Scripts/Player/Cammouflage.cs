@@ -27,6 +27,7 @@ public class Cammouflage : MonoBehaviour
     [Header("Materials and Refs")]
     public Material[] material;
     [SerializeField] private GameObject frogChild;
+    [SerializeField] private GameObject frogTongue;
     [SerializeField] private VisionTarget vtScript;
     [SerializeField] private MeshCollider playerColl;
     [SerializeField] protected ParticleSystem enterCammoParticles;
@@ -40,10 +41,11 @@ public class Cammouflage : MonoBehaviour
    
 
     private Renderer rend;
+    private Renderer tongueRend;
     private PlayerController player;
     private CapsuleCollider enemyColl;
     private bool wwiseEventPlayed;
-    private float lastCammo;
+    
     
 
     // Start is called before the first frame update
@@ -51,9 +53,11 @@ public class Cammouflage : MonoBehaviour
     {
         player = PlayerController.instance;
         rend = frogChild.GetComponent<Renderer>();
+        tongueRend = frogTongue.GetComponent<Renderer>();
         enemyColl = GameObject.Find("Enemy/Mesh").GetComponent<CapsuleCollider>();
         rend.enabled = true;
         rend.sharedMaterial = material[0];
+        tongueRend.sharedMaterial = material[2];
         cammoAcquired = false;
         wwiseEventPlayed = false;
         
@@ -101,6 +105,7 @@ public class Cammouflage : MonoBehaviour
                 isCammouflaged = true;
                 Physics.IgnoreCollision(playerColl, enemyColl, true);
                 rend.sharedMaterial = material[1];
+                tongueRend.sharedMaterial = material[3];
                 vtScript.visible = false;
 
 
@@ -132,6 +137,7 @@ public class Cammouflage : MonoBehaviour
 
         Physics.IgnoreCollision(playerColl, enemyColl, false);
         rend.sharedMaterial = material[0];
+        tongueRend.sharedMaterial = material[2];
         vtScript.visible = true;
 
         if (wwiseEventPlayed == true)
