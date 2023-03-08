@@ -5,6 +5,8 @@ using IndieMarc.EnemyVision;
 using UnityEngine.UI;
 using UnityEditor.Build;
 
+
+
 public class Cammouflage : MonoBehaviour
 {
     [Header("Cammo Settings")]
@@ -16,9 +18,11 @@ public class Cammouflage : MonoBehaviour
     [Header ("Cammo Cooldown")]
     [SerializeField] private Slider cooldownSlider;
     [Tooltip("Set the cammouflage cooldown time here")]
-    [SerializeField] private float maxStamina;
-    private float stamina;
-    private float dValue; //value substracted each time we use stamina
+    [SerializeField] private float sliderUpSpeed;
+    [SerializeField] private float sliderDownSpeed;
+    private bool sliderDown;
+    private bool sliderIsGoingUp;
+    private float sliderTargetValue;
     
     
 
@@ -59,20 +63,25 @@ public class Cammouflage : MonoBehaviour
         rend.sharedMaterial = material[0];
         cammoAcquired = false;
         wwiseEventPlayed = false;
+        
         isCammouflaged = false;
 
         //Cooldown Initiation
-        stamina = maxStamina;
-        cooldownSlider.value = maxStamina;
-        cooldownSlider.maxValue = maxStamina;
-        dValue = 50;
+        cooldownSlider.value = 1;
+        sliderIsGoingUp = false;
+        sliderDown = false;
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateSlider();
         ToggleCammo();
         UseCammo();
+        
 
         if (isCammouflaged == true && player.isIdle == false || Input.GetKeyDown(KeyCode.Space))
         {
@@ -83,7 +92,7 @@ public class Cammouflage : MonoBehaviour
             RevealFrog();
         }
 
-        cooldownSlider.value = stamina;
+        
     }
 
     public void ToggleCammo()
@@ -109,7 +118,7 @@ public class Cammouflage : MonoBehaviour
             Physics.IgnoreCollision(playerColl, enemyColl, true);
             rend.sharedMaterial = material[1];
             vtScript.visible = false;
-            DecreaseEnergy();
+         
 
             if (wwiseEventPlayed == false)
             {
@@ -171,21 +180,52 @@ public class Cammouflage : MonoBehaviour
             wwiseEventPlayed = false;
 
             //trigger cooldown
-            IncreaseEnergy();
+            
+        }
+    }
+    private void UpdateSlider()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            if (sliderDown)
+            {
+                sliderTargetValue = 1f;
+                sliderDown = false;
+                sliderIsGoingUp = true;
+            }
+            else if (!sliderIsGoingUp)
+            {
+                sliderTargetValue = 0f;
+                sliderDown = true;
+            }
+        }
+
+        if (sliderDown)
+        {
+            if (cooldownSlider.value > 0)
+            {
+                cooldownSlider.value -= sliderDownSpeed * Time.deltaTime;
+            }
+            else
+            {
+                cooldownSlider.value = 0;
+            }
+        }
+        else if (sliderIsGoingUp)
+        {
+            if (cooldownSlider.value < sliderTargetValue)
+            {
+                cooldownSlider.value += sliderUpSpeed * Time.deltaTime;
+            }
+            else
+            {
+                cooldownSlider.value = sliderTargetValue;
+                sliderIsGoingUp = false;
+            }
         }
     }
 
-    void DecreaseEnergy()
-    {
-        if(stamina!=0)
-        {
-            stamina -= dValue*Time.deltaTime;
-        }
-    }
-    void IncreaseEnergy()
-    {
-       stamina += dValue * Time.deltaTime; 
-    }
+
 
 
 }
