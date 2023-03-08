@@ -15,9 +15,12 @@ public class Cammouflage : MonoBehaviour
 
     [Header ("Cammo Cooldown")]
     [SerializeField] private Slider cooldownSlider;
-    [SerializeField] private int cooldownTime;
-    private int currentTime;
-    private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
+    [Tooltip("Set the cammouflage cooldown time here")]
+    [SerializeField] private float maxStamina;
+    private float stamina;
+    private float dValue; //value substracted each time we use stamina
+    
+    
 
     [Header("Materials and Refs")]
     public Material[] material;
@@ -51,6 +54,7 @@ public class Cammouflage : MonoBehaviour
     {
         player = PlayerController.instance;
         rend = frogChild.GetComponent<Renderer>();
+        enemyColl = GameObject.Find("Enemy/Mesh").GetComponent<CapsuleCollider>();
         rend.enabled = true;
         rend.sharedMaterial = material[0];
         cammoAcquired = false;
@@ -58,12 +62,10 @@ public class Cammouflage : MonoBehaviour
         isCammouflaged = false;
 
         //Cooldown Initiation
-        currentTime = cooldownTime;
-        cooldownSlider.maxValue = cooldownTime;
-        cooldownSlider.value = cooldownTime;
-
-        enemyColl = GameObject.Find("Enemy/Mesh").GetComponent<CapsuleCollider>();
-
+        stamina = maxStamina;
+        cooldownSlider.value = maxStamina;
+        cooldownSlider.maxValue = maxStamina;
+        dValue = 50;
     }
 
     // Update is called once per frame
@@ -72,12 +74,22 @@ public class Cammouflage : MonoBehaviour
         ToggleCammo();
         UseCammo();
 
-       
+        if (isCammouflaged == true && player.isIdle == false || Input.GetKeyDown(KeyCode.Space))
+        {
+            RevealFrog();
+        }
+        if (isCammouflaged == true && Input.GetKeyDown(KeyCode.J))
+        {
+            RevealFrog();
+        }
+
+        cooldownSlider.value = stamina;
     }
 
     public void ToggleCammo()
     {
         //changer le code ici pour que cammouflage s'active avec la statue
+        
         if (Input.GetKeyDown(KeyCode.C) && cammoAcquired == false)
         {
             cammoAcquired = true;
@@ -86,10 +98,29 @@ public class Cammouflage : MonoBehaviour
         {
             cammoAcquired = false;
         }
+
     }
 
     void UseCammo()
     {
+        if(Input.GetKeyDown(KeyCode.H) && cammoAcquired && isCammouflaged == false)
+        {
+            isCammouflaged = true;
+            Physics.IgnoreCollision(playerColl, enemyColl, true);
+            rend.sharedMaterial = material[1];
+            vtScript.visible = false;
+            DecreaseEnergy();
+
+            if (wwiseEventPlayed == false)
+            {
+                cammoEnter.Post(gameObject);
+                enterCammoParticles.Play();
+                wwiseEventPlayed = true;
+            }
+        }
+        /*  OLD CAMMO TRIGGER CODE
+         * 
+         * 
         if (player.isIdle && player.grounded && cammoAcquired && currentTime >= cooldownTime)
         {
             isCammouflaged = true;
@@ -123,27 +154,38 @@ public class Cammouflage : MonoBehaviour
                 StartCoroutine(ResetCooldown());
             }
         }
+        */
     }
-    void depleteCammo(int amount)
+    void RevealFrog()
     {
-        if (currentTime - amount >= 0)
+        isCammouflaged = false;
+
+        Physics.IgnoreCollision(playerColl, enemyColl, false);
+        rend.sharedMaterial = material[0];
+        vtScript.visible = true;
+
+        if (wwiseEventPlayed == true)
         {
-            currentTime -= amount;
-            cooldownSlider.value = currentTime; 
-        }
-        else
-        {
-            return;
+            cammoExit.Post(gameObject);
+            exitCammoParticles.Play();
+            wwiseEventPlayed = false;
+
+            //trigger cooldown
+            IncreaseEnergy();
         }
     }
-    private IEnumerator ResetCooldown()
+
+    void DecreaseEnergy()
     {
-        yield return null;
-        while(currentTime < cooldownTime)
+        if(stamina!=0)
         {
-            currentTime += cooldownTime / 100;
-            cooldownSlider.value = currentTime;
-            yield return regenTick;
+            stamina -= dValue*Time.deltaTime;
         }
     }
+    void IncreaseEnergy()
+    {
+       stamina += dValue * Time.deltaTime; 
+    }
+
+
 }
