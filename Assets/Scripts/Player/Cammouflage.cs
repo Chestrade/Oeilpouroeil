@@ -78,21 +78,14 @@ public class Cammouflage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateSlider();
+        
         ToggleCammo();
         UseCammo();
-        
+       
 
-        if (isCammouflaged == true && player.isIdle == false || Input.GetKeyDown(KeyCode.Space))
-        {
-            RevealFrog();
-        }
-        if (isCammouflaged == true && Input.GetKeyDown(KeyCode.J))
-        {
-            RevealFrog();
-        }
 
-        
+
+
     }
 
     public void ToggleCammo()
@@ -125,45 +118,41 @@ public class Cammouflage : MonoBehaviour
                 cammoEnter.Post(gameObject);
                 enterCammoParticles.Play();
                 wwiseEventPlayed = true;
+               
+                //make slider go to 0
+                if (sliderDown)
+                {
+                    sliderTargetValue = 1f;
+                    sliderDown = false;
+                    sliderIsGoingUp = true;
+                }
+                else if (!sliderIsGoingUp)
+                {
+                    sliderTargetValue = 0f;
+                    sliderDown = true;
+                }
+                if (sliderDown)
+                {
+                    if (cooldownSlider.value > 0)
+                    {
+                        cooldownSlider.value -= sliderDownSpeed * Time.deltaTime;
+                    }
+                    else
+                    {
+                        cooldownSlider.value = 0;
+                    }
+                }
             }
         }
-        /*  OLD CAMMO TRIGGER CODE
-         * 
-         * 
-        if (player.isIdle && player.grounded && cammoAcquired && currentTime >= cooldownTime)
+        else if (Input.GetKeyDown(KeyCode.H) && cammoAcquired && isCammouflaged == true)
         {
-            isCammouflaged = true;
-            Physics.IgnoreCollision(playerColl, enemyColl, true);
-            rend.sharedMaterial = material[1];
-            vtScript.visible = false;
-            depleteCammo(cooldownTime);
-
-            if (wwiseEventPlayed == false)
-            {
-                cammoEnter.Post(gameObject);
-                enterCammoParticles.Play();
-                wwiseEventPlayed = true;
-            }
-
+            RevealFrog();
         }
-        else
+        else if(isCammouflaged && !player.isIdle || !player.grounded || Input.GetKeyDown(KeyCode.Space))
         {
-            isCammouflaged = false;
-            Physics.IgnoreCollision(playerColl, enemyColl, false);
-            rend.sharedMaterial = material[0];
-            vtScript.visible = true;
-
-            if (wwiseEventPlayed == true)
-            {
-                cammoExit.Post(gameObject);
-                exitCammoParticles.Play();
-                wwiseEventPlayed = false;
-
-                //trigger cooldown
-                StartCoroutine(ResetCooldown());
-            }
+            RevealFrog();
         }
-        */
+        
     }
     void RevealFrog()
     {
@@ -180,52 +169,18 @@ public class Cammouflage : MonoBehaviour
             wwiseEventPlayed = false;
 
             //trigger cooldown
-            
-        }
-    }
-    private void UpdateSlider()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            if (sliderDown)
+            if(sliderIsGoingUp)
             {
-                sliderTargetValue = 1f;
-                sliderDown = false;
-                sliderIsGoingUp = true;
-            }
-            else if (!sliderIsGoingUp)
-            {
-                sliderTargetValue = 0f;
-                sliderDown = true;
-            }
-        }
-
-        if (sliderDown)
-        {
-            if (cooldownSlider.value > 0)
-            {
-                cooldownSlider.value -= sliderDownSpeed * Time.deltaTime;
-            }
-            else
-            {
-                cooldownSlider.value = 0;
-            }
-        }
-        else if (sliderIsGoingUp)
-        {
-            if (cooldownSlider.value < sliderTargetValue)
-            {
-                cooldownSlider.value += sliderUpSpeed * Time.deltaTime;
-            }
-            else
-            {
-                cooldownSlider.value = sliderTargetValue;
-                sliderIsGoingUp = false;
+                if (cooldownSlider.value < sliderTargetValue)
+                {
+                    cooldownSlider.value += sliderUpSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    cooldownSlider.value = sliderTargetValue;
+                    sliderIsGoingUp = false;
+                }
             }
         }
     }
-
-
-
-
 }
