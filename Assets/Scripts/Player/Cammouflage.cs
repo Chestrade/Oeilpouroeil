@@ -17,14 +17,12 @@ public class Cammouflage : MonoBehaviour
 
     [Header ("Cammo Cooldown")]
     [SerializeField] private Slider cooldownSlider;
-    [Tooltip("Set the cammouflage cooldown time here")]
-    [SerializeField] private float sliderUpSpeed;
-    [SerializeField] private float sliderDownSpeed;
-    private bool sliderDown;
-    private bool sliderIsGoingUp;
-    private float sliderTargetValue;
-    
-    
+    private int maxStamina = 100;
+    private int currentStamina;
+    private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
+
+        
+
 
     [Header("Materials and Refs")]
     public Material[] material;
@@ -46,12 +44,7 @@ public class Cammouflage : MonoBehaviour
     private CapsuleCollider enemyColl;
     private bool wwiseEventPlayed;
     private float lastCammo;
-    //particle system variables
-
-
-
-
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -67,9 +60,10 @@ public class Cammouflage : MonoBehaviour
         isCammouflaged = false;
 
         //Cooldown Initiation
-        cooldownSlider.value = 1;
-        sliderIsGoingUp = false;
-        sliderDown = false;
+        currentStamina = maxStamina;
+        cooldownSlider.maxValue = maxStamina;
+        cooldownSlider.value = maxStamina;
+        
 
 
 
@@ -78,13 +72,8 @@ public class Cammouflage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         ToggleCammo();
         UseCammo();
-       
-
-
-
 
     }
 
@@ -105,53 +94,36 @@ public class Cammouflage : MonoBehaviour
 
     void UseCammo()
     {
-        if(Input.GetKeyDown(KeyCode.H) && cammoAcquired && isCammouflaged == false)
+        if (cammoAcquired) 
         {
-            isCammouflaged = true;
-            Physics.IgnoreCollision(playerColl, enemyColl, true);
-            rend.sharedMaterial = material[1];
-            vtScript.visible = false;
-         
-
-            if (wwiseEventPlayed == false)
+            if (Input.GetKeyDown(KeyCode.H) && isCammouflaged == false && currentStamina == 100)
             {
-                cammoEnter.Post(gameObject);
-                enterCammoParticles.Play();
-                wwiseEventPlayed = true;
-               
-                //make slider go to 0
-                if (sliderDown)
+                isCammouflaged = true;
+                Physics.IgnoreCollision(playerColl, enemyColl, true);
+                rend.sharedMaterial = material[1];
+                vtScript.visible = false;
+
+
+                if (wwiseEventPlayed == false)
                 {
-                    sliderTargetValue = 1f;
-                    sliderDown = false;
-                    sliderIsGoingUp = true;
-                }
-                else if (!sliderIsGoingUp)
-                {
-                    sliderTargetValue = 0f;
-                    sliderDown = true;
-                }
-                if (sliderDown)
-                {
-                    if (cooldownSlider.value > 0)
-                    {
-                        cooldownSlider.value -= sliderDownSpeed * Time.deltaTime;
-                    }
-                    else
-                    {
-                        cooldownSlider.value = 0;
-                    }
+                    cammoEnter.Post(gameObject);
+                    enterCammoParticles.Play();
+                    wwiseEventPlayed = true;
+
+                    //make slider go to 0
+                    UseStamina(100);
                 }
             }
+            else if (Input.GetKeyDown(KeyCode.H) && isCammouflaged == true)
+            {
+                RevealFrog();
+            }
+            else if (isCammouflaged && !player.isIdle || !player.grounded || Input.GetKeyDown(KeyCode.Space))
+            {
+                RevealFrog();
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.H) && cammoAcquired && isCammouflaged == true)
-        {
-            RevealFrog();
-        }
-        else if(isCammouflaged && !player.isIdle || !player.grounded || Input.GetKeyDown(KeyCode.Space))
-        {
-            RevealFrog();
-        }
+        
         
     }
     void RevealFrog()
@@ -169,18 +141,33 @@ public class Cammouflage : MonoBehaviour
             wwiseEventPlayed = false;
 
             //trigger cooldown
-            if(sliderIsGoingUp)
-            {
-                if (cooldownSlider.value < sliderTargetValue)
-                {
-                    cooldownSlider.value += sliderUpSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    cooldownSlider.value = sliderTargetValue;
-                    sliderIsGoingUp = false;
-                }
-            }
+            StartCoroutine(RegenStamina());
         }
     }
+
+   void UseStamina(int amount)
+   {
+        if(currentStamina - amount >=0 )
+        {
+            currentStamina -= amount;
+            cooldownSlider.value = currentStamina;
+        }
+        else
+        {
+            Debug.Log("Not enough stamina");
+        }
+   }
+
+    private IEnumerator RegenStamina()
+    {
+        yield return new WaitForSeconds(2);
+        while(currentStamina < maxStamina)
+        {
+            currentStamina += maxStamina / 100;
+            cooldownSlider.value = currentStamina;
+            yield return regenTick;
+        }
+
+    }
+
 }
