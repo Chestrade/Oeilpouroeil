@@ -128,6 +128,10 @@ public class Cammouflage : MonoBehaviour
                 RevealFrog();
             }
         }
+        else
+        {
+            return;
+        }
         
         
     }
