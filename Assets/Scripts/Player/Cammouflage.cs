@@ -160,7 +160,7 @@ public class Cammouflage : MonoBehaviour
 
     private IEnumerator RegenStamina()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         while(currentStamina < maxStamina)
         {
             currentStamina += maxStamina / 100;
