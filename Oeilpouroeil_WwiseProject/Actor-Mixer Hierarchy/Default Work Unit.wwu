@@ -28,6 +28,11 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -285,6 +290,13 @@
 							</PositioningInfo>
 						</RandomSequenceContainer>
 						<Sound Name="PLACEHOLDER_Jump" ID="{AF446062-1959-4D09-ADC6-A193201DAAC3}" ShortID="115362187">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
@@ -307,6 +319,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="PLACEHOLDER_Land" ID="{97D19D1D-A95C-42BC-9EB7-D5DC6E797A66}" ShortID="13465874">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-14</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
@@ -343,6 +362,11 @@
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="RenderEffect0" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>

@@ -42,7 +42,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{DC30CDA0-14B7-124F-6A68-928FEEF7FB3F}">
+		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{727C4AD1-DAF1-29D8-08AF-E10DDA171046}">
 			<ShortName>Default_Soundbank</ShortName>
 			<Path>Default_Soundbank.bnk</Path>
 			<Media>
@@ -52,7 +52,7 @@
 				</File>
 				<File Id="43675287" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Dirt_Walk_02.wav</ShortName>
-					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_02_2AFED8AF.wem</CachePath>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_02_FAE449F5.wem</CachePath>
 				</File>
 				<File Id="144107555" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_Grass_02.wav</ShortName>
@@ -64,7 +64,7 @@
 				</File>
 				<File Id="350301952" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Dirt_Walk_03.wav</ShortName>
-					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_03_A6793DEA.wem</CachePath>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_03_4048AAA0.wem</CachePath>
 				</File>
 				<File Id="498400401" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_01.wav</ShortName>
@@ -88,7 +88,7 @@
 				</File>
 				<File Id="843323915" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Dirt_Walk_05.wav</ShortName>
-					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_05_833A1613.wem</CachePath>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_05_60AAA419.wem</CachePath>
 				</File>
 				<File Id="908796425" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_05.wav</ShortName>
@@ -96,11 +96,11 @@
 				</File>
 				<File Id="989424160" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Dirt_Walk_01.wav</ShortName>
-					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_01_D44974F5.wem</CachePath>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_01_59786ECA.wem</CachePath>
 				</File>
 				<File Id="1011809992" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Dirt_Walk_04.wav</ShortName>
-					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_04_A1CC7207.wem</CachePath>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_04_95220739.wem</CachePath>
 				</File>
 				<File Id="1054012413" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_03.wav</ShortName>
@@ -115,7 +115,7 @@
 				<Event Id="3975125555" Name="Enemy_Agro" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="493036092" Name="Enemy_Alert" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3549990139" Name="Enemy_Confused" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="131181555" Name="Enemy_FS" MaxAttenuation="15" DurationType="OneShot" DurationMin="0.019066922" DurationMax="0.10030791">
+				<Event Id="131181555" Name="Enemy_FS" DurationType="OneShot" DurationMin="0.019066922" DurationMax="0.10030791">
 					<MediaRefs>
 						<MediaRef Id="38320581"/>
 						<MediaRef Id="498400401"/>
@@ -181,5 +181,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{047E5014-132E-EE03-F9CA-711CDE535E55}</FileHash>
+	<FileHash>{6FEBCEC2-4462-1757-E0A5-731134F13F5D}</FileHash>
 </SoundBanksInfo>
