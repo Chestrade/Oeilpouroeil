@@ -28,6 +28,7 @@ public class SoundGageParticles : MonoBehaviour
     private void Start()
     {
         player = PlayerController.instance;
+        eyeManager = GetComponent<EyeInteractableManager>();
         animator = GetComponent<Animator>();
         alert_range = 0f;
     }
