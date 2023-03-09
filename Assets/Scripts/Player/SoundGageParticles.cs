@@ -18,6 +18,7 @@ public class SoundGageParticles : MonoBehaviour
     [Header("Enemy Alert")]
     [SerializeField] private float quietRange;
     [SerializeField] private float loudRange;
+    [SerializeField] private float ribbitRange;
     private float alert_range;
 
     private PlayerController player;
@@ -45,10 +46,12 @@ public class SoundGageParticles : MonoBehaviour
         {
             loudRipples.Play();
             ribbit.Post(gameObject);
-            alert_range = loudRange;
             TriggerNoise();
+            alert_range = ribbitRange;
             StartCoroutine(WaitForRibbit());
         }
+
+        //Debug.Log("Alert Range : " + alert_range);
     }
     private void Step() //run
     {
@@ -132,8 +135,9 @@ public class SoundGageParticles : MonoBehaviour
         hasRibbit = true;
         yield return new WaitForSeconds(timeBetweenRibbits);
         hasRibbit = false;
+        alert_range = 0f;
     }
 
-
+    
 }
 

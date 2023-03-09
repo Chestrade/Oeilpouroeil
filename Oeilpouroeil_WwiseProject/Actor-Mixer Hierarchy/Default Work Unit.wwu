@@ -64,7 +64,6 @@
 						<RandomSequenceContainer Name="PLACEHOLDER_EnemyFS" ID="{F5415312-DEC7-4273-AFA4-4A862531042F}" ShortID="526734424">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
-								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
