@@ -37,7 +37,11 @@ namespace IndieMarc.EnemyVision
         public LayerMask obstacle_mask = ~(0);
         public bool use_pathfind = false;
 
+        [Header("Wwise Stuff")]
         public AK.Wwise.Event enemyFs;
+        [Tooltip("15 = not supposed to hear footsteps or barely")]
+        [Range(0, 20)]
+        [SerializeField] private float distanceToPlayer;
 
 
         [Header("State")]

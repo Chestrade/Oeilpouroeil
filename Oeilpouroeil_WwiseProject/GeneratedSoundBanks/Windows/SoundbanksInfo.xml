@@ -42,13 +42,17 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{7280826A-D3D8-66BC-7FAB-761E2A99A0DF}">
+		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{DC30CDA0-14B7-124F-6A68-928FEEF7FB3F}">
 			<ShortName>Default_Soundbank</ShortName>
 			<Path>Default_Soundbank.bnk</Path>
 			<Media>
 				<File Id="38320581" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_06.wav</ShortName>
 					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_06_C83D63CF.wem</CachePath>
+				</File>
+				<File Id="43675287" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_02.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_02_2AFED8AF.wem</CachePath>
 				</File>
 				<File Id="144107555" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_Grass_02.wav</ShortName>
@@ -57,6 +61,10 @@
 				<File Id="301282997" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_Air Woosh_05.wav</ShortName>
 					<CachePath>SFX/Foley_Air Woosh_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="350301952" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_03.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_03_A6793DEA.wem</CachePath>
 				</File>
 				<File Id="498400401" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_01.wav</ShortName>
@@ -78,9 +86,21 @@
 					<ShortName>447917__breviceps__cartoon-frog.wav</ShortName>
 					<CachePath>SFX/447917__breviceps__cartoon-frog_CAF21F95.wem</CachePath>
 				</File>
+				<File Id="843323915" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_05.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_05_833A1613.wem</CachePath>
+				</File>
 				<File Id="908796425" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_05.wav</ShortName>
 					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_05_967909F3.wem</CachePath>
+				</File>
+				<File Id="989424160" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_01.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_01_D44974F5.wem</CachePath>
+				</File>
+				<File Id="1011809992" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_04.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_04_A1CC7207.wem</CachePath>
 				</File>
 				<File Id="1054012413" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_03.wav</ShortName>
@@ -121,8 +141,24 @@
 				<Event Id="3541546815" Name="Pillar_Slide" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="902388388" Name="Plank_Crack" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3083087645" Name="Player_Death" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="473928874" Name="Player_FS_Run" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1781252372" Name="Player_FS_Walk" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="473928874" Name="Player_FS_Run" DurationType="OneShot" DurationMin="0.2405815" DurationMax="0.5385306">
+					<MediaRefs>
+						<MediaRef Id="43675287"/>
+						<MediaRef Id="350301952"/>
+						<MediaRef Id="843323915"/>
+						<MediaRef Id="989424160"/>
+						<MediaRef Id="1011809992"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1781252372" Name="Player_FS_Walk" DurationType="OneShot" DurationMin="0.2405815" DurationMax="0.5385306">
+					<MediaRefs>
+						<MediaRef Id="43675287"/>
+						<MediaRef Id="350301952"/>
+						<MediaRef Id="843323915"/>
+						<MediaRef Id="989424160"/>
+						<MediaRef Id="1011809992"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1305133589" Name="Player_Jump" DurationType="OneShot" DurationMin="0.1875" DurationMax="0.1875">
 					<MediaRefs>
 						<MediaRef Id="301282997"/>
@@ -145,5 +181,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D2C6EAB6-9095-66D8-0F8D-E4AB2A99B6A0}</FileHash>
+	<FileHash>{047E5014-132E-EE03-F9CA-711CDE535E55}</FileHash>
 </SoundBanksInfo>
