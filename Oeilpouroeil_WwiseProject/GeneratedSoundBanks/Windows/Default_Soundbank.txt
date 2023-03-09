@@ -34,6 +34,8 @@ Event	ID	Name			Wwise Object Path	Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	38320581	Foley_FS_Anton_Stone_Walk_06	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_06_C83D63CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_06		11148
+	144107555	PLACEHOLDER_Land	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_Grass_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_Land		45804
+	301282997	PLACEHOLDER_Jump	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_Air Woosh_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_Jump		36096
 	498400401	Foley_FS_Anton_Stone_Walk_01	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_01_BBDD5383.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_01		9228
 	585691582	Foley_FS_Anton_Stone_Walk_04	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_04_8115A761.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_04		8776
 	630012120	Foley_FS_Anton_Stone_Walk_02	D:\Github Repositories\Oeilpouroeil\Oeilpouroeil_WwiseProject\.cache\Windows\SFX\Foley_FS_Anton_Stone_Walk_02_A4E7719C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Placeholders\PLACEHOLDER_EnemyFS\Foley_FS_Anton_Stone_Walk_02		15384

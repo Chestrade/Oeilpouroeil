@@ -10,41 +10,49 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Bus Name="PlayerSFX Bus" ID="{9739DADA-29EA-48CE-99C6-63944ADF0A1B}">
-							<PropertyList>
-								<Property Name="Color" Type="int16" Value="4"/>
-								<Property Name="OverrideColor" Type="bool" Value="True"/>
-							</PropertyList>
-						</Bus>
-						<Bus Name="EnemySFX Bus" ID="{4B3FBCB4-E25E-4230-B27A-6EAF220967E4}">
-							<PropertyList>
-								<Property Name="Color" Type="int16" Value="10"/>
-								<Property Name="OverrideColor" Type="bool" Value="True"/>
-							</PropertyList>
-						</Bus>
 						<Bus Name="Music Bus" ID="{A127902B-3ADA-49D1-A822-14A33B57E6C4}">
-							<PropertyList>
-								<Property Name="Color" Type="int16" Value="11"/>
-								<Property Name="OverrideColor" Type="bool" Value="True"/>
-							</PropertyList>
-						</Bus>
-						<Bus Name="UI Bus" ID="{99339604-AB9C-4546-98A7-CC27042A665C}">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="2"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
 						</Bus>
-						<Bus Name="Environement Bus" ID="{D5B06959-AD13-4635-823D-67791DE90153}">
+						<Bus Name="SFX" ID="{94548D20-1F37-4385-90DB-3CDC675EE5E2}">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="19"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
-						</Bus>
-						<Bus Name="Ambiance Bus" ID="{99BB8ECA-CEE1-42DD-A3A4-A4805186AA59}">
-							<PropertyList>
-								<Property Name="Color" Type="int16" Value="24"/>
-								<Property Name="OverrideColor" Type="bool" Value="True"/>
-							</PropertyList>
+							<ChildrenList>
+								<Bus Name="PlayerSFX Bus" ID="{9739DADA-29EA-48CE-99C6-63944ADF0A1B}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="4"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+								<Bus Name="UI Bus" ID="{99339604-AB9C-4546-98A7-CC27042A665C}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="2"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+								<Bus Name="EnemySFX Bus" ID="{4B3FBCB4-E25E-4230-B27A-6EAF220967E4}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="10"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+								<Bus Name="Ambiance Bus" ID="{99BB8ECA-CEE1-42DD-A3A4-A4805186AA59}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="24"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+								<Bus Name="Environement Bus" ID="{D5B06959-AD13-4635-823D-67791DE90153}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="19"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+							</ChildrenList>
 						</Bus>
 					</ChildrenList>
 				</Bus>

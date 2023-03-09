@@ -23,10 +23,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
 
+    [Header("Wwise Stuff")]
+    public AK.Wwise.Event jumpEvent;
+    public AK.Wwise.Event landEvent;
+    private bool landed;
+
     [Header("References")]
     //AAB public PlayerClimbing climbingScript;
     
-
+    [SerializeField] private SoundGageParticles soundGageParticles;
     private float horizontalInput;
     private float verticalInput;
     private RaycastHit slopeHit;
@@ -96,12 +101,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         else
         {
             rb.drag = 0;
+            
         }
-        
-        //Cammouflage
-        
-        
-        
     }
 
     private void FixedUpdate()
@@ -196,7 +197,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
         if(grounded && verticalInput != 0 || horizontalInput != 0)
         {
-           
+            return;
         }
 
 
@@ -249,12 +250,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         //Applique la force qu'une seule fois
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        jumpEvent.Post(gameObject);
+
     }
 
     private void ResetJump()
     {
         readyToJump = true;
         exitingSlope = false;
+        
     }
 
     private bool OnSlope()

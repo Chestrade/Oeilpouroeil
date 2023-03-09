@@ -78,13 +78,12 @@ public class SoundGageParticles : MonoBehaviour
         }
     }
 
-    private void Land()
+    public void Land() //se trouve dans le player controller
     {
         loudRipples.Play();
         alert_range = loudRange;
         landEvent.Post(gameObject);
         TriggerNoise();
-        
 
     }
 

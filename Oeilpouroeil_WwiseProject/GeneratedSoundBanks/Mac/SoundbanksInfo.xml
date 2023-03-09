@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{79E72719-147A-6982-3DC9-D7E5D87F6C9D}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{587D568C-03B7-6261-037E-1B63C0319F8B}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -19,6 +19,13 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="393239870" Name="SFX"/>
+				<Bus Id="1211920142" Name="EnemySFX Bus"/>
+				<Bus Id="2533627219" Name="Environement Bus"/>
+				<Bus Id="3127962312" Name="Music Bus"/>
+				<Bus Id="3199242203" Name="Ambiance Bus"/>
+				<Bus Id="3403583985" Name="PlayerSFX Bus"/>
+				<Bus Id="3600729941" Name="UI Bus"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<GameParameters>
@@ -35,13 +42,21 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{287DDB59-01D2-7694-6D19-FA960B26AE2E}">
+		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{7280826A-D3D8-66BC-7FAB-761E2A99A0DF}">
 			<ShortName>Default_Soundbank</ShortName>
 			<Path>Default_Soundbank.bnk</Path>
 			<Media>
 				<File Id="38320581" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_06.wav</ShortName>
 					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_06_C83D63CF.wem</CachePath>
+				</File>
+				<File Id="144107555" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_Grass_02.wav</ShortName>
+					<CachePath>SFX/Foley_Grass_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="301282997" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_Air Woosh_05.wav</ShortName>
+					<CachePath>SFX/Foley_Air Woosh_05_10C4C929.wem</CachePath>
 				</File>
 				<File Id="498400401" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_01.wav</ShortName>
@@ -108,8 +123,16 @@
 				<Event Id="3083087645" Name="Player_Death" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="473928874" Name="Player_FS_Run" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1781252372" Name="Player_FS_Walk" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1305133589" Name="Player_Jump" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="3629196698" Name="Player_Land" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1305133589" Name="Player_Jump" DurationType="OneShot" DurationMin="0.1875" DurationMax="0.1875">
+					<MediaRefs>
+						<MediaRef Id="301282997"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3629196698" Name="Player_Land" DurationType="OneShot" DurationMin="0.2380625" DurationMax="0.2380625">
+					<MediaRefs>
+						<MediaRef Id="144107555"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2843586610" Name="Portal_Trigger" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="4010507821" Name="Rope_Pull" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2018101552" Name="Toungue_Shoot" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
@@ -122,5 +145,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A7285206-30B2-510D-4313-9EF615AD63E0}</FileHash>
+	<FileHash>{3A71137E-9ABA-F5D2-1ABF-D22190646945}</FileHash>
 </SoundBanksInfo>

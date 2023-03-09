@@ -11,8 +11,28 @@
 					<ChildrenList>
 						<Event Name="Player_FS_Walk" ID="{25F38EF1-865E-43E5-B21B-FB9E77F6DCEF}"/>
 						<Event Name="Player_FS_Run" ID="{E0ADD5A2-7776-489E-A9B1-B09C769A4691}"/>
-						<Event Name="Player_Jump" ID="{152C09E6-645D-4BAC-906C-C5A9D39A10C0}"/>
-						<Event Name="Player_Land" ID="{C4F764E6-A9C0-416E-B6DA-E9FBEB7E57A3}"/>
+						<Event Name="Player_Jump" ID="{152C09E6-645D-4BAC-906C-C5A9D39A10C0}">
+							<ChildrenList>
+								<Action Name="" ID="{33E149A9-82E8-4A7B-94BD-39E43905B67E}" ShortID="267971180">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PLACEHOLDER_Jump" ID="{AF446062-1959-4D09-ADC6-A193201DAAC3}" WorkUnitID="{D2461688-0ED3-4004-8448-95845436683D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Player_Land" ID="{C4F764E6-A9C0-416E-B6DA-E9FBEB7E57A3}">
+							<ChildrenList>
+								<Action Name="" ID="{178B216D-941F-4673-8586-2C57F241AA7F}" ShortID="992480337">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PLACEHOLDER_Land" ID="{97D19D1D-A95C-42BC-9EB7-D5DC6E797A66}" WorkUnitID="{D2461688-0ED3-4004-8448-95845436683D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Cammo_Enter" ID="{06955011-C373-4A63-B837-14A014A28F9D}"/>
 						<Event Name="Cammo_Exit" ID="{F30336AA-4940-41C7-AE04-420D558C623D}"/>
 						<Event Name="Frog_Ribbit" ID="{C1357FB9-100B-4594-A7E0-02F6F62F3D6A}">
