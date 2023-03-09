@@ -99,6 +99,9 @@ namespace IndieMarc.EnemyVision
 
         private static List<Enemy> enemy_list = new List<Enemy>();
 
+
+        private PlayerController player;
+
         private void Awake()
         {
             enemy_list.Add(this);
@@ -134,7 +137,7 @@ namespace IndieMarc.EnemyVision
 
         void Start()
         {
-            
+            player = PlayerController.instance;
         }
 
         private void RefreshPatrol()
@@ -236,6 +239,8 @@ namespace IndieMarc.EnemyVision
                     transform.rotation = reachedRotation;
                 }
             }
+
+            distanceToPlayer = Vector3.Distance(player.transform.position,transform.position);
         }
 
         private void UpdateAlert()

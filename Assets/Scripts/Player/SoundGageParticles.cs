@@ -22,6 +22,7 @@ public class SoundGageParticles : MonoBehaviour
 
     private PlayerController player;
     private Animator animator;
+    private EyeInteractableManager eyeManager;
 
     
     private void Start()
@@ -33,7 +34,6 @@ public class SoundGageParticles : MonoBehaviour
 
     private void Update()
     {
-        
         if (Input.GetButtonDown("Fire1"))
         {
             loudRipples.Play();
@@ -41,11 +41,8 @@ public class SoundGageParticles : MonoBehaviour
             alert_range = loudRange;
             TriggerNoise();
         }
-        
-       
-
     }
-    private void Step()
+    private void Step() //run
     {
 
         if(animator.GetFloat("SpeedAnimations") >=0.6 && player.grounded)
@@ -63,14 +60,21 @@ public class SoundGageParticles : MonoBehaviour
         
     }
 
-    private void QuietStep()
+    private void QuietStep() //walk
     {
-        if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded)
+        if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded && eyeManager.pickUpEye == false)
         {
             quietRipples.Play();
             quietStepEvent.Post(gameObject);
             TriggerNoise();
             alert_range = quietRange;
+        }
+        else if(animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded && eyeManager.pickUpEye == true)
+        {
+            loudRipples.Play();
+            loudStepEvent.Post(gameObject);
+            alert_range = loudRange;
+            TriggerNoise();
         }
         else if (player.isIdle || !player.grounded)
         {
