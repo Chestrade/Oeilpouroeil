@@ -169,7 +169,7 @@ public class Cammouflage : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough stamina");
+            return;
         }
    }
 
