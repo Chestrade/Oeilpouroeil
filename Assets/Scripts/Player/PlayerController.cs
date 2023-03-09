@@ -12,7 +12,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     [SerializeField] private float maxSlopeAngle;
-    [SerializeField] private float jumpCounter;
+    [SerializeField] public float jumpCounter;
+    [SerializeField] public float maxJump;
     //AAB [SerializeField] public float climbSpeed;//public pour avoir acces dans SoundGageParticles
     [SerializeField] private Transform orientation;
 
@@ -39,8 +40,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private bool exitingSlope;
     [HideInInspector] public float moveSpeed; //public pour avoir acces dans SoundGageParticles
     private Vector3 moveDirection;
+    private bool doubleJumpPower;
 
-    private bool readyToJump;
+    public bool readyToJump;
 
     public bool grounded;
 
@@ -76,6 +78,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb.freezeRotation = true;
         readyToJump = true;
         isIdle = true;
+        doubleJumpPower = false;
+        maxJump = 2;
       
         
        
@@ -94,6 +98,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         SpeedControl();
         StateHandler();
 
+
         //Handle drag;
         if (grounded)
         {
@@ -103,6 +108,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             rb.drag = 0;
             
+        }
+
+        if(doubleJumpPower == true)
+        {
+            maxJump= 2;
         }
     }
 
@@ -117,12 +127,13 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         verticalInput = UnityEngine.Input.GetAxisRaw("Vertical");
 
         //Saute lorsque le joueur est pr�t et au sol
-        if (UnityEngine.Input.GetKeyDown(jumpKey) && readyToJump && grounded && jumpCounter < 2)
+        if (UnityEngine.Input.GetKeyDown(jumpKey) && readyToJump && jumpCounter < maxJump)
         {
-            readyToJump = false;
+            //readyToJump = false;
             Jump();
             //Invoke(nameof(ResetJump), jumpCooldown);
         }
+
 
         if (UnityEngine.Input.GetAxisRaw("Horizontal") != 0 || UnityEngine.Input.GetAxisRaw("Vertical") != 0)
         {
@@ -265,7 +276,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void JumpCollision()
     {
-
+        if(jumpCounter < maxJump)
+        {
+            readyToJump = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
