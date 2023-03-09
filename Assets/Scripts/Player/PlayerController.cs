@@ -28,7 +28,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [Header("Wwise Stuff")]
     public AK.Wwise.Event jumpEvent;
     public AK.Wwise.Event landEvent;
-    private bool landed;
 
     [Header("References")]
     //AAB public PlayerClimbing climbingScript;
@@ -290,6 +289,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             jumpCounter = 0;
             ResetJump();
+            landEvent.Post(gameObject);
+            soundGageParticles.Land();
             grounded = true;
         }
     }
