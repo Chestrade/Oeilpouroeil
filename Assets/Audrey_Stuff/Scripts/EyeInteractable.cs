@@ -12,11 +12,14 @@ public class EyeInteractable : MonoBehaviour
 
     public int eyeID;
 
+    public AK.Wwise.Event crystalGlowLoop;
+
 
     void Start()
     {
         collectedEyeManager = FindObjectOfType<CollectedEyeManager>();
         interactPrompt.SetActive(false);   //When the game start, the prompt is turned off
+        crystalGlowLoop.Post(gameObject);
     }
 
 

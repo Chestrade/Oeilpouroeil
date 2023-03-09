@@ -11,6 +11,10 @@ public class Note : MonoBehaviour
 
     public NoteManager noteManager;
 
+    [Header("Wwise Stuff")]
+    public AK.Wwise.Event noteOpenEvent;
+    public AK.Wwise.Event noteCloseEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +41,12 @@ public class Note : MonoBehaviour
     {
         noteManager.noteTextMesh.text = noteText;
         noteManager.EnableTextBox();
+        noteOpenEvent.Post(gameObject);
     }
 
     public void CloseNote()
     {
         noteManager.DisableTextBox();
+        noteCloseEvent.Post(gameObject);
     }
 }

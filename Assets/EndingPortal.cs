@@ -8,6 +8,7 @@ public class EndingPortal : MonoBehaviour
     public GameObject portalEffects;
     public int levelToLoad = 1;
     public Collider myCollider;
+    public AK.Wwise.Event portalLoopTrigger;
 
     void Start()
     {
@@ -19,7 +20,8 @@ public class EndingPortal : MonoBehaviour
     {
         portalEffects.SetActive(true);
         myCollider.enabled = true;
-
+        portalLoopTrigger.Post(gameObject);
+        //Debug.Log("Portal Activated");
     }
 
 

@@ -168,6 +168,7 @@
 						<Event Name="Plank_Crack" ID="{9F84E8D7-9359-4911-BF39-3BCD1E21F708}"/>
 						<Event Name="Portal_Trigger" ID="{315EB32A-DD09-459D-9ECB-30079F7792F3}"/>
 						<Event Name="Note_Open" ID="{83C8401C-DB8B-4A17-B472-253DC6F98A3A}"/>
+						<Event Name="Note_Closed" ID="{945FB8A8-EA7E-4B4F-9D6D-DEB27123165E}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music and Amb cues" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" ShortID="90664474">
