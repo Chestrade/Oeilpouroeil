@@ -124,12 +124,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             //Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if (grounded)
-        {
-            ResetJump();
-            jumpCounter= 0;
-        }
-
         if (UnityEngine.Input.GetAxisRaw("Horizontal") != 0 || UnityEngine.Input.GetAxisRaw("Vertical") != 0)
         {
             isIdle = false;
@@ -267,6 +261,20 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         readyToJump = true;
         exitingSlope = false;
         
+    }
+
+    private void JumpCollision()
+    {
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            jumpCounter = 0;
+            ResetJump();
+        }
     }
 
     private bool OnSlope()
