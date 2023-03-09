@@ -24,29 +24,36 @@ public class SoundGageParticles : MonoBehaviour
     private Animator animator;
     private EyeInteractableManager eyeManager;
 
-    
+    private bool hasRibbit;
+    private float timeBetweenRibbits;
+
+
     private void Start()
     {
+        
         player = PlayerController.instance;
         eyeManager = GetComponent<EyeInteractableManager>();
         animator = GetComponent<Animator>();
         alert_range = 0f;
+        timeBetweenRibbits = 0.8f;
+        hasRibbit = false;
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && hasRibbit == false)
         {
             loudRipples.Play();
             ribbit.Post(gameObject);
             alert_range = loudRange;
             TriggerNoise();
+            StartCoroutine(WaitForRibbit());
         }
     }
     private void Step() //run
     {
 
-        if(animator.GetFloat("SpeedAnimations") >=0.6 && player.grounded)
+        if (animator.GetFloat("SpeedAnimations") >= 0.6 && player.grounded)
         {
             loudRipples.Play();
             loudStepEvent.Post(gameObject);
@@ -54,11 +61,11 @@ public class SoundGageParticles : MonoBehaviour
             TriggerNoise();
 
         }
-        else if(player.isIdle || player.grounded)
+        else if (player.isIdle || player.grounded)
         {
             RippleStop();
         }
-        
+
     }
 
     private void QuietStep() //walk
@@ -70,7 +77,7 @@ public class SoundGageParticles : MonoBehaviour
             TriggerNoise();
             alert_range = quietRange;
         }
-        else if(animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded && eyeManager.pickUpEye == true)
+        else if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded && eyeManager.pickUpEye == true)
         {
             loudRipples.Play();
             loudStepEvent.Post(gameObject);
@@ -79,7 +86,7 @@ public class SoundGageParticles : MonoBehaviour
         }
         else if (player.isIdle || !player.grounded)
         {
-            RippleStop();  
+            RippleStop();
         }
     }
 
@@ -94,7 +101,7 @@ public class SoundGageParticles : MonoBehaviour
 
     private void RippleStop()
     {
-       alert_range = 0f;
+        alert_range = 0f;
 
         if (loudRipples.isPlaying)
         {
@@ -116,9 +123,17 @@ public class SoundGageParticles : MonoBehaviour
         {
             enemy.Alert(transform.position);
         }
-       
-       
+
+
     }
+
+    private IEnumerator WaitForRibbit()
+    {
+        hasRibbit = true;
+        yield return new WaitForSeconds(timeBetweenRibbits);
+        hasRibbit = false;
+    }
+
 
 }
 
