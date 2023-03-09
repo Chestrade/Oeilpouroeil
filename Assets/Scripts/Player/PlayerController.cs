@@ -12,6 +12,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     [SerializeField] private float maxSlopeAngle;
+    [SerializeField] private float jumpCounter;
     //AAB [SerializeField] public float climbSpeed;//public pour avoir acces dans SoundGageParticles
     [SerializeField] private Transform orientation;
 
@@ -116,11 +117,17 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         verticalInput = UnityEngine.Input.GetAxisRaw("Vertical");
 
         //Saute lorsque le joueur est pr�t et au sol
-        if (UnityEngine.Input.GetKeyDown(jumpKey) && readyToJump && grounded)
+        if (UnityEngine.Input.GetKeyDown(jumpKey) && readyToJump && grounded && jumpCounter < 2)
         {
             readyToJump = false;
             Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
+            //Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        if (grounded)
+        {
+            ResetJump();
+            jumpCounter= 0;
         }
 
         if (UnityEngine.Input.GetAxisRaw("Horizontal") != 0 || UnityEngine.Input.GetAxisRaw("Vertical") != 0)
@@ -251,6 +258,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         //Applique la force qu'une seule fois
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         jumpEvent.Post(gameObject);
+        jumpCounter++;
 
     }
 
