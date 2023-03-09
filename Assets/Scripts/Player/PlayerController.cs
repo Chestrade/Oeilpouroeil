@@ -88,8 +88,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private void Update()
     {
         //Ground Check
-        RaycastHit hit;
-        grounded = Physics.Raycast(Frog.transform.position + Vector3.up * RayHeight, Vector3.down, out hit, playerHeight, LMask);
+        //RaycastHit hit;
+        //grounded = Physics.Raycast(Frog.transform.position + Vector3.up * RayHeight, Vector3.down, out hit, playerHeight, LMask);
         
 
         //Debug.Log("Is grounded = " + grounded + " " + hit.transform.name);
@@ -180,7 +180,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         //Mode - air
         else
         {
-            state = MovementState.Air;
+            state = MovementState.Air;   
         }
     }
 
@@ -255,6 +255,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void Jump()
     {
+        grounded = false;
         exitingSlope = true;
 
         //R�initialise la v�locit� en y (le joueur saute toujours � la m�me hauteur)
@@ -264,6 +265,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         jumpEvent.Post(gameObject);
         jumpCounter++;
+
 
     }
 
@@ -288,6 +290,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             jumpCounter = 0;
             ResetJump();
+            grounded = true;
         }
     }
 
