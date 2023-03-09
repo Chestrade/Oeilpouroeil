@@ -65,7 +65,7 @@ public class PlayerAnimations : MonoBehaviour
         }
 
 
-        if (UnityEngine.Input.GetKeyDown(KeyCode.Space) && player.grounded)
+        if (UnityEngine.Input.GetKeyDown(KeyCode.Space) && player.readyToJump && player.jumpCounter < player.maxJump)
         {
             animator.SetTrigger("Jump");
             jumpEvent.Post(gameObject);
