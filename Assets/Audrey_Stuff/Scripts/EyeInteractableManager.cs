@@ -23,7 +23,7 @@ public class EyeInteractableManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // Update is calld once per frame
     void Update()
     {
         // Picks Up eye
@@ -35,7 +35,7 @@ public class EyeInteractableManager : MonoBehaviour
                 eyeInteractable.PickUpEye();
                 print("PickUpEye");
                 currentlyHeldEye = eyeInteractable.eyeID;
-
+                pickUpEye = true;
                 eyeInteractable.gameObject.transform.parent = eyeHolder;
                 eyeInteractable.gameObject.transform.position = eyeHolder.position;
                 //eyeInteractable.gameObject.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
@@ -50,7 +50,7 @@ public class EyeInteractableManager : MonoBehaviour
 
                 statueInteractable.PlaceEye();
                 print("PickUpEye");
-
+                pickUpEye = false;
                 eyeInteractable.gameObject.transform.parent = statueInteractable.eyeTransform;
                 eyeInteractable.gameObject.transform.position = statueInteractable.eyeTransform.position;
                // eyeInteractable.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
