@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C636D030-0B69-6E19-6D4C-A2BB4CD9E3A7}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{26F9A446-477E-AD28-B585-510E730DF4F1}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -19,6 +19,13 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="393239870" Name="SFX"/>
+				<Bus Id="1211920142" Name="EnemySFX Bus"/>
+				<Bus Id="2533627219" Name="Environement Bus"/>
+				<Bus Id="3127962312" Name="Music Bus"/>
+				<Bus Id="3199242203" Name="Ambiance Bus"/>
+				<Bus Id="3403583985" Name="PlayerSFX Bus"/>
+				<Bus Id="3600729941" Name="UI Bus"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<GameParameters>
@@ -35,13 +42,29 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{287DDB59-01D2-7694-6D19-FA960B26AE2E}">
+		<SoundBank Id="2218482606" Type="User" Language="SFX" Hash="{B935DE0C-9348-6D9B-1C05-8A34690A204F}">
 			<ShortName>Default_Soundbank</ShortName>
 			<Path>Default_Soundbank.bnk</Path>
 			<Media>
 				<File Id="38320581" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_06.wav</ShortName>
 					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_06_C83D63CF.wem</CachePath>
+				</File>
+				<File Id="43675287" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_02.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_02_FAE449F5.wem</CachePath>
+				</File>
+				<File Id="144107555" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_Grass_02.wav</ShortName>
+					<CachePath>SFX/Foley_Grass_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="301282997" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_Air Woosh_05.wav</ShortName>
+					<CachePath>SFX/Foley_Air Woosh_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="350301952" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_03.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_03_4048AAA0.wem</CachePath>
 				</File>
 				<File Id="498400401" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_01.wav</ShortName>
@@ -63,9 +86,21 @@
 					<ShortName>447917__breviceps__cartoon-frog.wav</ShortName>
 					<CachePath>SFX/447917__breviceps__cartoon-frog_CAF21F95.wem</CachePath>
 				</File>
+				<File Id="843323915" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_05.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_05_60AAA419.wem</CachePath>
+				</File>
 				<File Id="908796425" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_05.wav</ShortName>
 					<CachePath>SFX/Foley_FS_Anton_Stone_Walk_05_967909F3.wem</CachePath>
+				</File>
+				<File Id="989424160" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_01.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_01_59786ECA.wem</CachePath>
+				</File>
+				<File Id="1011809992" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Foley_FS_Anton_Dirt_Walk_04.wav</ShortName>
+					<CachePath>SFX/Foley_FS_Anton_Dirt_Walk_04_95220739.wem</CachePath>
 				</File>
 				<File Id="1054012413" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Foley_FS_Anton_Stone_Walk_03.wav</ShortName>
@@ -106,10 +141,34 @@
 				<Event Id="3541546815" Name="Pillar_Slide" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="902388388" Name="Plank_Crack" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3083087645" Name="Player_Death" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="473928874" Name="Player_FS_Run" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1781252372" Name="Player_FS_Walk" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1305133589" Name="Player_Jump" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="3629196698" Name="Player_Land" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="473928874" Name="Player_FS_Run" DurationType="OneShot" DurationMin="0.2405815" DurationMax="0.5385306">
+					<MediaRefs>
+						<MediaRef Id="43675287"/>
+						<MediaRef Id="350301952"/>
+						<MediaRef Id="843323915"/>
+						<MediaRef Id="989424160"/>
+						<MediaRef Id="1011809992"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1781252372" Name="Player_FS_Walk" DurationType="OneShot" DurationMin="0.2405815" DurationMax="0.5385306">
+					<MediaRefs>
+						<MediaRef Id="43675287"/>
+						<MediaRef Id="350301952"/>
+						<MediaRef Id="843323915"/>
+						<MediaRef Id="989424160"/>
+						<MediaRef Id="1011809992"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1305133589" Name="Player_Jump" DurationType="OneShot" DurationMin="0.1875" DurationMax="0.1875">
+					<MediaRefs>
+						<MediaRef Id="301282997"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3629196698" Name="Player_Land" DurationType="OneShot" DurationMin="0.2380625" DurationMax="0.2380625">
+					<MediaRefs>
+						<MediaRef Id="144107555"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2843586610" Name="Portal_Trigger" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="4010507821" Name="Rope_Pull" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2018101552" Name="Toungue_Shoot" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
@@ -122,5 +181,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{575F617E-029C-E600-1943-1FC41CBF4CA5}</FileHash>
+	<FileHash>{0A33A1E7-A9BA-9E5C-7605-A174D1DB261E}</FileHash>
 </SoundBanksInfo>

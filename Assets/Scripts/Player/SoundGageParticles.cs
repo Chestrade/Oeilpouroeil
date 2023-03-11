@@ -18,37 +18,45 @@ public class SoundGageParticles : MonoBehaviour
     [Header("Enemy Alert")]
     [SerializeField] private float quietRange;
     [SerializeField] private float loudRange;
+    [SerializeField] private float ribbitRange;
     private float alert_range;
 
     private PlayerController player;
     private Animator animator;
+    private EyeInteractableManager eyeManager;
 
-    
+    private bool hasRibbit;
+    private float timeBetweenRibbits;
+
+
     private void Start()
     {
+        
         player = PlayerController.instance;
+        eyeManager = GetComponent<EyeInteractableManager>();
         animator = GetComponent<Animator>();
         alert_range = 0f;
+        timeBetweenRibbits = 0.8f;
+        hasRibbit = false;
     }
 
     private void Update()
     {
-        
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && hasRibbit == false)
         {
             loudRipples.Play();
             ribbit.Post(gameObject);
-            alert_range = loudRange;
             TriggerNoise();
+            alert_range = ribbitRange;
+            StartCoroutine(WaitForRibbit());
         }
-        
-       
 
+        //Debug.Log("Alert Range : " + alert_range);
     }
-    private void Step()
+    private void Step() //run
     {
 
-        if(animator.GetFloat("SpeedAnimations") >=0.6 && player.grounded)
+        if (animator.GetFloat("SpeedAnimations") >= 0.6 && player.grounded)
         {
             loudRipples.Play();
             loudStepEvent.Post(gameObject);
@@ -56,41 +64,47 @@ public class SoundGageParticles : MonoBehaviour
             TriggerNoise();
 
         }
-        else if(player.isIdle || player.grounded)
+        else if (player.isIdle || player.grounded)
         {
             RippleStop();
         }
-        
+
     }
 
-    private void QuietStep()
+    private void QuietStep() //walk
     {
-        if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded)
+        if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded && eyeManager.pickUpEye == false)
         {
             quietRipples.Play();
             quietStepEvent.Post(gameObject);
             TriggerNoise();
             alert_range = quietRange;
         }
+        else if (animator.GetFloat("SpeedAnimations") > 0.1 && animator.GetFloat("SpeedAnimations") < 0.6 && player.grounded && eyeManager.pickUpEye == true)
+        {
+            loudRipples.Play();
+            loudStepEvent.Post(gameObject);
+            alert_range = loudRange;
+            TriggerNoise();
+        }
         else if (player.isIdle || !player.grounded)
         {
-            RippleStop();  
+            RippleStop();
         }
     }
 
-    private void Land()
+    public void Land() //se trouve dans le player controller
     {
         loudRipples.Play();
         alert_range = loudRange;
         landEvent.Post(gameObject);
         TriggerNoise();
-        
 
     }
 
     private void RippleStop()
     {
-       alert_range = 0f;
+        alert_range = 0f;
 
         if (loudRipples.isPlaying)
         {
@@ -112,9 +126,18 @@ public class SoundGageParticles : MonoBehaviour
         {
             enemy.Alert(transform.position);
         }
-       
-       
+
+
     }
 
+    private IEnumerator WaitForRibbit()
+    {
+        hasRibbit = true;
+        yield return new WaitForSeconds(timeBetweenRibbits);
+        hasRibbit = false;
+        alert_range = 0f;
+    }
+
+    
 }
 

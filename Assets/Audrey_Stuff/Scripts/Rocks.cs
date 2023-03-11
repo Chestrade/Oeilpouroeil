@@ -8,7 +8,8 @@ public class Rocks : MonoBehaviour
     public bool rocksPushed;
 
     public Transform[] rockFallTransform;
-    public AudioSource rockFallSFX;
+    public AK.Wwise.Event rockFallEvent;
+    //public AudioSource rockFallSFX;
 
     private bool rocksPushStep1;
     private bool rocksPushStep2;
@@ -36,7 +37,8 @@ public class Rocks : MonoBehaviour
         StartCoroutine(PushDelay());
 
         //Play SFX
-        rockFallSFX.Play();
+        //rockFallSFX.Play();
+        rockFallEvent.Post(gameObject);
         interactPrompt.SetActive(false);
     }
 

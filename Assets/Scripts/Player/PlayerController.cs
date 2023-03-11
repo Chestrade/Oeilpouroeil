@@ -12,6 +12,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     [SerializeField] private float maxSlopeAngle;
+    [SerializeField] public float jumpCounter;
+    [SerializeField] public float maxJump;
     //AAB [SerializeField] public float climbSpeed;//public pour avoir acces dans SoundGageParticles
     [SerializeField] private Transform orientation;
 
@@ -23,18 +25,23 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
 
+    [Header("Wwise Stuff")]
+    public AK.Wwise.Event jumpEvent;
+    public AK.Wwise.Event landEvent;
+
     [Header("References")]
     //AAB public PlayerClimbing climbingScript;
     
-
+    [SerializeField] private SoundGageParticles soundGageParticles;
     private float horizontalInput;
     private float verticalInput;
     private RaycastHit slopeHit;
     private bool exitingSlope;
     [HideInInspector] public float moveSpeed; //public pour avoir acces dans SoundGageParticles
     private Vector3 moveDirection;
+    private bool doubleJumpPower;
 
-    private bool readyToJump;
+    public bool readyToJump;
 
     public bool grounded;
 
@@ -70,6 +77,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb.freezeRotation = true;
         readyToJump = true;
         isIdle = true;
+        doubleJumpPower = false;
+        maxJump = 2;
       
         
        
@@ -78,8 +87,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private void Update()
     {
         //Ground Check
-        RaycastHit hit;
-        grounded = Physics.Raycast(Frog.transform.position + Vector3.up * RayHeight, Vector3.down, out hit, playerHeight, LMask);
+        //RaycastHit hit;
+        //grounded = Physics.Raycast(Frog.transform.position + Vector3.up * RayHeight, Vector3.down, out hit, playerHeight, LMask);
         
 
         //Debug.Log("Is grounded = " + grounded + " " + hit.transform.name);
@@ -87,6 +96,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         Input();
         SpeedControl();
         StateHandler();
+
 
         //Handle drag;
         if (grounded)
@@ -96,12 +106,13 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         else
         {
             rb.drag = 0;
+            
         }
-        
-        //Cammouflage
-        
-        
-        
+
+        if(doubleJumpPower == true)
+        {
+            maxJump= 2;
+        }
     }
 
     private void FixedUpdate()
@@ -115,12 +126,13 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         verticalInput = UnityEngine.Input.GetAxisRaw("Vertical");
 
         //Saute lorsque le joueur est pr�t et au sol
-        if (UnityEngine.Input.GetKeyDown(jumpKey) && readyToJump && grounded)
+        if (UnityEngine.Input.GetKeyDown(jumpKey) && readyToJump && jumpCounter < maxJump)
         {
-            readyToJump = false;
+            //readyToJump = false;
             Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
+            //Invoke(nameof(ResetJump), jumpCooldown);
         }
+
 
         if (UnityEngine.Input.GetAxisRaw("Horizontal") != 0 || UnityEngine.Input.GetAxisRaw("Vertical") != 0)
         {
@@ -167,7 +179,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         //Mode - air
         else
         {
-            state = MovementState.Air;
+            state = MovementState.Air;   
         }
     }
 
@@ -196,7 +208,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
         if(grounded && verticalInput != 0 || horizontalInput != 0)
         {
-           
+            return;
         }
 
 
@@ -242,6 +254,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void Jump()
     {
+        grounded = false;
         exitingSlope = true;
 
         //R�initialise la v�locit� en y (le joueur saute toujours � la m�me hauteur)
@@ -249,12 +262,37 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         //Applique la force qu'une seule fois
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        jumpEvent.Post(gameObject);
+        jumpCounter++;
+
+
     }
 
     private void ResetJump()
     {
         readyToJump = true;
         exitingSlope = false;
+        
+    }
+
+    private void JumpCollision()
+    {
+        if(jumpCounter < maxJump)
+        {
+            readyToJump = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            jumpCounter = 0;
+            ResetJump();
+            landEvent.Post(gameObject);
+            soundGageParticles.Land();
+            grounded = true;
+        }
     }
 
     private bool OnSlope()

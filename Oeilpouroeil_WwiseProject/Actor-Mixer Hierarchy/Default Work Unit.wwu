@@ -28,6 +28,11 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -59,6 +64,7 @@
 						<RandomSequenceContainer Name="PLACEHOLDER_EnemyFS" ID="{F5415312-DEC7-4273-AFA4-4A862531042F}" ShortID="526734424">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
@@ -281,6 +287,240 @@
 								<Panner Name="" ID="{C4DF11D7-7343-4E2F-B061-E7A3726E4FC5}"/>
 								<Position Name="" ID="{0F30D819-C01F-4DF1-9CC5-68078AB27B51}"/>
 							</PositioningInfo>
+						</RandomSequenceContainer>
+						<Sound Name="PLACEHOLDER_Jump" ID="{AF446062-1959-4D09-ADC6-A193201DAAC3}" ShortID="115362187">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Foley_Air Woosh_05" ID="{30929613-8057-4B96-AE3C-E33F3B2A2FDC}">
+									<Language>SFX</Language>
+									<AudioFile>Foley_Air Woosh_05.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="301282997"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Foley_Air Woosh_05" ID="{30929613-8057-4B96-AE3C-E33F3B2A2FDC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PLACEHOLDER_Land" ID="{97D19D1D-A95C-42BC-9EB7-D5DC6E797A66}" ShortID="13465874">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-14</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Foley_Grass_02" ID="{20D12CE8-C308-497F-ABA9-89F59ACC1943}">
+									<Language>SFX</Language>
+									<AudioFile>Foley_Grass_02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="144107555"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Foley_Grass_02" ID="{20D12CE8-C308-497F-ABA9-89F59ACC1943}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="PlaceHolderFrogFs" ID="{D32B3D33-0D17-40C2-83A6-F12BAED47667}" ShortID="49232447">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{80A5099D-CB45-4D73-923C-9901A6A20D4D}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="150"/>
+													<Property Name="Min" Type="Real64" Value="-150"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="RenderEffect0" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Hall_Large_Dark" ID="{0F6A7D6D-131C-4650-9561-FC05F5C7A37B}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Foley_FS_Anton_Dirt_Walk_03" ID="{67997A8C-5748-417C-9992-0917E25B8C0A}" ShortID="719390845">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Dirt_Walk_03" ID="{94BBACA3-2AC2-4EEA-8B02-600DB5382851}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0117510753547953"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0117510753547953"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Dirt_Walk_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="350301952"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Dirt_Walk_03" ID="{94BBACA3-2AC2-4EEA-8B02-600DB5382851}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Dirt_Walk_05" ID="{139177A8-8B94-4D47-B4AC-4C01870F4C64}" ShortID="351381885">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Dirt_Walk_05" ID="{934503FD-FE39-4DBC-914C-4ABDFE661E10}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0253489316160461"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0253489316160461"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Dirt_Walk_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="843323915"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Dirt_Walk_05" ID="{934503FD-FE39-4DBC-914C-4ABDFE661E10}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Dirt_Walk_04" ID="{5FFA22F5-FDEB-4725-A71C-D743788185C8}" ShortID="643851143">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Dirt_Walk_04" ID="{BF6431EA-F141-4C14-B74B-FD24A5E293E2}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0101862444797087"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0101862444797087"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Dirt_Walk_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1011809992"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Dirt_Walk_04" ID="{BF6431EA-F141-4C14-B74B-FD24A5E293E2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Dirt_Walk_02" ID="{8A22332D-02D0-4469-B49A-45F5843D5B06}" ShortID="36545517">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Dirt_Walk_02" ID="{D2781B44-DAEF-4B15-AC13-5816E4CC24A1}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0127194892423516"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0127194892423516"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Dirt_Walk_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="43675287"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Dirt_Walk_02" ID="{D2781B44-DAEF-4B15-AC13-5816E4CC24A1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Foley_FS_Anton_Dirt_Walk_01" ID="{AE44C665-5440-4529-95D1-3B4EFF9619B2}" ShortID="580545157">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Foley_FS_Anton_Dirt_Walk_01" ID="{C216628B-237D-47BF-8E9A-5506F27EC49A}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0155805275696777"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0155805275696777"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Foley_FS_Anton_Dirt_Walk_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="989424160"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Foley_FS_Anton_Dirt_Walk_01" ID="{C216628B-237D-47BF-8E9A-5506F27EC49A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>

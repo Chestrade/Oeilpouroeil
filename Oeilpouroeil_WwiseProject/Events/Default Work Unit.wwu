@@ -9,10 +9,50 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="Player_FS_Walk" ID="{25F38EF1-865E-43E5-B21B-FB9E77F6DCEF}"/>
-						<Event Name="Player_FS_Run" ID="{E0ADD5A2-7776-489E-A9B1-B09C769A4691}"/>
-						<Event Name="Player_Jump" ID="{152C09E6-645D-4BAC-906C-C5A9D39A10C0}"/>
-						<Event Name="Player_Land" ID="{C4F764E6-A9C0-416E-B6DA-E9FBEB7E57A3}"/>
+						<Event Name="Player_FS_Walk" ID="{25F38EF1-865E-43E5-B21B-FB9E77F6DCEF}">
+							<ChildrenList>
+								<Action Name="" ID="{BEB1699E-B2EC-4488-85F8-99310D362367}" ShortID="71163817">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PlaceHolderFrogFs" ID="{D32B3D33-0D17-40C2-83A6-F12BAED47667}" WorkUnitID="{D2461688-0ED3-4004-8448-95845436683D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Player_FS_Run" ID="{E0ADD5A2-7776-489E-A9B1-B09C769A4691}">
+							<ChildrenList>
+								<Action Name="" ID="{47DE389D-2F1D-4058-99D4-CA2853CACBDE}" ShortID="1053140225">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PlaceHolderFrogFs" ID="{D32B3D33-0D17-40C2-83A6-F12BAED47667}" WorkUnitID="{D2461688-0ED3-4004-8448-95845436683D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Player_Jump" ID="{152C09E6-645D-4BAC-906C-C5A9D39A10C0}">
+							<ChildrenList>
+								<Action Name="" ID="{33E149A9-82E8-4A7B-94BD-39E43905B67E}" ShortID="267971180">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PLACEHOLDER_Jump" ID="{AF446062-1959-4D09-ADC6-A193201DAAC3}" WorkUnitID="{D2461688-0ED3-4004-8448-95845436683D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Player_Land" ID="{C4F764E6-A9C0-416E-B6DA-E9FBEB7E57A3}">
+							<ChildrenList>
+								<Action Name="" ID="{178B216D-941F-4673-8586-2C57F241AA7F}" ShortID="992480337">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PLACEHOLDER_Land" ID="{97D19D1D-A95C-42BC-9EB7-D5DC6E797A66}" WorkUnitID="{D2461688-0ED3-4004-8448-95845436683D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Cammo_Enter" ID="{06955011-C373-4A63-B837-14A014A28F9D}"/>
 						<Event Name="Cammo_Exit" ID="{F30336AA-4940-41C7-AE04-420D558C623D}"/>
 						<Event Name="Frog_Ribbit" ID="{C1357FB9-100B-4594-A7E0-02F6F62F3D6A}">
@@ -128,6 +168,7 @@
 						<Event Name="Plank_Crack" ID="{9F84E8D7-9359-4911-BF39-3BCD1E21F708}"/>
 						<Event Name="Portal_Trigger" ID="{315EB32A-DD09-459D-9ECB-30079F7792F3}"/>
 						<Event Name="Note_Open" ID="{83C8401C-DB8B-4A17-B472-253DC6F98A3A}"/>
+						<Event Name="Note_Closed" ID="{945FB8A8-EA7E-4B4F-9D6D-DEB27123165E}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music and Amb cues" ID="{5256C782-DAFD-4044-84F0-C68AF209E059}" ShortID="90664474">

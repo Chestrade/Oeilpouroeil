@@ -16,7 +16,7 @@ namespace IndieMarc.EnemyVision
 
         public AK.Wwise.Event enemyAlertEvent;
         public AK.Wwise.Event enemyAgroEvent;
-        public AK.Wwise.Event enemyDeathEvent;
+      
 
         private EnemyVision enemy;
         private Animator animator;

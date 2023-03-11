@@ -38,8 +38,8 @@ public class Cammouflage : MonoBehaviour
     public AK.Wwise.Event cammoEnter;
     public AK.Wwise.Event cammoExit;
 
-   
 
+    private EyeInteractableManager eyeManager;
     private Renderer rend;
     private Renderer tongueRend;
     private PlayerController player;
@@ -52,6 +52,7 @@ public class Cammouflage : MonoBehaviour
     void Start()
     {
         player = PlayerController.instance;
+        eyeManager = GetComponent<EyeInteractableManager>();
         rend = frogChild.GetComponent<Renderer>();
         tongueRend = frogTongue.GetComponent<Renderer>();
         enemyColl = GameObject.Find("Enemy/Mesh").GetComponent<CapsuleCollider>();
@@ -98,7 +99,7 @@ public class Cammouflage : MonoBehaviour
 
     void UseCammo()
     {
-        if (cammoAcquired) 
+        if (cammoAcquired && eyeManager.pickUpEye == false) 
         {
             if (Input.GetKeyDown(KeyCode.H) && isCammouflaged == false && currentStamina == 100)
             {
@@ -124,6 +125,10 @@ public class Cammouflage : MonoBehaviour
                 RevealFrog();
             }
             else if (isCammouflaged && !player.isIdle || !player.grounded || Input.GetKeyDown(KeyCode.Space))
+            {
+                RevealFrog();
+            }
+            else if(isCammouflaged && eyeManager.pickUpEye == true)
             {
                 RevealFrog();
             }
@@ -164,7 +169,7 @@ public class Cammouflage : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough stamina");
+            return;
         }
    }
 

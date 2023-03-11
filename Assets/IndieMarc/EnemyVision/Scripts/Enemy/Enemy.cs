@@ -37,7 +37,11 @@ namespace IndieMarc.EnemyVision
         public LayerMask obstacle_mask = ~(0);
         public bool use_pathfind = false;
 
+        [Header("Wwise Stuff")]
         public AK.Wwise.Event enemyFs;
+        [Tooltip("15 = not supposed to hear footsteps or barely")]
+        [Range(0, 20)]
+        [SerializeField] private float distanceToPlayer;
 
 
         [Header("State")]
@@ -95,6 +99,9 @@ namespace IndieMarc.EnemyVision
 
         private static List<Enemy> enemy_list = new List<Enemy>();
 
+
+        private PlayerController player;
+
         private void Awake()
         {
             enemy_list.Add(this);
@@ -130,7 +137,7 @@ namespace IndieMarc.EnemyVision
 
         void Start()
         {
-            
+            player = PlayerController.instance;
         }
 
         private void RefreshPatrol()
@@ -232,6 +239,8 @@ namespace IndieMarc.EnemyVision
                     transform.rotation = reachedRotation;
                 }
             }
+
+            distanceToPlayer = Vector3.Distance(player.transform.position,transform.position);
         }
 
         private void UpdateAlert()
