@@ -44,6 +44,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     public bool readyToJump;
 
     public bool grounded;
+    private bool firstJumped;
 
     public bool isIdle;
 
@@ -79,6 +80,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         isIdle = true;
         doubleJumpPower = false;
         maxJump = 2;
+        firstJumped = false;
       
         
        
@@ -256,6 +258,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         grounded = false;
         exitingSlope = true;
+        firstJumped = true;
 
         //R�initialise la v�locit� en y (le joueur saute toujours � la m�me hauteur)
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -289,9 +292,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             jumpCounter = 0;
             ResetJump();
-            landEvent.Post(gameObject);
-            soundGageParticles.Land();
             grounded = true;
+            if (firstJumped)
+            {
+                landEvent.Post(gameObject);
+                soundGageParticles.Land();
+            }
         }
     }
 
