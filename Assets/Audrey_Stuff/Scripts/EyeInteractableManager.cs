@@ -17,11 +17,16 @@ public class EyeInteractableManager : MonoBehaviour
 
     public Transform eyeHolder;
 
+    private ScaleWeight playerScaleWeight;
+    private ScaleWeight eyeScaleWeight;
+    private float playerWeight;
+    private float eyeWeight; 
     void Start()
     {
         eyeInteractable = FindObjectOfType<EyeInteractable>();
         statueInteractable = FindObjectOfType<StatueInteractable>();
-
+        playerScaleWeight = GetComponent<ScaleWeight>();
+        playerWeight = playerScaleWeight.scaleWeight;
     }
 
     // Update is calld once per frame
@@ -42,6 +47,8 @@ public class EyeInteractableManager : MonoBehaviour
                 eyeInteractable.gameObject.transform.parent = null;
                 //eyeInteractable.gameObject.transform.position = statueInteractable.eyeTransform.position;
                 // eyeInteractable.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                playerScaleWeight.scaleWeight = playerWeight;
+
             }
 
             // Picks Up eye
@@ -56,6 +63,7 @@ public class EyeInteractableManager : MonoBehaviour
                 eyeInteractable.gameObject.transform.parent = eyeHolder;
                 eyeInteractable.gameObject.transform.position = eyeHolder.position;
                 //eyeInteractable.gameObject.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+                playerScaleWeight.scaleWeight = playerWeight + eyeWeight;
             }
 
 
@@ -68,6 +76,8 @@ public class EyeInteractableManager : MonoBehaviour
                 eyeInteractable.gameObject.transform.parent = statueInteractable.eyeTransform;
                 eyeInteractable.gameObject.transform.position = statueInteractable.eyeTransform.position;
                 // eyeInteractable.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                playerScaleWeight.scaleWeight = playerWeight;
+
             }
         }
     }
@@ -79,6 +89,8 @@ public class EyeInteractableManager : MonoBehaviour
             eyeInteractable = other.GetComponent<EyeInteractable>();
             eyeInteractable.PlayerEnterProximity();
             eyeInProximity = true;
+            eyeScaleWeight = other.GetComponent<ScaleWeight>();
+            eyeWeight = eyeScaleWeight.scaleWeight;
             //print("Note Proximity");
         }
 

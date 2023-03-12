@@ -14,12 +14,15 @@ public class EyeInteractable : MonoBehaviour
 
     public AK.Wwise.Event crystalGlowLoop;
 
+    private Rigidbody rb;
 
     void Start()
     {
         collectedEyeManager = FindObjectOfType<CollectedEyeManager>();
         interactPrompt.SetActive(false);   //When the game start, the prompt is turned off
         crystalGlowLoop.Post(gameObject);
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = true;
     }
 
 
@@ -49,7 +52,9 @@ public class EyeInteractable : MonoBehaviour
         interactPrompt.SetActive(false);
 
         //Play sound fx, etc here
-
+        rb.useGravity = false;
+        rb.isKinematic = true;
+        rb.detectCollisions = false;
     }
 
     public void DropEye()
@@ -58,6 +63,8 @@ public class EyeInteractable : MonoBehaviour
         interactPrompt.SetActive(true);
 
         //Play sound fx, etc here
-
+        rb.useGravity = true;
+        rb.isKinematic = false;
+        rb.detectCollisions = true;
     }
 }
