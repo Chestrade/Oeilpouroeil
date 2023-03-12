@@ -8,6 +8,7 @@ public class EyeInteractableManager : MonoBehaviour
     public bool statueInProximity;
 
     public bool pickUpEye;
+    private bool pickUpEyeToggle;
 
     public EyeInteractable eyeInteractable;
     public StatueInteractable statueInteractable;
@@ -26,11 +27,27 @@ public class EyeInteractableManager : MonoBehaviour
     // Update is calld once per frame
     void Update()
     {
-        // Picks Up eye
-        if (eyeInProximity == true && eyeInteractable.eyePickedUp == false)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            pickUpEyeToggle = true;
+
+            // Places the eye on ground
+            if (statueInProximity == false && eyeInteractable.eyePickedUp == true && pickUpEyeToggle == true)
             {
+                pickUpEyeToggle = false;
+
+                eyeInteractable.DropEye();
+                print("Drop Eye");
+                pickUpEye = false;
+                eyeInteractable.gameObject.transform.parent = null;
+                //eyeInteractable.gameObject.transform.position = statueInteractable.eyeTransform.position;
+                // eyeInteractable.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+
+            // Picks Up eye
+            if (eyeInProximity == true && eyeInteractable.eyePickedUp == false && pickUpEyeToggle == true)
+            {
+                pickUpEyeToggle = false;
 
                 eyeInteractable.PickUpEye();
                 print("PickUpEye");
@@ -40,21 +57,17 @@ public class EyeInteractableManager : MonoBehaviour
                 eyeInteractable.gameObject.transform.position = eyeHolder.position;
                 //eyeInteractable.gameObject.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             }
-        }
 
-        // Places the eye
-        if (statueInProximity == true && eyeInteractable.eyePickedUp == true)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
+
+            // Places the eye on statue
+            if (statueInProximity == true && eyeInteractable.eyePickedUp == true)
             {
-
                 statueInteractable.PlaceEye();
                 print("PickUpEye");
                 pickUpEye = false;
                 eyeInteractable.gameObject.transform.parent = statueInteractable.eyeTransform;
                 eyeInteractable.gameObject.transform.position = statueInteractable.eyeTransform.position;
-               // eyeInteractable.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-
+                // eyeInteractable.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             }
         }
     }

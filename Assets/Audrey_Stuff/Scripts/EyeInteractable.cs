@@ -51,4 +51,13 @@ public class EyeInteractable : MonoBehaviour
         //Play sound fx, etc here
 
     }
+
+    public void DropEye()
+    {
+        eyePickedUp = false;
+        interactPrompt.SetActive(true);
+
+        //Play sound fx, etc here
+
+    }
 }
