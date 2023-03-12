@@ -59,7 +59,10 @@ public class Rocks : MonoBehaviour
             rocksPushStep1 = false;
             rocksPushStep2 = true;
 
-
+            yield return new WaitForSeconds(1.5f);
+            {
+                rocksPushStep2 = false;
+            }
         }
     }
 
