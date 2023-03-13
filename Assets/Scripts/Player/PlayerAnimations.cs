@@ -35,8 +35,12 @@ public class PlayerAnimations : MonoBehaviour
         {
             animator.SetTrigger("Death");
             deathEvent.Post(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    private void DeathEnd () 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void SpeedAnimations()
