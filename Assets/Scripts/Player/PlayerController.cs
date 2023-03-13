@@ -79,7 +79,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         readyToJump = true;
         isIdle = true;
         doubleJumpPower = false;
-        maxJump = 2;
+        maxJump = 1;
         firstJumped = false;
       
         
