@@ -529,28 +529,6 @@
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
-				<Sound Name="HELPLESS_MUS_Night1_Master_Gmin_100bpm" ID="{9046CB07-856C-4D36-9ED0-18ABE0502402}" ShortID="9805898">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C8B33379-65B7-46B3-9C91-86F55B0418AA}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5AC8A7CF-F3C0-4350-B356-F0957AFDF79A}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="HELPLESS_MUS_Night1_Master_Gmin_100bpm" ID="{18DF43C8-9201-4BFF-AA34-74A2FCA41784}">
-							<Language>SFX</Language>
-							<AudioFile>HELPLESS_MUS_Night1_Master_Gmin_100bpm.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="110460730"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="HELPLESS_MUS_Night1_Master_Gmin_100bpm" ID="{18DF43C8-9201-4BFF-AA34-74A2FCA41784}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
